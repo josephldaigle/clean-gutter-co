@@ -1,0 +1,19 @@
+// Main Styles
+$body-bg: #fff;
+
+$theme-colors: (
+        "primary": #1b3061,
+        "secondary": #021859,
+        "dark": #000,
+        "light": #fff,
+        "info": #1b3061,
+        "danger": #8D1B23,
+);
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-vue/src/index";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";

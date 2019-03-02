@@ -9,19 +9,24 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
+require('../css/global.scss');
 require('bootstrap');
-// require('argon-design-system-free');
+
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');
 
+// configure Vue
 Vue.use(BootstrapVue);
+Vue.config.delimiters = ['${', '}'];
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// configure image assets
+const imagesContext = require.context('../img', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
+imagesContext.keys().forEach(imagesContext);
 
+// initialize app
 window.app = new Vue({
     el: '#app',
     data: {

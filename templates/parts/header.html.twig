@@ -1,0 +1,51 @@
+{# twig template #}
+{# Defines the site's header #}
+
+{# Header Bar #}
+<b-row>
+    {# Logo #}
+    <b-col id="logo-container" class="p-4 d-flex justify-content-center align-items-center" sm="4">
+        <div class="flex-row">
+            <img id="logo" class="img-fluid" src="{{ asset('build/assets/img/logo-new.png') }}" alt="person cleaning gutters with vacuum" />
+        </div>
+    </b-col>
+
+    {# Call To Action #}
+    <b-col id="header-cta-container" class="p-4" sm="4" align-self="center">
+        <a href="#">
+            <p class="text-center text-capitalize mb-0">Act Now To Take Advantage Of LIMITED TIME Offer!</p>
+        </a>
+    </b-col>
+
+    {# Service Areas #}
+    <b-col id="header-service-areas" class="p-4" sm="4" align-self="center">
+        <p class="text-center text-capitalize mb-0">A <span class="font-weight-bold font-italic">veteran</span>-owned and operated small-business, proudly <span class="font-weight-bold font-italic">servicing Houston, Peach, and Bibb Counties</span>.</p>
+    </b-col>
+</b-row>
+
+{# Nav Bar #}
+<b-navbar toggleable="sm" type="light" variant="light">
+
+    {#<b-navbar-brand class="mr-0"></b-navbar-brand>#}
+
+    {# Service area address search #}
+    <b-navbar-nav>
+        <b-nav-form>
+            <b-form-input class="mr-sm-2 input-large" type="text" placeholder="Do you service my address?" />
+        </b-nav-form>
+    </b-navbar-nav>
+
+    {# Mobile Friendly Nav Bar #}
+    <b-navbar-toggle target="nav_text_collapse" ></b-navbar-toggle>
+
+    {# Menu Items #}
+    <b-collapse is-nav id="nav_text_collapse" >
+        <b-navbar-nav class="ml-auto" fill="true" justified="true">
+            <b-nav-item>Page 1</b-nav-item>
+            <b-nav-item>Page 2</b-nav-item>
+            <b-nav-item>Page 3</b-nav-item>
+            <b-nav-item>Page 4</b-nav-item>
+        </b-navbar-nav>
+    </b-collapse>
+
+</b-navbar>
