@@ -5,21 +5,16 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+// import 'bootstrap/dist/css/bootstrap.css'
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
 require('../css/global.scss');
+require('tether');
 require('bootstrap');
 
-
-// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-const $ = require('jquery');
-
 // configure Vue
-Vue.use(BootstrapVue);
+// Vue.use(BootstrapVue);
 Vue.config.delimiters = ['${', '}'];
 
 // configure image assets

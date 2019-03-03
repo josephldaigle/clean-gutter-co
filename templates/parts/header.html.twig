@@ -2,50 +2,54 @@
 {# Defines the site's header #}
 
 {# Header Bar #}
-<b-row>
+{# Must be included within a .container #}
+<div class="row">
+
     {# Logo #}
-    <b-col id="logo-container" class="p-4 d-flex justify-content-center align-items-center" sm="4">
-        <div class="flex-row">
-            <img id="logo" class="img-fluid" src="{{ asset('build/assets/img/logo-new.png') }}" alt="person cleaning gutters with vacuum" />
-        </div>
-    </b-col>
+    <div id="logo-container" class="col-sm-4 py-3 d-none d-sm-block">
+        <img id="logo" src="{{ asset('build/assets/img/logo-new.png') }}" alt="person cleaning gutters with vacuum" />
+    </div>
 
     {# Call To Action #}
-    <b-col id="header-cta-container" class="p-4" sm="4" align-self="center">
+    <div id="header-cta-container" class="col-sm-4 py-3">
         <a href="#">
-            <p class="text-center text-capitalize mb-0">Act Now To Take Advantage Of LIMITED TIME Offer!</p>
+            <p class="text-capitalize">Act Now To Take Advantage Of LIMITED TIME Offer!</p>
         </a>
-    </b-col>
+        <p class="text-capitalize hidden-sm-down">Proudly <span class="font-weight-bold font-italic">veteran</span>-owned and operated.</p>
+    </div>
 
     {# Service Areas #}
-    <b-col id="header-service-areas" class="p-4" sm="4" align-self="center">
-        <p class="text-center text-capitalize mb-0">A <span class="font-weight-bold font-italic">veteran</span>-owned and operated small-business, proudly <span class="font-weight-bold font-italic">servicing Houston, Peach, and Bibb Counties</span>.</p>
-    </b-col>
-</b-row>
+    <div id="header-service-areas" class="col-sm-4 py-3">
+        <p>Check Availability</p>
+        {# Service area address search #}
+        <form>
+            <input id="cd-nav-service-locator" name="nav_service_locator" class="form-control" type="text" placeholder="555 Somerset Ln" />
+        </form>
+    </div>
 
-{# Nav Bar #}
-<b-navbar toggleable="sm" type="light" variant="light">
 
-    {#<b-navbar-brand class="mr-0"></b-navbar-brand>#}
+    {# Nav Bar #}
+    <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light d-flex container-fluid">
+        <a class="navbar-brand d-sm-none" href="#"><img id="logo" class="img-fluid d-md-none" src="{{ asset('build/assets/img/logo-new.png') }}" style="max-width: 70px" alt="person cleaning gutters with vacuum" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cg-navbar" aria-controls="cg-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    {# Service area address search #}
-    <b-navbar-nav>
-        <b-nav-form>
-            <b-form-input class="mr-sm-2 input-large" type="text" placeholder="Do you service my address?" />
-        </b-nav-form>
-    </b-navbar-nav>
-
-    {# Mobile Friendly Nav Bar #}
-    <b-navbar-toggle target="nav_text_collapse" ></b-navbar-toggle>
-
-    {# Menu Items #}
-    <b-collapse is-nav id="nav_text_collapse" >
-        <b-navbar-nav class="ml-auto" fill="true" justified="true">
-            <b-nav-item>Page 1</b-nav-item>
-            <b-nav-item>Page 2</b-nav-item>
-            <b-nav-item>Page 3</b-nav-item>
-            <b-nav-item>Page 4</b-nav-item>
-        </b-navbar-nav>
-    </b-collapse>
-
-</b-navbar>
+        <div class="collapse navbar-collapse" id="cg-navbar">
+            <ul class="navbar-nav col-12 nav-fill">
+                <li class="nav-item active text-left text-sm-center">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item text-left text-sm-center">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item text-left text-sm-center">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item text-left text-sm-center">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
