@@ -20,9 +20,11 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "bootstrap": "^4.3.1",
         "normalize.css": "^8.0.1",
         "sass-loader": "^7.1.0",
-        "tether": "^1.4.5"
+        "tether": "^1.4.5",
+        "vue-axios": "^2.1.4"
     }
 }
