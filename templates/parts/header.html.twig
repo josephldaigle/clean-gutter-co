@@ -3,55 +3,28 @@
 
 {# Header Bar #}
 {# Must be included within a .container #}
-<div class="row">
 
-    {# Logo #}
-    <div id="logo-container" class="col-sm-4 py-3 d-none d-sm-block">
-        <img id="logo" src="{{ asset('build/assets/img/logo-new.png') }}" alt="person cleaning gutters with vacuum" />
-    </div>
-
-    {# Call To Action #}
-    <div id="header-cta-container" class="col-sm-4 py-3">
-        <a href="#">
-            <p class="text-capitalize">Act Now To Take Advantage Of LIMITED TIME Offer!</p>
-        </a>
-        <p class="text-capitalize hidden-sm-down">Proudly <span class="font-weight-bold font-italic">veteran</span>-owned and operated.</p>
-    </div>
-
-    {# Service Areas #}
-    <div id="header-service-areas" class="col-sm-4 py-3">
-        <p class="mb-1">Check Availability:</p>
-        {# Service area address search #}
-        <form>
-            <input id="cd-nav-service-locator" name="nav_service_locator" class="form-control" type="text" placeholder="555 Somerset Ln" />
-        </form>
-    </div>
-
-
-    {# Nav Bar #}
-    <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light d-flex container-fluid order-first order-sm-last">
-        {# Show logo in mobile navbar #}
-        <a class="navbar-brand d-sm-none" href="#"><img id="logo" class="img-fluid d-md-none" src="{{ asset('build/assets/img/logo-new.png') }}" style="max-width: 70px" alt="person cleaning gutters with vacuum" /></a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cg-navbar" aria-controls="cg-navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="cg-navbar">
-            <ul class="navbar-nav col-12 nav-fill">
-                <li class="nav-item active text-left text-sm-center">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item text-left text-sm-center">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item text-left text-sm-center">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item text-left text-sm-center">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
+<div class="container-fluid m-auto py-3 px-0">
+    <div class="row">
+        {# Logo #}
+        {# Hidden on mobile - logo shows in navbar as < `sm` screen size #}
+        <div id="logo-container" class="col-sm-4 d-none d-sm-inline-block">
+            <img id="logo" src="{{ asset('build/assets/img/logo-new.png') }}" alt="person cleaning gutters with vacuum" />
         </div>
-    </nav>
+
+        {# Call To Action #}
+        <div id="header-cta-container" class="col-sm-4">
+            <a href="#" class="text-capitalize">Act Now To Take Advantage Of <span class="text-uppercase">LIMITED TIME Offer!</span></a>
+            <p class="text-capitalize hidden-sm-down mb-0">Proudly <span class="font-weight-bold font-italic">veteran</span>-owned and operated.</p>
+        </div>
+
+        {# Service Areas #}
+        <div id="header-service-areas" class="col-sm-4">
+            <p class="mb-1">Check Availability:</p>
+            {# Service area address search #}
+            <form>
+                <input id="cd-nav-service-locator" name="nav_service_locator" class="form-control" type="text" placeholder="555 Somerset Ln" />
+            </form>
+        </div>
+    </div>
 </div>

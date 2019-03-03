@@ -10,6 +10,88 @@ $theme-colors: (
         "danger": #8D1B23,
 );
 
+//
+//$display1-size:               6rem !default;
+//$display2-size:               5.5rem !default;
+//$display3-size:               4.5rem !default;
+//$display4-size:               3.5rem !default;
+//$display5-size:               2.5rem !default;
+//$display6-size:               1.5rem !default;
+//
+//$display1-weight:             300 !default;
+//$display2-weight:             300 !default;
+//$display3-weight:             300 !default;
+//$display4-weight:             300 !default;
+//$display5-weight:             300 !default;
+//$display6-weight:             300 !default;
+//
+//.display-1 {
+//  @include font-size($display1-size);
+//  font-weight: $display1-weight;
+//  line-height: $display-line-height;
+//}
+//.display-2 {
+//  @include font-size($display2-size);
+//  font-weight: $display2-weight;
+//  line-height: $display-line-height;
+//}
+//.display-3 {
+//  @include font-size($display3-size);
+//  font-weight: $display3-weight;
+//  line-height: $display-line-height;
+//}
+//.display-4 {
+//  @include font-size($display4-size);
+//  font-weight: $display4-weight;
+//  line-height: $display-line-height;
+//}
+//.display-5 {
+//  @include font-size($display5-size);
+//  font-weight: $display5-weight;
+//  line-height: $display-line-height;
+//}
+//.display-6 {
+//  @include font-size($display6-size);
+//  font-weight: $display6-weight;
+//  line-height: $display-line-height;
+//}
+
+.display-1 {
+  font-size: 6rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-2 {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-3 {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-4 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-5 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-6 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
