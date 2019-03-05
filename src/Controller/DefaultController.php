@@ -24,8 +24,7 @@ class DefaultController extends AbstractController
 	 */
     public function index(Request $request)
     {
-    	dump($request);
-        return $this->render('default/home.html.twig', [
+        return $this->render('default/landing-page-v1.html.twig', [
             'controller_name' => 'DefaultController'
         ]);
     }

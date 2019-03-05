@@ -5,17 +5,24 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 import Vue from 'vue'
-// import 'bootstrap/dist/css/bootstrap.css'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 // any CSS you require will output into a single css file (app.css in this case)
-require('../css/app.css');
+// require('../css/app.css');
+require('../css/landing-page.css');
 require('../css/global.scss');
+
+
 require('tether');
 require('bootstrap');
 
+
 // configure Vue
+
 // Vue.use(BootstrapVue);
 Vue.config.delimiters = ['${', '}'];
+Vue.use(VueAxios, axios);
 
 // configure image assets
 const imagesContext = require.context('../img', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);

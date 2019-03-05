@@ -13,7 +13,7 @@
                 {# Title Text #}
                 <div class="col-12">
 
-                    <h1 class="display-6 text-left text-md-center text-primary mb-3">No Ladders, No Mess, No Flooding, No Insects.</h1>
+                    <h1 class="display-6 display-sm-5 text-left text-md-center text-primary mb-3">No Ladders, No Mess, No Flooding, No Insects.</h1>
                 </div>
 
                 {# Main Content #}
@@ -33,9 +33,6 @@
                             <div class="carousel-item">
                                 <img src="{{ asset('build/assets/img/sky-vac.jpeg') }}" class="d-block w-100" alt="vacuum hose inside gutter with camera attachment">
                             </div>
-                            {#<div class="carousel-item">#}
-                                {#<img src="..." class="d-block w-100" alt="...">#}
-                            {#</div>#}
                         </div>
                         <a class="carousel-control-prev" href="#cg-carousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -46,41 +43,8 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                </div>
 
-                <div class="col-12 col-lg-4">
-                    <div class="jumbotron jumbotron-fluid py-2 mb-2">
-                        <div class="container">
-                            <h3>Protect your home now.</h3>
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Example select</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary mb-2">Get Free Quote</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row pt-3">
-                <div class="col-12 col-lg-8">
-                    <div class="card" >
+                    <div class="card mt-2">
                         <div class="card-body">
                             <h5 class="card-title">We use a high-powered, industrial vacuum system!</h5>
 
@@ -93,6 +57,27 @@
                 </div>
 
                 <div class="col-12 col-lg-4">
+                    <div class="jumbotron jumbotron-fluid py-2 mb-2">
+                        <div class="container">
+                            <h3>Protect your home now.</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="quote_name">Example textarea</label>
+                                    <input type="text" class="form-control" id="quote_name" placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quote_email">Email address</label>
+                                    <input type="email" class="form-control" id="quote_email" placeholder="name@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quote_address">Example select</label>
+                                    <input type="text" class="form-control" id="quote_email" placeholder="442 Somerset Ln, Warner Robins, GA">
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-2">Get Free Quote</button>
+                            </form>
+                        </div>
+                    </div>
+
                     <div class="card" >
                         <div class="card-body">
                             <h5 class="card-title">What are other customers saying?</h5>
@@ -101,7 +86,9 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
 {% endblock %}
