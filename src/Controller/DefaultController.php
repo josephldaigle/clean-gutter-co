@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace CleanGutter\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,12 +28,4 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController'
         ]);
     }
-
-	/**
-	 * @return \GraphAware\Neo4j\Client\Client
-	 */
-	private function getNeo4jClient()
-	{
-		return $this->get('neo4j.client');
-	}
 }
