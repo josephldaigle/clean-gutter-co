@@ -28,17 +28,21 @@
 <div id="app">
 
     <div class="container-fluid col-md-10">
-        {# Include Nav Bar#}
-        {#{% include 'parts/nav-bar.html.twig' %}#}
+        <div class="row">
 
-        {# Include Header #}
-        {#{% include 'parts/header.html.twig' %}#}
+            {# Include Nav Bar#}
+            {% include 'parts/nav-bar.html.twig' %}
 
-        {# Main Content Block #}
-        {# Implementer responsible for .row(s) #}
-        {% block main_content %}
+            {# Include Header #}
+            {#{% include 'parts/header.html.twig' %}#}
 
-        {% endblock %}
+            {# Main Content Block #}
+            {# Implementer responsible for .row(s) #}
+            {% block main_content %}
+
+            {% endblock %}
+        </div>
+
     </div>
 
 </div>
