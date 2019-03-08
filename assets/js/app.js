@@ -9,17 +9,13 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 // any CSS you require will output into a single css file (app.css in this case)
-// require('../css/app.css');
-require('../css/landing-page.css');
+require('../css/app.css');
 require('../css/global.scss');
-
 
 require('tether');
 require('bootstrap');
 
-
 // configure Vue
-
 // Vue.use(BootstrapVue);
 Vue.config.delimiters = ['${', '}'];
 Vue.use(VueAxios, axios);

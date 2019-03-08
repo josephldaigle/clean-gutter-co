@@ -1,6 +1,10 @@
 {# twig template #}
 {% extends 'landing-page.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('landing-page') }}
+{% endblock %}
 
 {% block main_content %}
 
@@ -28,8 +32,9 @@
                     </table>
                 </div>
 
+                {# Service Areas #}
                 <div class="col-sm-4 my-auto">
-                    <p>Servicing Warner Robins, Bonaire, Kathleen, Macon, Byron, and Fort Valley.</p>
+                    <p class="text-center text-sm-left">Servicing Warner Robins, Bonaire, Kathleen, Perry, Macon, Byron, and Fort Valley.</p>
                 </div>
             </div>
         </div>
@@ -45,7 +50,7 @@
         {# BREAK #}
         <div class="w-100"></div>
 
-        <div class="col-sm-8">
+        <div class="col-lg-8">
 
             <div class="row">
                 <div class="col-12">
@@ -58,7 +63,35 @@
 
                 <div class="col-12">
                     <div class="card" style="">
-                        <img src="{{ asset('build/assets/img/sky-vac.jpeg') }}" class="d-block w-100" alt="vacuum hose inside gutter with camera attachment">
+
+                        {# Carousel #}
+                        <div id="cg-carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#cg-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#cg-carousel" data-slide-to="1"></li>
+                                <li data-target="#cg-carousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ asset('build/assets/img/before-after-house_960X540.jpg') }}" class="d-block w-100" alt="man cleaning gutters from ground using vacuum" />
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ asset('build/assets/img/joe_cleaning_960X540.jpg') }}" class="d-block w-100" alt="vacuum in gutter with camera attached" />
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ asset('build/assets/img/skyvac_in_gutter_960X540.jpg') }}" class="d-block w-100" alt="vacuum in gutter with camera attached" />
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#cg-carousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#cg-carousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
                         <div class="card-body">
                             <p class="card-text">We clean your gutters, with our feet planted firmly on the ground, using a high-powered vacuum system. It's not the shop-vac you might have in mind. Our industrial-strength vacuum has three motors, and is capable of extracting all the heavy debris that can take your gutters out of service.</p>
 
@@ -69,6 +102,8 @@
                                 <li>No Worries - we're licensed and insured</li>
                             </ul>
 
+                            <hr class="mt-3" />
+
                             <h4 class="text-center text-primary">Call Now To Schedule Your Cleaning</h4>
                             <h6 class="display-5 text-center text-primary">(478) 841-9797</h6>
                         </div>
@@ -78,7 +113,7 @@
 
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-lg-4 mt-3 mt-lg-0">
 
             <div class="row">
 
@@ -89,9 +124,15 @@
                         <div class="card-body">
                             <p class="card-title">We'll come out and give you a custom quote, so you know exactly what to expect when we clean your gutters.</p>
                             <div class="">
-                                <form class="">
-                                    <div class="form-row my-2">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+                                <form id="free-quote" class="needs-validation" data-url="{# TODO: Add URL #}" data-method="POST" novalidate>
+                                    <div class="form-row my-2 input-group">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please tell us your name.
+                                        </div>
                                     </div>
                                     <div class="form-row my-2">
                                         <input type="text" class="form-control" id="address" name="address" placeholder="555 Mayweather Ln, Warner Robins, GA 31088">
@@ -136,8 +177,6 @@
         </div>
 
 {% endblock %}
-
-
 
 {% block javascripts %}
     {{ parent() }}

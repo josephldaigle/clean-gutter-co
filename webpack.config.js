@@ -18,7 +18,7 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    //.addEntry('page1', './assets/js/page1.js')
+    .addEntry('landing-page', './assets/js/landing-page.js')
     //.addEntry('page2', './assets/js/page2.js')
 
     .enableVueLoader()
@@ -58,6 +58,7 @@ Encore
     .configureFilenames({
         images: '[path][name].[hash:8].[ext]',
     })
+
 ;
 
 module.exports = Encore.getWebpackConfig();
