@@ -1,3 +1,15 @@
-#index:
-#    path: /
-#    controller: CleanGutter\Controller\DefaultController::index
+home:
+    path: /
+    controller: CleanGutter\Controller\DefaultController::index
+#kathleen:
+#    path: /kathleen
+#    controller: CleanGutter\Controller\DefaultController::city
+#bonaire:
+#    path: /bonaire
+#    controller: CleanGutter\Controller\DefaultController::city
+#perry:
+#    path: /perry
+#    controller: CleanGutter\Controller\DefaultController::city
+#fort-valley:
+#    path: /fort-valley
+#    controller: CleanGutter\Controller\DefaultController::city
