@@ -5,6 +5,7 @@ namespace CleanGutter\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * DefaultController.
@@ -16,16 +17,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
 	/**
-	 * @Route("/", name="home")
-	 *
 	 * @param Request $request
 	 *
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-    public function index(Request $request)
-    {
+	public function index(Request $request, RouterInterface $router)
+	{
         return $this->render('default/landing-page-v1.html.twig', [
             'controller_name' => 'DefaultController'
         ]);
-    }
+	}
+
+//	/**
+//	 * @param Request $request
+//	 *
+//	 * @return \Symfony\Component\HttpFoundation\Response
+//	 */
+//    public function city(Request $request, RouterInterface $router)
+//    {
+//        return $this->render('pages/city.html.twig', [
+//            'controller_name' => 'DefaultController',
+//	        'data' => ['customers' => ['count' => rand(1, 25)], 'city' => $request->getUri()]
+//        ]);
+//    }
 }
