@@ -39,9 +39,6 @@ let AjaxForm = {
             let url = form.data('url');
             let method = form.data('method');
 
-            console.log(JSON.stringify(formData));
-
-
             $.ajax({
                 url: url,
                 method: method,
@@ -50,7 +47,7 @@ let AjaxForm = {
                 contentType: false
             })
             .done(function(data, textStatus, jqXHR) {
-                console.log('success')
+                successCallback(data);
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 if (jqXHR.status === 400) {
