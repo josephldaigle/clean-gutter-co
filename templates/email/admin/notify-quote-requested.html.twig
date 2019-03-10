@@ -1,0 +1,17 @@
+{# twig template #}
+{% extends 'email/email-base.html.twig' %}
+
+{% block main_content %}
+    {{ parent() }}
+
+    <p>A free quote was requested online by {{ formLead.name }}.</p>
+
+    <p><strong>Name:</strong> {{ formLead.name }}</p>
+    <p><strong>Email:</strong> {{ formLead.email }}</p>
+    <p><strong>Phone:</strong> {{ formLead.phoneNumber}}</p>
+    <p><strong>Address:</strong> {{ formLead.address }}</p>
+    <p><strong>Reason for quote:</strong> {{ formLead.reason }}</p>
+
+    <p><small>Sent on behalf of <a href="{{ url('home') }}">Clean Gutter Co</a> {{ "now"|date("Y") }}.</small></p>
+
+{% endblock %}

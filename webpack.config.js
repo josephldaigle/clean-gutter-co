@@ -19,7 +19,6 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('landing-page', './assets/js/landing-page.js')
-    //.addEntry('page2', './assets/js/page2.js')
 
     .enableVueLoader()
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

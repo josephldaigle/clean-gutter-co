@@ -1,0 +1,45 @@
+{# twig template #}
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Clean Gutter Co</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    {#{% block stylesheets %}#}
+        {#{{ encore_entry_link_tags('app') }}#}
+        {#{% for style_sheet in encore_entry_css_files('email') %}#}
+            {#<script type="text/css" href="{{ style_sheet }}"></script>#}
+        {#{% endfor %}#}
+    {#{% endblock %}#}
+</head>
+
+<body>
+
+
+{# BODY BLOCK #}
+<div id="app">
+
+    <div class="container-fluid col-md-10">
+        <div class="row">
+            {# Main Content Block #}
+            {# Implementer responsible for .row(s) #}
+            {% block main_content %}
+
+            {% endblock %}
+        </div>
+
+    </div>
+
+</div>
+
+{#{% block javascripts %}#}
+    {#{{ encore_entry_script_tags('email') }}#}
+{#{% endblock %}#}
+
+</body>
+
+</html>
