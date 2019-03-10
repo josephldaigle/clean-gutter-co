@@ -29,7 +29,7 @@ let AjaxForm = {
         }
 
         // gather form data
-        let formData = new FormData(form);
+        let formData = new FormData(form[0]);
 
         if (event.currentTarget.checkValidity() === false) {
             form.addClass('was-validated');
@@ -39,10 +39,15 @@ let AjaxForm = {
             let url = form.data('url');
             let method = form.data('method');
 
+            console.log(JSON.stringify(formData));
+
+
             $.ajax({
                 url: url,
                 method: method,
-                data: JSON.stringify(formData)
+                data: formData,
+                processData: false,
+                contentType: false
             })
             .done(function(data, textStatus, jqXHR) {
                 console.log('success')
