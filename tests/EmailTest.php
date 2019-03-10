@@ -35,12 +35,24 @@ class EmailTest extends WebTestCase
 		$this->emailer = self::$container->get('mailer');
 	}
 
-	public function testEmailService()
+	public function testEmailServiceIsAvailable()
 	{
 		$this->assertInstanceOf(\Swift_Mailer::class, $this->emailer, 'Unexpected mailer type');
 		$this->assertTrue(
 			method_exists($this->emailer, 'send'),
 			'Mailer service is missing a send function.'
 		);
+	}
+
+	public function testCanSendEmail(  )
+	{
+		$message = (new \Swift_Message('Test Email'))
+			->setTo('josephldaigle@yahoo.com')
+			->setBody('<p>This is a test message</p>');
+
+		$sent = $this->emailer->send($message);
+
+		$this->assertTrue(is_int($sent), 'Unexpected return type from sent()');
+		$this->assertTrue($sent === 1, 'Email not sent.');
 	}
 }
