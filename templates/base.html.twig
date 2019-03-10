@@ -1,12 +1,85 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="">
+
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta charset="utf-8">
+        <title>Clean Gutter Co</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        {# TODO: Implement web manifest #}
+        <!-- Place favicon.ico in the root directory -->
+        {#<link rel="manifest" href="site.webmanifest">#}
+        {#<link rel="apple-touch-icon" href="icon.png">#}
+        <link rel="icon" href="{{ absolute_url('favicon-home.ico') }}">
+
+        {#<meta name="theme-color" content="#fafafa">#}
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
+
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+    {# BODY BLOCK #}
+    <div id="app">
+
+        <div class="container-fluid">
+            <div class="row px-3">
+                <div class="col-12 col-md-10 m-auto">
+                    <div class="row">
+
+                        {# Include Nav Bar #}
+                        {% include 'parts/nav-bar.html.twig' %}
+
+                        {# Include Header #}
+                        {% include 'parts/header.html.twig' %}
+
+                        {# Main Content Block #}
+                        {# Implementer responsible for .row(s) #}
+                        {% block main_content %}
+
+                        {% endblock %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+    <!--[if IE]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+            your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        {#<script src="js/vendor/modernizr-{{ MODERNIZR_VERSION }}.min.js"></script>#}
+        {#<script src="https://code.jquery.com/jquery-{{ JQUERY_VERSION }}.min.js" integrity="{{ JQUERY_SRI_HASH }}"#}
+                {#crossorigin="anonymous"></script>#}
+        {#<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{ JQUERY_VERSION }}.min.js"><\/script>')</script>#}
+        {#<script src="js/plugins.js"></script>#}
+        {#<script src="js/main.js"></script>#}
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        {#<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>#}
+        {#<script>#}
+            {#window.dataLayer = window.dataLayer || [];#}
+            {#function gtag(){dataLayer.push(arguments);}#}
+            {#gtag('js', new Date());#}
+
+            {#gtag('config', 'UA-134700346-1');#}
+        {#</script>#}
+
+        {#<script src="https://www.google-analytics.com/analytics.js" async defer></script>#}
+
     </body>
+
 </html>
