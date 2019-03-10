@@ -4,9 +4,9 @@
  * We recommend including the built version of this JavaScript file
  * (and its CSS file) in your base layout (base.html.twig).
  */
-import Vue from 'vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
@@ -28,12 +28,6 @@ imagesContext.keys().forEach(imagesContext);
 window.app = new Vue({
     el: '#app',
     data: {
-        name: ''
-    },
-    computed: {
-        showAlert() {
-            console.log('runs all the time');
-            return true;
-        }
+        name: 'a'
     }
 });

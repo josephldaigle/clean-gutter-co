@@ -11,34 +11,49 @@ let AjaxForm = {
      *      data-url    the endpoint to send the request to
      *      data-method PUT, POST, GET
      *
-     * @param form jQuery object
+     * @param event
+     * @param successCallback function
+     * @param errorCallback function
      */
     submit: function(event, successCallback, errorCallback) {
-        let form = event.currentTarget;
-        let formData = new FormData(form);
+        event.preventDefault();
+        event.stopPropagation();
+
+        // select the <form> with jquery
+        let form = $(event.currentTarget);
 
         // validate the form
         if (! $(form).hasClass('needs-validation')) {
-            console.warn('A form is being submitted without validation. <form id="' + $(form).attr('id') + '"');
+            // show warning without validation
+            console.warn("A form is being submitted without the `needs-validation` class. <form id=\"" + $(form).attr('id') + "\">");
+        }
+
+        // gather form data
+        let formData = new FormData(form);
+
+        if (event.currentTarget.checkValidity() === false) {
+            form.addClass('was-validated');
+
         } else {
-            if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
 
-            } else {
-                form.classList.add('was-validated');
+            let url = form.data('url');
+            let method = form.data('method');
 
-                // $.ajax( "/" )
-                //     .done(function() {
-                //         console.log( "success" );
-                //     })
-                //     .fail(function() {
-                //         console.log( "error" );
-                //     })
-                //     .always(function() {
-                //         console.log( "complete" );
-                //     });
-            }
+            $.ajax({
+                url: url,
+                method: method,
+                data: JSON.stringify(formData)
+            })
+            .done(function(data, textStatus, jqXHR) {
+                console.log('success')
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status === 400) {
+                    errorCallback({'level': 'alert-danger', 'message': 'Unable to process form.'});
+                } else {
+                    errorCallback({'level': 'alert-danger', 'message': 'This service is not available at the moment. Please call us to schedule a quote (478) 841-9797.'});
+                }
+            });
         }
 
         // data mutation call-backs
@@ -50,13 +65,8 @@ let AjaxForm = {
         // fire success callback
         if (typeof successCallback !== 'undefined')
         {
-            successCallback(event.currentTarget);
-        }
+            // successCallback();
 
-        // fire error callback
-        if (typeof errorCallback !== 'undefined')
-        {
-            errorCallback(event.currentTarget);
         }
     },
 };
