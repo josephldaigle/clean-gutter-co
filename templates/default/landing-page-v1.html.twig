@@ -16,27 +16,41 @@
         {# LOGO & SITE HEADER #}
         <div class="col-sm-12">
             <div class="row h-100 mt-2">
-                <div class="col-sm-4 d-none d-sm-block my-auto text-center">
+                <div class="col-sm-4 d-none d-sm-block my-auto text-center text-sm-left">
                     <img id="logo" class="img-fluid" src="{{ asset('build/assets/img/logo-new.png') }}" alt="person cleaning gutters with vacuum" />
                 </div>
+
+                <div class="col-sm-4 text-center mb-2 mb-sm-0">
+                    {#<table class="h-100 w-100 border-dashed border-danger p-2">#}
+                        {#<tbody class="p-2">#}
+                        {#<tr>#}
+                            {#<td class="align-bottom text-center w-100 text-danger">Active Military <div class="w-100"></div>Get 10% Off <span class="text-nowrap">When You Call Now!</span></td>#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#<td class="align-top text-center w-100 display-6 display-md-6 font-weight-bold text-primary text-nowrap">(478) 261-1140</td>#}
+                        {#</tr>#}
+                        {#</tbody>#}
+                    {#</table>#}
+                </div>
+
+                {# Service Areas #}
 
                 <div class="col-sm-4 text-center mb-2 mb-sm-0">
                     <table class="h-100 w-100 border-dashed border-danger p-2">
                         <tbody class="p-2">
                         <tr>
-                            <td class="align-bottom text-center w-100">Get 10% Off <span class="text-nowrap">When You Call Now!</span></td>
+                            <td class="align-bottom text-center w-100 text-danger">Active Military <div class="w-100"></div>Get 10% Off <span class="text-nowrap">When You Call Now!</span></td>
                         </tr>
                         <tr>
-                            <td class="align-top text-center w-100 display-6 display-md-6 font-weight-bold text-danger">(478) 261-1140</td>
+                            <td class="align-top text-center w-100 display-6 display-md-6 font-weight-bold text-primary text-nowrap">(478) 261-1140</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
 
-                {# Service Areas #}
-                <div class="col-sm-4 my-auto">
-                    <p class="text-center text-sm-left">Servicing Warner Robins, Bonaire, Kathleen, Perry, Macon, Byron, and Fort Valley.</p>
-                </div>
+                {#<div class="col-sm-4 my-auto">#}
+                    {#<p class="text-center text-sm-left">Servicing Warner Robins, Bonaire, Kathleen, Perry, Macon, Byron, and Fort Valley.</p>#}
+                {#</div>#}
             </div>
         </div>
 
@@ -45,7 +59,7 @@
 
         {# PAGE TITLE #}
         <div class="col-12">
-            <h1 class="display-5 display-md-5 text-center text-primary font-weight-bold my-5">Want your gutters cleaned, without worrying about someone climbing on your roof, or falling from a ladder?</h1>
+            <h1 class="display-5 display-md-5 text-center text-primary font-weight-bold my-5">Would you like your gutters cleaned? Without someone climbing on your roof or falling from a ladder?</h1>
         </div>
 
         {# BREAK #}
@@ -55,7 +69,7 @@
         <div class="col-lg-8">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="display-6 display-md-6 text-center text-primary font-weight-bold mb-3">We'll clean your gutters safely from the ground, using a high-powered vacuum system!</h1>
+                    <h1 class="display-6 display-md-6 text-center text-primary font-weight-bold mb-3">We use a high-powered vacuum system <span class="text-nowrap">to clean your gutters safely from the ground!</span></h1>
                 </div>
 
                 {# BREAK #}
@@ -122,12 +136,13 @@
                 {# QUOTE FORM #}
                 <div class="col-12">
                     <div class="card">
-                        <h5 class="card-header text-primary">Get A Free Quote!</h5>
+                        <h5 class="card-header text-primary text-center">Get A Free Quote!</h5>
                         <div class="card-body">
                             <p class="card-title">We'll come out and give you a custom quote, so you know exactly what to expect when we clean your gutters.</p>
+
+                            {# QUOTE FORM CONTAINER #}
                             <div class="">
                                 <form id="free-quote" class="needs-validation" data-url="{{ absolute_url(path('quotes')) }}" data-method="POST" novalidate>
-
                                     {# TODO: Convert to vue element for reactive-data binding #}
                                     <div class="alert d-none" role="alert"></div>
 
@@ -183,12 +198,34 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Schedule Now
+                                    <button type="submit" class="btn btn-primary mt-3">Schedule Now
                                         <span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                                         <span class="sr-only">Loading...</span>
                                     </button>
+                                    <img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px;" alt="lock showing site is trustworthy">
                                 </form>
+
+
                             </div>
+
+                            {# FORM FOOTER #}
+                            {#<div class="mt-3">#}
+
+                            {#</div>#}
+
+                            {#<div class="mt-3 text-center">#}
+                                {#<div class="mr-2 d-inline-block">#}
+                                    {#<a href="#" class="small">Safe#}
+                                    {#</a>#}
+                                {#</div>#}
+                                {#<div class="mr-2 d-inline-block">#}
+                                    {#<a href="" class="small">Secure</a>#}
+                                {#</div>#}
+                                {#<div class="d-inline-block">#}
+                                    {#<a href="#" class="small">Privacy Protected</a>#}
+                                {#</div>#}
+                            {#</div>#}
+
                         </div>
                         <div class="card-body d-none">
                             <div class="">
@@ -201,12 +238,12 @@
                 {# TESTIMONIALS #}
                 <div class="col-12 mt-3">
                     <div class="card testimonial">
-                         <h5 class="card-header text-primary">Customer Reviews</h5>
+                         <h5 class="card-header text-primary text-center">Customer Reviews</h5>
 
                         {# USER ICON #}
                         <i class="fas fa-user-circle text-center text-primary fa-5x mt-4"></i>
-                        {#<img class="card-img-top align-self-center" src="{{ asset('build/assets/img/avatar.png') }}" alt="person who left a real review">#}
 
+                        {# REVIEW RATING #}
                         <div class="card-body">
                             <div id="review-rating" class="card-title text-center">
                                 <i class="fas fa-star"></i>
@@ -216,6 +253,7 @@
                                 <i class="fas fa-star"></i>
                             </div>
 
+                            {# REVIEW TEXT #}
                             <div class="card-text ">
                                 <blockquote class="blockquote text-left">
                                     <p>Joe cleaned my gutters the same day I called. He showed me a live video of the dirty gutters, and another video once he was done! The price was right, and the service was excellent. Will definitely use again.</p>
@@ -223,7 +261,6 @@
                                 </blockquote>
                             </div>
 
-                            {#<a href="#" class="btn btn-primary">Go somewhere</a>#}
                         </div>
                     </div>
                 </div>
