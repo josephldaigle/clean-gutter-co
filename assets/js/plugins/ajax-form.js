@@ -31,14 +31,14 @@ let AjaxForm = {
         // gather form data
         let formData = new FormData(form[0]);
 
-        // trigger google analytics event
-        ga('send', {
-            hitType: 'event',
-            eventCategory: 'Form Submitted',
-            eventAction: 'click',
-            eventLabel: 'Free Quote',
-            eventValue: formData.get('name') + ' ' + formData.get('phone_number')
-        });
+        // // trigger google analytics event
+        // ga('send', {
+        //     hitType: 'event',
+        //     eventCategory: 'Form Submitted',
+        //     eventAction: 'click',
+        //     eventLabel: 'Free Quote',
+        //     eventValue: formData.get('name')
+        // });
 
         if (event.currentTarget.checkValidity() === false) {
             form.addClass('was-validated');
