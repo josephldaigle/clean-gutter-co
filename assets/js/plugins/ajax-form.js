@@ -34,6 +34,9 @@ let AjaxForm = {
         if (event.currentTarget.checkValidity() === false) {
             form.addClass('was-validated');
 
+            // enable form button
+            $(form).find('button').attr('disabled', false);
+            $(form).find('button').find('span.spinner').toggleClass('d-none');
         } else {
 
             let url = form.data('url');
@@ -56,19 +59,6 @@ let AjaxForm = {
                     errorCallback({'level': 'alert-danger', 'message': 'This service is not available at the moment. Please call us to schedule a quote (478) 841-9797.'});
                 }
             });
-        }
-
-        // data mutation call-backs
-        // loops over an array of callback functions, calling each function on the data in order
-        // the request is submitted with the final resulting object
-
-        // submit the form to server
-
-        // fire success callback
-        if (typeof successCallback !== 'undefined')
-        {
-            // successCallback();
-
         }
     },
 };
