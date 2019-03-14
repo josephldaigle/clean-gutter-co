@@ -49,6 +49,16 @@ class Tenant implements UserInterface
         return $this;
     }
 
+	public function getDevices()
+	{
+		return $this->devices;
+	}
+
+	public function setDevices( $devices )
+	{
+		$this->devices = $devices;
+	}
+
     /**
      * A visual identifier that represents this user.
      *
