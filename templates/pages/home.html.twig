@@ -1,0 +1,16 @@
+{# twig template #}
+{% extends 'landing-page.html.twig' %}
+
+
+{% block main_content %}
+
+    {{ parent() }}
+
+    {# BREAK #}
+    <div class="w-100"></div>
+
+    {# Home Content #}
+    <div class="row">
+        <p>This is the home page.</p>
+    </div>
+{% endblock %}
