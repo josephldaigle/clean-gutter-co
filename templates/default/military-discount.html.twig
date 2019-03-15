@@ -1,0 +1,268 @@
+{# twig template #}
+{% extends 'landing-page.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('landing-page') }}
+{% endblock %}
+
+
+{% block main_content %}
+
+    {{ parent() }}
+
+    {# BREAK #}
+    <div class="w-100"></div>
+
+    {# LOGO & SITE HEADER #}
+    <div class="col-sm-12">
+        <div class="row h-100 mt-2">
+            <div class="col-sm-4 d-none d-sm-block my-auto text-center text-sm-left">
+                <img id="logo" class="img-fluid" src="{{ asset('build/assets/img/logo-new.png') }}" alt="person cleaning gutters with vacuum" />
+            </div>
+
+            <div class="col-sm-4 text-center mb-2 mb-sm-0">
+
+            </div>
+
+            {# Service Areas #}
+
+            <div class="col-sm-4 text-center mb-2 mb-sm-0">
+                <table class="h-100 w-100 border-dashed border-danger p-2">
+                    <tbody class="p-2">
+                    <tr>
+                        <td class="align-bottom text-center w-100 text-danger">Active Military <div class="w-100"></div>Get 10% Off <span class="text-nowrap">When You Call Now!</span></td>
+                    </tr>
+                    <tr>
+                        <td class="align-top text-center w-100 display-6 display-md-6 font-weight-bold text-primary text-nowrap">(478) 261-1140</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            {#<div class="col-sm-4 my-auto">#}
+            {#<p class="text-center text-sm-left">Servicing Warner Robins, Bonaire, Kathleen, Perry, Macon, Byron, and Fort Valley.</p>#}
+            {#</div>#}
+        </div>
+    </div>
+
+    {# BREAK #}
+    <div class="w-100"></div>
+
+    {# PAGE TITLE #}
+    <div class="col-12">
+        <h1 class="display-5 display-md-5 text-center text-primary font-weight-bold my-5">Would you like your gutters cleaned? Without someone climbing on your roof or falling from a ladder?</h1>
+    </div>
+
+    {# BREAK #}
+    <div class="w-100"></div>
+
+    {# MAIN BODY #}
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-6 display-md-6 text-center text-primary font-weight-bold mb-3">We use a high-powered vacuum system <span class="text-sm-nowrap">to clean your gutters safely from the ground!</span></h1>
+            </div>
+
+            {# BREAK #}
+            <div class="w-100"></div>
+
+            {# IMAGE CAROUSEL #}
+            <div class="col-12">
+                <div class="card" style="">
+
+                    {# Carousel #}
+                    <div id="cg-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#cg-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#cg-carousel" data-slide-to="1"></li>
+                            <li data-target="#cg-carousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ asset('build/assets/img/joe_cleaning_960X540.jpg') }}" class="d-block w-100" alt="vacuum in gutter with camera attached" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('build/assets/img/skyvac_in_gutter_960X540.jpg') }}" class="d-block w-100" alt="vacuum in gutter with camera attached" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('build/assets/img/before-after-house_960X540.jpg') }}" class="d-block w-100" alt="man cleaning gutters from ground using vacuum" />
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#cg-carousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#cg-carousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="card-text">We clean your gutters, with our feet planted firmly on the ground, using a high-powered vacuum system. It's not the shop-vac you might have in mind. Our industrial-strength vacuum has three motors, and is capable of extracting all the heavy debris that can take your gutters out of service.</p>
+
+                        <ul>
+                            <li>No Ladders - we don't need 'em</li>
+                            <li>No Mess - we take the trash out with us</li>
+                            <li>No Critters - roaches and ants can make their homes in dirty gutters</li>
+                            <li>No Worries - we're licensed and insured</li>
+                        </ul>
+
+                        <hr class="mt-3" />
+
+                        <h4 class="text-center text-primary">Call To Schedule Your Cleaning Now</h4>
+                        <h3 class="text-center text-primary">(478) 261-1140</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {# SIDE BAR #}
+    <div class="col-lg-4 mt-3 mt-lg-0">
+
+        <div class="row">
+
+            {# QUOTE FORM #}
+            <div class="col-12">
+                <div class="card">
+                    <h5 class="card-header text-primary text-center">Get A Free Quote!</h5>
+                    <div class="card-body">
+                        <p class="card-title">We'll come out and give you a custom quote, so you know exactly what to expect when we clean your gutters.</p>
+
+                        {# QUOTE FORM CONTAINER #}
+                        <div class="">
+                            <form id="free-quote" class="needs-validation" data-url="{{ absolute_url(path('quotes')) }}" data-method="POST" novalidate>
+                                {# TODO: Convert to vue element for reactive-data binding #}
+                                <div class="alert d-none" role="alert"></div>
+
+                                <div class="form-row my-2 input-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                                    <div class="valid-feedback">
+                                        Ok.
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide your name.
+                                    </div>
+                                </div>
+                                <div class="form-row my-2 input-group">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="john_doe@example.com" maxlength="64" pattern=".+@.+.com" required>
+                                    <div class="valid-feedback">
+                                        Ok.
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                </div>
+                                <div class="form-row my-2 input-group">
+                                    <input type="text" class="form-control" id="address" name="address" placeholder="555 Mayweather Ln, Warner Robins, GA 31088" required>
+                                    <div class="valid-feedback">
+                                        Ok.
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid address.
+                                    </div>
+                                </div>
+                                <div class="form-row my-2 input-group">
+                                    <input type="tel" class="form-control" id="phone" name="phone_number" placeholder="(478) 555-5555" maxlength="10" pattern="^\d{10}$" required>
+                                    <div class="valid-feedback">
+                                        Ok.
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid phone number.
+                                    </div>
+                                </div>
+                                <div class="form-row my-2 input-group">
+                                    <label for="reason">Why would you like your gutters cleaned?</label>
+                                    <div class="w-100"></div>
+                                    <select class="form-control" id="reason" name="reason" required>
+                                        <option value=""></option>
+                                        <option value="1">Mine are clogged or overflowing</option>
+                                        <option value="2">As routine maintenance</option>
+                                    </select>
+                                    <div class="valid-feedback">
+                                        Ok.
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please select an option.
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary mt-3">Schedule Now
+                                    <span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    <span class="sr-only">Loading...</span>
+                                </button>
+                                <img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px;" alt="lock showing site is trustworthy">
+                            </form>
+
+
+                        </div>
+
+                        {# FORM FOOTER #}
+                        {#<div class="mt-3">#}
+
+                        {#</div>#}
+
+                        {#<div class="mt-3 text-center">#}
+                        {#<div class="mr-2 d-inline-block">#}
+                        {#<a href="#" class="small">Safe#}
+                        {#</a>#}
+                        {#</div>#}
+                        {#<div class="mr-2 d-inline-block">#}
+                        {#<a href="" class="small">Secure</a>#}
+                        {#</div>#}
+                        {#<div class="d-inline-block">#}
+                        {#<a href="#" class="small">Privacy Protected</a>#}
+                        {#</div>#}
+                        {#</div>#}
+
+                    </div>
+                    <div class="card-body d-none">
+                        <div class="">
+                            <p>We've received your request and will give you a call in the next 48 hours to schedule your quote. Please expect our call during normal business hours. If you have a more pressing need, please call us at (478) 261-1140.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# TESTIMONIALS #}
+            <div class="col-12 mt-3">
+                <div class="card testimonial">
+                    <h5 class="card-header text-primary text-center">Customer Reviews</h5>
+
+                    {# USER ICON #}
+                    <i class="fas fa-user-circle text-center text-primary fa-5x mt-4"></i>
+
+                    {# REVIEW RATING #}
+                    <div class="card-body">
+                        <div id="review-rating" class="card-title text-center">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+
+                        {# REVIEW TEXT #}
+                        <div class="card-text ">
+                            <blockquote class="blockquote text-left">
+                                <p>Joe cleaned my gutters the same day I called. He showed me a live video of the dirty gutters, and another video once he was done! The price was right, and the service was excellent. Will definitely use again.</p>
+                                <footer class="blockquote-footer text-right"><a href="https://bit.ly/2VPqhSV">Claire on <cite title="Google">Google</cite></a></footer>
+                            </blockquote>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('landing-page') }}
+{% endblock %}

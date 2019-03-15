@@ -28,6 +28,15 @@ class DefaultController extends AbstractController
         ]);
 	}
 
+	public function getHome(Request $request)
+	{
+		dump($request);
+
+		return $this->render('pages/home.html.twig', [
+			'controller_name' => 'DefaultController',
+		]);
+	}
+
 //	/**
 //	 * @param Request $request
 //	 *

@@ -1,6 +1,6 @@
 home:
     path: /
-    controller: CleanGutter\Controller\DefaultController::index
+    controller: CleanGutter\Controller\DefaultController::getHome
 login_get:
     path: /login
     controller: CleanGutter\Controller\SecurityController::getLogin
