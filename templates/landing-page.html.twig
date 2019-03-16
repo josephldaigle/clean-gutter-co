@@ -3,12 +3,6 @@
 <html class="no-js" lang="">
 
 <head>
-    {% block collect_meta %}
-        {% if page_meta is defined and page_meta is not null %}
-            {# Do Something #}
-        {% endif %}
-    {% endblock %}
-
     <meta charset="utf-8">
     <title>Clean Gutter Co</title>
     <meta name="description" content="">
@@ -48,9 +42,7 @@
 
             {# Main Content Block #}
             {# Implementer responsible for .row(s) #}
-            {% block main_content %}
-
-            {% endblock %}
+            {% block main_content %}{% endblock %}
         </div>
 
     </div>

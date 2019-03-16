@@ -1,0 +1,170 @@
+{# twig template #}
+{# Default layout for landing pages #}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('landing-page') }}
+{% endblock %}
+
+{% block page_content %}
+
+
+    {% embed 'layouts/right-sidebar.html.twig' %}
+
+        {# Implement Content #}
+        {# Left edge header container#}
+        {# Recommend max-width: 200px #}
+        {% block layout_header_left %}
+            <img id="logo" class="img-fluid" src="{{ asset('build/assets/img/logo.png') }}" alt="person cleaning gutters with vacuum" />
+        {% endblock %}
+
+        {% block layout_header_middle %}{% endblock%}
+
+        {# Right edge header container #}
+        {% block layout_header_right %}
+
+            <table class="h-100 w-100 border-dashed border-danger p-2">
+                <tbody class="p-2">
+                <tr>
+                    <td class="align-bottom text-center w-100 text-danger">Active Military <div class="w-100"></div>Get 10% Off <span class="text-nowrap">When You Call Now!</span></td>
+                </tr>
+                <tr>
+                    <td class="align-top text-center w-100 display-6 display-md-6 font-weight-bold text-primary text-nowrap">(478) 261-1140</td>
+                </tr>
+                </tbody>
+            </table>
+
+        {% endblock %}
+
+        {% block layout_page_title %}
+            Would you like your gutters cleaned? Without someone climbing on your roof or falling from a ladder?
+        {% endblock %}
+
+        {% block layout_main_title %}
+            We use a high-powered vacuum system <span class="text-sm-nowrap">to clean your gutters safely from the ground!</span>
+        {% endblock %}
+
+        {% block layout_main_car_controls %}
+            <li data-target="#cg-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#cg-carousel" data-slide-to="1"></li>
+            <li data-target="#cg-carousel" data-slide-to="2"></li>
+        {% endblock %}
+
+        {% block layout_main_car_img1 %}
+            <img src="{{ asset('build/assets/img/joe_cleaning_960X540.jpg') }}" class="d-block w-100" alt="vacuum in gutter with camera attached" />
+        {% endblock %}
+
+        {% block layout_main_car_img2 %}
+            <img src="{{ asset('build/assets/img/skyvac_in_gutter_960X540.jpg') }}" class="d-block w-100" alt="vacuum in gutter with camera attached" />
+        {% endblock %}
+
+        {% block layout_main_car_img3 %}
+            <img src="{{ asset('build/assets/img/before-after-house_960X540.jpg') }}" class="d-block w-100" alt="man cleaning gutters from ground using vacuum" />
+        {% endblock %}
+
+
+        {% block layout_main_body_card %}
+            <p class="card-text">We clean your gutters, with our feet planted firmly on the ground, using a high-powered vacuum system. It's not the shop-vac you might have in mind. Our industrial-strength vacuum has three motors, and is capable of extracting all the heavy debris that can take your gutters out of service.</p>
+
+            <ul>
+                <li>No Ladders - we don't need 'em</li>
+                <li>No Mess - we take the trash out with us</li>
+                <li>No Critters - roaches and ants can make their homes in dirty gutters</li>
+                <li>No Worries - we're licensed and insured</li>
+            </ul>
+
+        {% endblock %}
+
+
+
+        {% block layout_main_cta %}
+            Free Quote When You Call
+        {% endblock %}
+
+        {% block layout_main_cta2 %}
+            (478) 261-1140
+        {% endblock %}
+
+        {% block layout_sbr_form_title %}
+            Get A Free Quote!
+        {% endblock %}
+
+        {% block layout_sbr_form_text %}
+            We'll come out and give you a custom quote, so you know exactly what to expect when we clean your gutters.
+        {% endblock %}
+
+        {% block layout_sbr_form_method %}
+            {{ absolute_url(path('quotes')) }}
+        {% endblock %}
+
+        {% block layout_sbr_form_fields %}
+            <div class="form-row my-2 input-group">
+                <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                <div class="valid-feedback">
+                    Ok.
+                </div>
+                <div class="invalid-feedback">
+                    Please provide your name.
+                </div>
+            </div>
+            <div class="form-row my-2 input-group">
+                <input type="text" class="form-control" id="email" name="email" placeholder="john_doe@example.com" maxlength="64" pattern=".+@.+.com" required>
+                <div class="valid-feedback">
+                    Ok.
+                </div>
+                <div class="invalid-feedback">
+                    Please provide a valid email address.
+                </div>
+            </div>
+            <div class="form-row my-2 input-group">
+                <input type="text" class="form-control" id="address" name="address" placeholder="555 Mayweather Ln, Warner Robins, GA 31088" required>
+                <div class="valid-feedback">
+                    Ok.
+                </div>
+                <div class="invalid-feedback">
+                    Please provide a valid address.
+                </div>
+            </div>
+            <div class="form-row my-2 input-group">
+                <input type="tel" class="form-control" id="phone" name="phone_number" placeholder="(478) 555-5555" maxlength="10" pattern="^\d{10}$" required>
+                <div class="valid-feedback">
+                    Ok.
+                </div>
+                <div class="invalid-feedback">
+                    Please provide a valid phone number.
+                </div>
+            </div>
+            <div class="form-row my-2 input-group">
+                <label for="reason">Why would you like your gutters cleaned?</label>
+                <div class="w-100"></div>
+                <select class="form-control" id="reason" name="reason" required>
+                    <option value=""></option>
+                    <option value="1">Mine are clogged or overflowing</option>
+                    <option value="2">As routine maintenance</option>
+                </select>
+                <div class="valid-feedback">
+                    Ok.
+                </div>
+                <div class="invalid-feedback">
+                    Please select an option.
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block layout_sbr_form_btn_txt %}
+            Schedule Now
+        {% endblock %}
+
+        {% block layout_sbr_form_success_txt %}
+            We've received your request and will give you a call in the next 48 hours to schedule your quote. Please expect our call during normal business hours. If you have a more pressing need, please call us at (478) 261-1140.
+        {% endblock %}
+
+    {% endembed %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('landing-page') }}
+{% endblock %}

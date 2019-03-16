@@ -1,85 +1,87 @@
+{# twig template #}
+{# parent to all page templates #}
+
 <!doctype html>
 <html class="no-js" lang="">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Clean Gutter Co</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-        {# TODO: Implement web manifest #}
-        <!-- Place favicon.ico in the root directory -->
-        {#<link rel="manifest" href="site.webmanifest">#}
-        {#<link rel="apple-touch-icon" href="icon.png">#}
-        <link rel="icon" href="{{ absolute_url('favicon-home.ico') }}">
-
-        {#<meta name="theme-color" content="#fafafa">#}
-
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block doc_title %}
+            {{ 'Clean Gutter Co' }}
         {% endblock %}
-    </head>
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <body>
+    {# TODO: Implement web manifest #}
+    <!-- Place favicon.ico in the root directory -->
+    {#<link rel="manifest" href="site.webmanifest">#}
+    {#<link rel="apple-touch-icon" href="icon.png">#}
+    <link rel="icon" href="{{ absolute_url('favicon-home.ico') }}">
 
-    {# BODY BLOCK #}
-    <div id="app">
+    {#<meta name="theme-color" content="#fafafa">#}
 
-        <div class="container-fluid">
-            <div class="row px-3">
-                <div class="col-12 col-md-10 m-auto">
-                    <div class="row">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
 
-                        {# Include Nav Bar #}
-                        {% include 'parts/nav-bar.html.twig' %}
+<body>
 
-                        {# Include Header #}
-                        {% include 'parts/header.html.twig' %}
+{# BODY BLOCK #}
+<div id="app">
 
-                        {# Main Content Block #}
-                        {# Implementer responsible for .row(s) #}
-                        {% block main_content %}
+    <div class="container-fluid col-md-10">
+        <div class="row">
 
-                        {% endblock %}
+            {# Include Nav Bar site-wide #}
+            {% include 'parts/nav-bar.html.twig' %}
 
-                    </div>
-                </div>
-            </div>
+            {# Include Header #}
+            {#{% include 'parts/header.html.twig' %}#}
+            {# Implementer responsible for .row(s) #}
+
+            {# Include the layout to use #}
+            {% block page_content %}{% endblock %}
+
         </div>
 
     </div>
 
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
+</div>
 
-    <!--[if IE]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
-            your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
 
-        <!-- Add your site or application content here -->
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
-        {#<script src="js/vendor/modernizr-{{ MODERNIZR_VERSION }}.min.js"></script>#}
-        {#<script src="https://code.jquery.com/jquery-{{ JQUERY_VERSION }}.min.js" integrity="{{ JQUERY_SRI_HASH }}"#}
-                {#crossorigin="anonymous"></script>#}
-        {#<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{ JQUERY_VERSION }}.min.js"><\/script>')</script>#}
-        {#<script src="js/plugins.js"></script>#}
-        {#<script src="js/main.js"></script>#}
+<!-- Add your site or application content here -->
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        {#<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>#}
-        {#<script>#}
-            {#window.dataLayer = window.dataLayer || [];#}
-            {#function gtag(){dataLayer.push(arguments);}#}
-            {#gtag('js', new Date());#}
+{#<script src="js/vendor/modernizr-{{ MODERNIZR_VERSION }}.min.js"></script>#}
+{#<script src="https://code.jquery.com/jquery-{{ JQUERY_VERSION }}.min.js" integrity="{{ JQUERY_SRI_HASH }}"#}
+{#crossorigin="anonymous"></script>#}
+{#<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{ JQUERY_VERSION }}.min.js"><\/script>')</script>#}
+{#<script src="js/plugins.js"></script>#}
+{#<script src="js/main.js"></script>#}
 
-            {#gtag('config', 'UA-134700346-1');#}
-        {#</script>#}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-        {#<script src="https://www.google-analytics.com/analytics.js" async defer></script>#}
+    gtag('config', 'UA-134700346-1');
+</script>
 
-    </body>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</body>
 
 </html>
