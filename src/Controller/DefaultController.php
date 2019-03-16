@@ -23,13 +23,13 @@ class DefaultController extends AbstractController
 	 */
 	public function getHome(Request $request, RouterInterface $router)
 	{
-//        return $this->render('default/landing-page-v1.html.twig', [
-//            'controller_name' => 'DefaultController'
-//        ]);
-
-        return $this->render('pages/landing/default.html.twig', [
+        return $this->render('default/landing-page-v1.html.twig', [
             'controller_name' => 'DefaultController'
         ]);
+
+//        return $this->render('pages/landing/default.html.twig', [
+//            'controller_name' => 'DefaultController'
+//        ]);
 	}
 
 //	/**
