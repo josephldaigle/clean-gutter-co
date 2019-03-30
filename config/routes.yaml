@@ -1,6 +1,15 @@
 home:
     path: /
-    controller: CleanGutter\Controller\DefaultController::index
+    controller: CleanGutter\Controller\DefaultController::getHome
+login_get:
+    path: /login
+    controller: CleanGutter\Controller\SecurityController::getLogin
+
+# SEO Controller
+get_sitemap_xml:
+    path: /sitemap.xml
+    controller: CleanGutter\Controller\SeoController::getSitemapXml
+
 #kathleen:
 #    path: /kathleen
 #    controller: CleanGutter\Controller\DefaultController::city

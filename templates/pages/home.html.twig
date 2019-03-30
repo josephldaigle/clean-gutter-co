@@ -1,0 +1,19 @@
+{# twig template #}
+{% extends 'landing-page.html.twig' %}
+
+
+{% block main_content %}
+
+    {{ parent() }}
+
+    {# BREAK #}
+    {#<div class="w-100"></div>#}
+
+    {# Home Content #}
+    <div class="row">
+        <div class="col-12">
+        <p>This is the home page.</p>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+    </div>
+{% endblock %}
