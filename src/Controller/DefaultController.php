@@ -5,7 +5,7 @@ namespace CleanGutter\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\RouterInterface;
+//use Symfony\Component\Routing\RouterInterface;
 
 /**
  * DefaultController.
@@ -21,15 +21,21 @@ class DefaultController extends AbstractController
 	 *
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function getHome(Request $request, RouterInterface $router)
+	public function getHome(Request $request)
 	{
-        return $this->render('default/landing-page-v1.html.twig', [
+        return $this->render('pages/home.html.twig', [
             'controller_name' => 'DefaultController'
         ]);
+	}
 
-//        return $this->render('pages/landing/default.html.twig', [
-//            'controller_name' => 'DefaultController'
-//        ]);
+	/**
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function getLandingPage()
+	{
+		return $this->render('default/landing-page-v1.html.twig', [
+			'controller_name' => 'DefaultController'
+		]);
 	}
 
 //	/**

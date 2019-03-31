@@ -1,12 +1,18 @@
+@import "global";
+@import "parts/logo";
+
 /* Main Styles */
 body {
-    font-family: arial;
+    font-family: arial, sans-serif;
 }
 
-/*#logo {*/
-    /*max-width: 200px;*/
-    /*width: 100%;*/
-/*}*/
+.border-dashed {
+    border: dashed 6px;
+}
+
+.border-primary {
+    border-color: $primary;
+}
 
 /*!* Nav Bar *!*/
 /*!* Override default padding for menu items *!*/

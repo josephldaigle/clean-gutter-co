@@ -1,19 +1,85 @@
 {# twig template #}
-{% extends 'landing-page.html.twig' %}
+{% extends 'base.html.twig' %}
 
 
-{% block main_content %}
+{% block page_content %}
 
     {{ parent() }}
 
+    {% embed 'layouts/right-sidebar.html.twig' %}
+
+        {% block layout_header_left %}
+            {% include 'parts/header/logo.html.twig' %}
+        {% endblock %}
+
+        {% block layout_header_middle %}{% endblock%}
+
+        {% block layout_header_right %}
+            {% include 'parts/header/call-now.html.twig' %}
+            {# TODO: Include home page content #}
+        {% endblock %}
+
+        {% block layout_page_title %}Hire a local pro to clean your gutters.{% endblock %}
+
+        {% block layout_main_content %}
+            <div class="accordion w-100" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Step 1: Request a quote.
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            You can request a quote by filling out the short form on this page or by calling {{ 'TODO: phone const' }}. If you fill out the form, we'll contact you to schedule a your free quote.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Step 2: Approve the work.
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Our gutter pro will come to your home to perform an inspection of your home's gutters, and your quote will be emailed to you. You can approve the quote, and have the work performed immediately.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Step 3: Pay Online or In-Person.
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            You can pay online or in-person. We accept all major credit cards, cash, and checks.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+
+
+    {% endembed %}
     {# BREAK #}
     {#<div class="w-100"></div>#}
 
     {# Home Content #}
-    <div class="row">
-        <div class="col-12">
-        <p>This is the home page.</p>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        </div>
-    </div>
+    {#<div class="row">#}
+        {#<div class="col-12">#}
+        {#<p>This is the home page.</p>#}
+
+        {#</div>#}
+    {#</div>#}
 {% endblock %}

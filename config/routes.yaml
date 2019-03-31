@@ -1,6 +1,9 @@
 home:
     path: /
     controller: CleanGutter\Controller\DefaultController::getHome
+landing-page:
+    path: /landing-page
+    controller: CleanGutter\Controller\DefaultController::getLandingPage
 login_get:
     path: /login
     controller: CleanGutter\Controller\SecurityController::getLogin

@@ -30,16 +30,16 @@
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLBJX33"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
 {# BODY BLOCK #}
 <div id="app">
 
     <div class="container-fluid col-md-10">
-        <div class="row">
+        <div class="row py-4">
 
             {% include 'parts/nav-bar.html.twig' %}
 
@@ -60,32 +60,6 @@
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
-
-<!--[if IE]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
-    your browser</a> to improve your experience and security.</p>
-<![endif]-->
-
-<!-- Add your site or application content here -->
-
-{#<script src="js/vendor/modernizr-{{ MODERNIZR_VERSION }}.min.js"></script>#}
-{#<script src="https://code.jquery.com/jquery-{{ JQUERY_VERSION }}.min.js" integrity="{{ JQUERY_SRI_HASH }}"#}
-{#crossorigin="anonymous"></script>#}
-{#<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{ JQUERY_VERSION }}.min.js"><\/script>')</script>#}
-{#<script src="js/plugins.js"></script>#}
-{#<script src="js/main.js"></script>#}
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-134700346-1');
-</script>
-
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </body>
 

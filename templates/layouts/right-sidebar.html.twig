@@ -5,7 +5,7 @@
 
     {# 1st Row, Main Header #}
     <div class="col-sm-12">
-        <div class="row h-100 mt-2">
+        <div class="row h-100">
             <div class="col-sm-4 d-none d-sm-block my-auto text-center text-sm-left">
 
                 {# Left edge header container#}
@@ -34,7 +34,8 @@
      {#ROW-BREAK#}
     <div class="w-100"></div>
 
-     {#PAGE TITLE#}
+
+    {#PAGE TITLE#}
     <div class="col-12">
         <h1 class="display-5 display-md-5 text-center text-primary font-weight-bold my-5">
 
@@ -49,82 +50,85 @@
      {#MAIN CONTAINER#}
     <div class="col-lg-8">
         <div class="row">
-            <div class="col-12">
-                <h1 class="display-6 display-md-6 text-center text-primary font-weight-bold mb-3">
+            {% block layout_main_content %}{% endblock %}
 
-                    {% block layout_main_title %}{% endblock %}
 
-                </h1>
-            </div>
+            {#<div class="col-12">#}
+                {#<h1 class="display-6 display-md-6 text-center text-primary font-weight-bold mb-3">#}
+
+                    {#{% block layout_main_title %}{% endblock %}#}
+
+                {#</h1>#}
+            {#</div>#}
 
              {#ROW BREAK#}
-            <div class="w-100"></div>
+            {#<div class="w-100"></div>#}
 
              {#IMAGE CAROUSEL#}
-            <div class="col-12">
-                <div class="card" style="">
+            {#<div class="col-12">#}
+                {#<div class="card" style="">#}
 
                      {#Carousel#}
-                    <div id="cg-carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
+                    {#<div id="cg-carousel" class="carousel slide" data-ride="carousel">#}
+                        {#<ol class="carousel-indicators">#}
 
                              {#Allow implementor to control output of indicators (default is three)#}
                              {#See Bootstrap Carousel component for implementation instructions.#}
-                            {% block layout_main_car_controls %}{% endblock %}
+                            {#{% block layout_main_car_controls %}{% endblock %}#}
 
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
+                        {#</ol>#}
+                        {#<div class="carousel-inner">#}
+                            {#<div class="carousel-item active">#}
 
-                                {% block layout_main_car_img1 %}{% endblock %}
+                                {#{% block layout_main_car_img1 %}{% endblock %}#}
 
-                            </div>
-                            <div class="carousel-item">
+                            {#</div>#}
+                            {#<div class="carousel-item">#}
 
-                                {% block layout_main_car_img2 %}{% endblock %}
+                                {#{% block layout_main_car_img2 %}{% endblock %}#}
 
-                            </div>
-                            <div class="carousel-item">
+                            {#</div>#}
+                            {#<div class="carousel-item">#}
 
-                                {% block layout_main_car_img3 %}{% endblock %}
+                                {#{% block layout_main_car_img3 %}{% endblock %}#}
 
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#cg-carousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#cg-carousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
+                            {#</div>#}
+                        {#</div>#}
+                        {#<a class="carousel-control-prev" href="#cg-carousel" role="button" data-slide="prev">#}
+                            {#<span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+                            {#<span class="sr-only">Previous</span>#}
+                        {#</a>#}
+                        {#<a class="carousel-control-next" href="#cg-carousel" role="button" data-slide="next">#}
+                            {#<span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+                            {#<span class="sr-only">Next</span>#}
+                        {#</a>#}
+                    {#</div>#}
 
-                    <div class="card-body">
+                    {#<div class="card-body">#}
 
                          {#Main Body Card#}
-                        {% block layout_main_body_card %}{% endblock %}
+                        {#{% block layout_main_body_card %}{% endblock %}#}
 
-                    </div>
-                </div>
-            </div>
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
 
-             {#ROW BREAK#}
-            <div class="w-100"></div>
+            {#ROW BREAK#}
+            {#<div class="w-100"></div>#}
 
              {#MAIN BODY CALL TO ACTION#}
-            <div class="col-12">
-                <h4 class="text-center text-primary">
+            {#<div class="col-12">#}
+                {#<h4 class="text-center text-primary">#}
 
-                    {% block layout_main_cta %}{% endblock %}
+                    {#{% block layout_main_cta %}{% endblock %}#}
 
-                </h4>
-                <h3 class="text-center text-primary">
+                {#</h4>#}
+                {#<h3 class="text-center text-primary">#}
 
-                    {% block layout_main_cta2 %}{% endblock %}
+                    {#{% block layout_main_cta2 %}{% endblock %}#}
 
-                </h3>
-            </div>
+                {#</h3>#}
+            {#</div>#}
         </div>
     </div>
 
