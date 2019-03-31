@@ -137,91 +137,96 @@
 
         <div class="row">
 
+            {% block layout_sbr %}{% endblock %}
+
              {#QUOTE FORM#}
-            <div class="col-12">
-                <div class="card">
-                    <h5 class="card-header text-primary text-center">
+            {#<div class="col-12">#}
 
-                        {% block layout_sbr_form_title %}{% endblock %}
 
-                    </h5>
 
-                    <div class="card-body">
-                        <p class="card-title">
+                {#<div class="card">#}
+                    {#<h5 class="card-header text-primary text-center">#}
 
-                            {% block layout_sbr_form_text %}{% endblock %}
+                        {#{% block layout_sbr_form_title %}{% endblock %}#}
 
-                        </p>
+                    {#</h5>#}
+
+                    {#<div class="card-body">#}
+                        {#<p class="card-title">#}
+
+                            {#{% block layout_sbr_form_text %}{% endblock %}#}
+
+                        {#</p>#}
 
                          {#QUOTE FORM CONTAINER#}
-                        <div class="">
+                        {#<div class="">#}
 
                              {#Form submit method#}
-                            <form id="free-quote" class="needs-validation" data-url="{% block layout_sbr_form_method %}{% endblock %}" data-method="POST" novalidate>
+                            {#<form id="free-quote" class="needs-validation" data-url="{% block layout_sbr_form_method %}{% endblock %}" data-method="POST" novalidate>#}
 
                                  {#TODO: Convert to vue element for reactive-data binding#}
-                                <div class="alert d-none" role="alert"></div>
+                                {#<div class="alert d-none" role="alert"></div>#}
 
                                  {#Override form fields html#}
-                                {% block layout_sbr_form_fields %}{% endblock %}
+                                {#{% block layout_sbr_form_fields %}{% endblock %}#}
 
                                  {#Submit Button#}
-                                <button type="submit" class="btn btn-primary mt-3">
+                                {#<button type="submit" class="btn btn-primary mt-3">#}
 
-                                    {% block layout_sbr_form_btn_txt %}{% endblock %}
+                                    {#{% block layout_sbr_form_btn_txt %}{% endblock %}#}
 
-                                    <span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                                    <span class="sr-only">ice cream...</span>
-                                </button>
-                                <img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px;" alt="lock showing site is trustworthy">
-                            </form>
+                                    {#<span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>#}
+                                    {#<span class="sr-only">ice cream...</span>#}
+                                {#</button>#}
+                                {#<img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px;" alt="lock showing site is trustworthy">#}
+                            {#</form>#}
 
 
-                        </div>
+                        {#</div>#}
 
-                    </div>
-                    <div class="card-body d-none">
-                        <div class="">
-                            <p>
+                    {#</div>#}
+                    {#<div class="card-body d-none">#}
+                        {#<div class="">#}
+                            {#<p>#}
 
-                                {% block layout_sbr_form_success_txt %}{% endblock %}
+                                {#{% block layout_sbr_form_success_txt %}{% endblock %}#}
 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            {#</p>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
 
              {#TODO: Abstract this section once a decision on ratings is made - how to allow implementer to override without breaking#}
              {#TESTIMONIALS#}
-            <div class="col-12 mt-3">
-                <div class="card testimonial">
-                    <h5 class="card-header text-primary text-center">Customer Reviews</h5>
+            {#<div class="col-12 mt-3">#}
+                {#<div class="card testimonial">#}
+                    {#<h5 class="card-header text-primary text-center">Customer Reviews</h5>#}
 
                      {#USER ICON#}
-                    <i class="fas fa-user-circle text-center text-primary fa-5x mt-4"></i>
+                    {#<i class="fas fa-user-circle text-center text-primary fa-5x mt-4"></i>#}
 
                      {#REVIEW RATING#}
-                    <div class="card-body">
-                        <div id="review-rating" class="card-title text-center">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                    {#<div class="card-body">#}
+                        {#<div id="review-rating" class="card-title text-center">#}
+                            {#<i class="fas fa-star"></i>#}
+                            {#<i class="fas fa-star"></i>#}
+                            {#<i class="fas fa-star"></i>#}
+                            {#<i class="fas fa-star"></i>#}
+                            {#<i class="fas fa-star"></i>#}
+                        {#</div>#}
 
                          {#REVIEW TEXT#}
-                        <div class="card-text ">
-                            <blockquote class="blockquote text-left">
-                                <p>Joe cleaned my gutters the same day I called. He showed me a live video of the dirty gutters, and another video once he was done! The price was right, and the service was excellent. Will definitely use again.</p>
-                                <footer class="blockquote-footer text-right"><a href="https://bit.ly/2VPqhSV">Claire on <cite title="Google">Google</cite></a></footer>
-                            </blockquote>
-                        </div>
+                        {#<div class="card-text ">#}
+                            {#<blockquote class="blockquote text-left">#}
+                                {#<p>Joe cleaned my gutters the same day I called. He showed me a live video of the dirty gutters, and another video once he was done! The price was right, and the service was excellent. Will definitely use again.</p>#}
+                                {#<footer class="blockquote-footer text-right"><a href="https://bit.ly/2VPqhSV">Claire on <cite title="Google">Google</cite></a></footer>#}
+                            {#</blockquote>#}
+                        {#</div>#}
 
-                    </div>
-                </div>
-            </div>
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
         </div>
 
     </div>

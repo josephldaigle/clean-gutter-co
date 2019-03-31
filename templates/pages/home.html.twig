@@ -22,14 +22,22 @@
         {% block layout_page_title %}Hire a local pro to clean your gutters.{% endblock %}
 
         {% block layout_main_content %}
+            <p></p>
+
             <div class="accordion w-100" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Step 1: Request a quote.
-                            </button>
-                        </h5>
+                        <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="display-5 d-inline"><strong>1.</strong> Schedule Your Quote.</p>
+
+                                    <div class="d-inline">
+                                        <i class="float-right fas fa-caret-down fa-2x" style="line-height:50%"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
                     </div>
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -40,11 +48,17 @@
                 </div>
                 <div class="card">
                     <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Step 2: Approve the work.
-                            </button>
-                        </h5>
+                        <button class="btn btn-link collapsed text-left w-100" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="display-5 d-inline"><strong>2.</strong> Approve The Work.</p>
+
+                                    <div class="d-inline">
+                                        <i class="float-right fas fa-caret-up fa-2x" style="line-height:50%"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                         <div class="card-body">
@@ -54,20 +68,34 @@
                 </div>
                 <div class="card">
                     <div class="card-header" id="headingThree">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Step 3: Pay Online or In-Person.
-                            </button>
-                        </h5>
+                        <button class="btn btn-link collapsed text-left w-100" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="display-5 d-inline">3. Pay Online.</p>
+
+                                    <div class="d-inline">
+                                        <i class="float-right fas fa-caret-up fa-2x" style="line-height:50%"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                         <div class="card-body">
                             You can pay online or in-person. We accept all major credit cards, cash, and checks.
+                            Payment for services is due in full when the work is complete. Declined or returned payments may incur a $25.00 penalty.
                         </div>
                     </div>
                 </div>
             </div>
         {% endblock %}
+
+        {% block layout_sbr %}
+            {% include 'parts/forms/quote-request.html.twig' %}
+            <div class="w-100 mb-3"></div>
+            {% include 'parts/testimonials.html.twig' %}
+        {% endblock %}
+
 
 
 

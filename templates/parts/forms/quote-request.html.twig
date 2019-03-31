@@ -1,0 +1,83 @@
+{# twig template #}
+{# QUOTE FORM #}
+<div class="col-12">
+    <div class="card">
+        <h5 class="card-header text-primary text-center">Get A Free Quote!</h5>
+        <div class="card-body">
+            <p class="card-title">We'll come out and give you a custom quote, so you know exactly what to expect when we clean your gutters.</p>
+
+            {# QUOTE FORM CONTAINER #}
+            <div class="">
+                <form id="free-quote" class="needs-validation" data-url="{{ absolute_url(path('quotes')) }}" data-method="POST" novalidate>
+                    {# TODO: Convert to vue element for reactive-data binding #}
+                    <div class="alert d-none" role="alert"></div>
+
+                    <div class="form-row my-2 input-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                        <div class="valid-feedback">
+                            Ok.
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide your name.
+                        </div>
+                    </div>
+                    <div class="form-row my-2 input-group">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="john_doe@example.com" maxlength="64" pattern=".+@.+.com" required>
+                        <div class="valid-feedback">
+                            Ok.
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    <div class="form-row my-2 input-group">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="555 Mayweather Ln, Warner Robins, GA 31088" required>
+                        <div class="valid-feedback">
+                            Ok.
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid address.
+                        </div>
+                    </div>
+                    <div class="form-row my-2 input-group">
+                        <input type="tel" class="form-control" id="phone" name="phone_number" placeholder="(478) 555-5555" maxlength="10" pattern="^\d{10}$" required>
+                        <div class="valid-feedback">
+                            Ok.
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a valid phone number.
+                        </div>
+                    </div>
+                    <div class="form-row my-2 input-group">
+                        <label for="reason">Why would you like your gutters cleaned?</label>
+                        <div class="w-100"></div>
+                        <select class="form-control" id="reason" name="reason" required>
+                            <option value=""></option>
+                            <option value="1">Mine are clogged or overflowing</option>
+                            <option value="2">As routine maintenance</option>
+                        </select>
+                        <div class="valid-feedback">
+                            Ok.
+                        </div>
+                        <div class="invalid-feedback">
+                            Please select an option.
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Schedule Now
+                        <span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        <span class="sr-only">Loading...</span>
+                    </button>
+                    <img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px;" alt="lock showing site is trustworthy">
+                </form>
+
+            </div>
+        </div>
+
+        <div class="card-body d-none">
+            <div class="">
+                <p>We've received your request and will give you a call in the next 48 hours to schedule your quote. Please expect our call during normal business hours. If you have a more pressing need, please call us at (478) 261-1140.</p>
+            </div>
+        </div>
+    </div>
+</div>
