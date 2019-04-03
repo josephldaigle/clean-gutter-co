@@ -68,7 +68,32 @@
                         <span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                         <span class="sr-only">Loading...</span>
                     </button>
-                    <img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px;" alt="lock showing site is trustworthy">
+
+
+                    <img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px; cursor: pointer;" data-toggle="modal" data-target="#sslIconModal" alt="pad-lock for site security">
+
+                    <div class="modal fade" id="sslIconModal" tabindex="-1" role="dialog" aria-labelledby="sslIconModalTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="sslIconModalTitle">We Don't Take Privacy Lightly.</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>That's why we've invested our energy into making sure your data is protected when you use our website.</p>
+                                    <p>We secure our site by encrypting the communications between your browser and our site. This means that anytime you are on our site, the information shared is protected from those snoopy internet bad guys.</p>
+                                    <p>We don't sell or disseminate any of your personal information to anyone who does not have a need in the course of doing regular business with Clean Gutter Co. We may share your information with third-party service providers, who provide Clean Gutter Co with critical back-office support, like book-keeping or banking services. However, we only provide what is absolutely necessary to perform the service in question, and we only work with reputable and trustworthy providers.</p>
+                                    <p>As you can see, we believe in providing convenient, quality services at great prices, while keeping your safety, security, and experience at the center of our attention.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </form>
 
             </div>

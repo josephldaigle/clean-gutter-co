@@ -50,185 +50,19 @@
      {#MAIN CONTAINER#}
     <div class="col-lg-8">
         <div class="row">
+
             {% block layout_main_content %}{% endblock %}
 
-
-            {#<div class="col-12">#}
-                {#<h1 class="display-6 display-md-6 text-center text-primary font-weight-bold mb-3">#}
-
-                    {#{% block layout_main_title %}{% endblock %}#}
-
-                {#</h1>#}
-            {#</div>#}
-
-             {#ROW BREAK#}
-            {#<div class="w-100"></div>#}
-
-             {#IMAGE CAROUSEL#}
-            {#<div class="col-12">#}
-                {#<div class="card" style="">#}
-
-                     {#Carousel#}
-                    {#<div id="cg-carousel" class="carousel slide" data-ride="carousel">#}
-                        {#<ol class="carousel-indicators">#}
-
-                             {#Allow implementor to control output of indicators (default is three)#}
-                             {#See Bootstrap Carousel component for implementation instructions.#}
-                            {#{% block layout_main_car_controls %}{% endblock %}#}
-
-                        {#</ol>#}
-                        {#<div class="carousel-inner">#}
-                            {#<div class="carousel-item active">#}
-
-                                {#{% block layout_main_car_img1 %}{% endblock %}#}
-
-                            {#</div>#}
-                            {#<div class="carousel-item">#}
-
-                                {#{% block layout_main_car_img2 %}{% endblock %}#}
-
-                            {#</div>#}
-                            {#<div class="carousel-item">#}
-
-                                {#{% block layout_main_car_img3 %}{% endblock %}#}
-
-                            {#</div>#}
-                        {#</div>#}
-                        {#<a class="carousel-control-prev" href="#cg-carousel" role="button" data-slide="prev">#}
-                            {#<span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
-                            {#<span class="sr-only">Previous</span>#}
-                        {#</a>#}
-                        {#<a class="carousel-control-next" href="#cg-carousel" role="button" data-slide="next">#}
-                            {#<span class="carousel-control-next-icon" aria-hidden="true"></span>#}
-                            {#<span class="sr-only">Next</span>#}
-                        {#</a>#}
-                    {#</div>#}
-
-                    {#<div class="card-body">#}
-
-                         {#Main Body Card#}
-                        {#{% block layout_main_body_card %}{% endblock %}#}
-
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#ROW BREAK#}
-            {#<div class="w-100"></div>#}
-
-             {#MAIN BODY CALL TO ACTION#}
-            {#<div class="col-12">#}
-                {#<h4 class="text-center text-primary">#}
-
-                    {#{% block layout_main_cta %}{% endblock %}#}
-
-                {#</h4>#}
-                {#<h3 class="text-center text-primary">#}
-
-                    {#{% block layout_main_cta2 %}{% endblock %}#}
-
-                {#</h3>#}
-            {#</div>#}
         </div>
     </div>
 
      {#RIGHT SIDE BAR#}
     <div class="col-lg-4 mt-3 mt-lg-0">
-
         <div class="row">
 
             {% block layout_sbr %}{% endblock %}
 
-             {#QUOTE FORM#}
-            {#<div class="col-12">#}
-
-
-
-                {#<div class="card">#}
-                    {#<h5 class="card-header text-primary text-center">#}
-
-                        {#{% block layout_sbr_form_title %}{% endblock %}#}
-
-                    {#</h5>#}
-
-                    {#<div class="card-body">#}
-                        {#<p class="card-title">#}
-
-                            {#{% block layout_sbr_form_text %}{% endblock %}#}
-
-                        {#</p>#}
-
-                         {#QUOTE FORM CONTAINER#}
-                        {#<div class="">#}
-
-                             {#Form submit method#}
-                            {#<form id="free-quote" class="needs-validation" data-url="{% block layout_sbr_form_method %}{% endblock %}" data-method="POST" novalidate>#}
-
-                                 {#TODO: Convert to vue element for reactive-data binding#}
-                                {#<div class="alert d-none" role="alert"></div>#}
-
-                                 {#Override form fields html#}
-                                {#{% block layout_sbr_form_fields %}{% endblock %}#}
-
-                                 {#Submit Button#}
-                                {#<button type="submit" class="btn btn-primary mt-3">#}
-
-                                    {#{% block layout_sbr_form_btn_txt %}{% endblock %}#}
-
-                                    {#<span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>#}
-                                    {#<span class="sr-only">ice cream...</span>#}
-                                {#</button>#}
-                                {#<img class="d-inline-block float-right mt-2" src="{{ asset('build/assets/img/ssl-secure_70X70.png') }}" style="max-width: 55px;" alt="lock showing site is trustworthy">#}
-                            {#</form>#}
-
-
-                        {#</div>#}
-
-                    {#</div>#}
-                    {#<div class="card-body d-none">#}
-                        {#<div class="">#}
-                            {#<p>#}
-
-                                {#{% block layout_sbr_form_success_txt %}{% endblock %}#}
-
-                            {#</p>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-             {#TODO: Abstract this section once a decision on ratings is made - how to allow implementer to override without breaking#}
-             {#TESTIMONIALS#}
-            {#<div class="col-12 mt-3">#}
-                {#<div class="card testimonial">#}
-                    {#<h5 class="card-header text-primary text-center">Customer Reviews</h5>#}
-
-                     {#USER ICON#}
-                    {#<i class="fas fa-user-circle text-center text-primary fa-5x mt-4"></i>#}
-
-                     {#REVIEW RATING#}
-                    {#<div class="card-body">#}
-                        {#<div id="review-rating" class="card-title text-center">#}
-                            {#<i class="fas fa-star"></i>#}
-                            {#<i class="fas fa-star"></i>#}
-                            {#<i class="fas fa-star"></i>#}
-                            {#<i class="fas fa-star"></i>#}
-                            {#<i class="fas fa-star"></i>#}
-                        {#</div>#}
-
-                         {#REVIEW TEXT#}
-                        {#<div class="card-text ">#}
-                            {#<blockquote class="blockquote text-left">#}
-                                {#<p>Joe cleaned my gutters the same day I called. He showed me a live video of the dirty gutters, and another video once he was done! The price was right, and the service was excellent. Will definitely use again.</p>#}
-                                {#<footer class="blockquote-footer text-right"><a href="https://bit.ly/2VPqhSV">Claire on <cite title="Google">Google</cite></a></footer>#}
-                            {#</blockquote>#}
-                        {#</div>#}
-
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
         </div>
-
     </div>
 
 {% endblock %}
