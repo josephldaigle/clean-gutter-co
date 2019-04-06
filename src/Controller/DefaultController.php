@@ -22,7 +22,7 @@ class DefaultController extends AbstractController
 	 */
 	public function getHome(Request $request)
 	{
-        return $this->render('pages/home.html.twig', [
+        return $this->render('page/home.html.twig', [
             'controller_name' => 'DefaultController'
         ]);
 	}
@@ -44,7 +44,7 @@ class DefaultController extends AbstractController
 //	 */
 //    public function city(Request $request, RouterInterface $router)
 //    {
-//        return $this->render('pages/city.html.twig', [
+//        return $this->render('page/city.html.twig', [
 //            'controller_name' => 'DefaultController',
 //	        'data' => ['customers' => ['count' => rand(1, 25)], 'city' => $request->getUri()]
 //        ]);

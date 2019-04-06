@@ -4,9 +4,6 @@ home:
 landing-page:
     path: /landing-page
     controller: CleanGutter\Controller\DefaultController::getLandingPage
-login_get:
-    path: /login
-    controller: CleanGutter\Controller\SecurityController::getLogin
 
 # SEO Controller
 get_sitemap_xml:

@@ -4,28 +4,28 @@
 
 {% block page_content %}
 
-    {{ parent() }}
-
     {% embed 'layouts/right-sidebar.html.twig' %}
 
         {% block layout_header_left %}
-            {% include 'parts/header/logo.html.twig' %}
+            {% include 'components/header/logo.html.twig' %}
         {% endblock %}
 
         {% block layout_header_middle %}{% endblock%}
 
         {% block layout_header_right %}
-            {% include 'parts/header/call-now.html.twig' %}
+            {% include 'components/header/call-now.html.twig' %}
         {% endblock %}
 
-        {% block layout_page_title %}Hire A Local Pro To Clean Your Gutters.{% endblock %}
+        {% block layout_page_title %}A brand you can trust.{% endblock %}
 
         {% block layout_main_content %}
             <div class="col-12">
-                <p>We pride ourselves on <strong><i>top-quality workmanship and awesome customer service.</i></strong>  With our highly innovative cleaning methods and our professional, courteous staff, we'll <strong><i>get the job done right.</i></strong></p>
+                <p>I'm Joe, a local business owner, and part of your community.</p>
+
+                <p></p>
 
                 <h3>Starting With A Better Experience</h3>
-                <p>We've made it as simple as possible to schedule your next gutter cleaning. Just follow the three steps below, and you're done. It's that easy!</p>
+                <p>We've made it as simple as possible to schedule your next gutter cleaning. Just follow three easy steps, and you're done. It's that quick!</p>
                 <div class="accordion w-100 mb-3" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -135,17 +135,17 @@
 
             {#<p>Our mission is to keep your home's gutters working properly, to ensure you don't experience any of the bad things that can happen when your gutters are clogged or dirty.</p>#}
             {#<ul>#}
-                {#<li><strong>Insect infestations</strong></li>#}
-                {#<li><strong>Leaks, flooding or foundation problems</strong></li>#}
-                {#<li><strong>Rotting eaves or soffits</strong></li>#}
+            {#<li><strong>Insect infestations</strong></li>#}
+            {#<li><strong>Leaks, flooding or foundation problems</strong></li>#}
+            {#<li><strong>Rotting eaves or soffits</strong></li>#}
             {#</ul>#}
 
         {% endblock %}
 
         {% block layout_sbr %}
-            {% include 'parts/forms/quote-request.html.twig' %}
+            {% include 'components/forms/quote-request.html.twig' %}
             <div class="w-100 mb-3"></div>
-            {% include 'parts/testimonials.html.twig' %}
+            {% include 'components/testimonials.html.twig' %}
         {% endblock %}
 
 

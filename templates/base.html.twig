@@ -41,14 +41,10 @@
     <div class="container-fluid col-md-10">
         <div class="row py-4">
 
-            {% include 'parts/nav-bar.html.twig' %}
+            {# Site Wide Navigation Bar #}
+            {% include 'components/nav-bar.html.twig' %}
 
-            {# Include Header #}
-            {#{% include 'parts/header.html.twig' %}#}
-
-            {# Implementer responsible for .row(s) #}
-
-            {# Include the layout to use #}
+            {# Override to impelement page body #}
             {% block page_content %}{% endblock %}
 
         </div>

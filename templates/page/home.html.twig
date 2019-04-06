@@ -1,0 +1,154 @@
+{# twig template #}
+{% extends 'base.html.twig' %}
+
+
+{% block page_content %}
+
+    {% embed 'layouts/right-sidebar.html.twig' %}
+
+        {% block layout_header_left %}
+            {% include 'components/header/logo.html.twig' %}
+        {% endblock %}
+
+        {% block layout_header_middle %}{% endblock%}
+
+        {% block layout_header_right %}
+            {% include 'components/header/call-now.html.twig' %}
+        {% endblock %}
+
+        {% block layout_page_title %}Hire A Local Pro To Clean Your Gutters.{% endblock %}
+
+        {% block layout_main_content %}
+            <div class="col-12">
+                <p>We pride ourselves on <strong><i>top-quality workmanship and awesome customer service.</i></strong>  With our highly innovative cleaning methods and our professional, courteous staff, we'll <strong><i>get the job done right.</i></strong></p>
+
+                <h3>Starting With A Better Experience</h3>
+                <p>We've made it as simple as possible to schedule your next gutter cleaning. Just follow the three steps below, and you're done. It's that easy!</p>
+                <div class="accordion w-100 mb-3" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="display-5 d-inline"><strong>1.</strong>&emsp;Schedule Your Quote</p>
+
+                                        <div class="d-inline">
+                                            <i class="float-right fas fa-caret-down fa-2x" style="line-height:50%"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                You can request a quote by filling out the short form on this page or by calling {{ 'TODO: phone const' }}. If you fill out the form, we'll contact you to schedule your free quote.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <button class="btn btn-link collapsed text-left w-100" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="display-5 d-inline"><strong>2.</strong>&emsp;A Pro Will Come to Your Home</p>
+
+                                        <div class="d-inline">
+                                            <i class="float-right fas fa-caret-up fa-2x" style="line-height:50%"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                Our gutter pro will come to your home to perform an inspection of your home's gutters, and your quote will be emailed to you. We will schedule time for your gutters to be cleaned at the time of the quote, or you can choose to have them cleaned at a later time.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <button class="btn btn-link collapsed text-left w-100" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="display-5 d-inline"><strong>3.</strong>&emsp;Pay Online or In-Person</p>
+                                        <div class="d-inline">
+                                            <i class="float-right fas fa-caret-up fa-2x" style="line-height:50%"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>We accept all payments online or right at your front door. Yes, you can pay with a credit card, from the comfort of your home! Isn't that great?</p>
+                                <p>We accept all major credit cards, cash, and checks. Payment is due in full after your gutters are clean.  You may pay in advance if you like.</p>
+                                <p>Declined or returned payments may incur a $25.00 penalty.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Why choose us?</h3>
+                <p>It's simple, really. We are the best, safest, most customer-oriented gutter business in town!</p>
+                <ol>
+                    <li>
+                        <h6>Service</h6>
+                        <p>Hands down, we offer the easiest customer experience in Central Georgia. Check out easy it is. You can even have your gutters cleaned while your away!</p>
+
+                    </li>
+                    <li>
+                        <h6>Safety</h6>
+                        <p>We clean using a high-powered, triple-motor vacuum, that can extract the dirt and debris from your gutters, without needing to put ladders on your home or climb on your roof.</p>
+                    </li>
+
+                    <li>
+                        <h6>Trust</h6>
+                        <p>We clean using a high-powered, triple-motor vacuum, that can extract the dirt and debris from your gutters, without needing to put ladders on your home or climb on your roof.</p>
+                    </li>
+                </ol>
+
+
+
+                <h3>Your home is an important investment.</h3>
+                <p>It's likely your mortgage represents significant portion of your monthly expenses. And with so much at stake, your home's maintenance needs cannot be ignored.</p>
+                <p>That's why you should hire Clean Gutter Company to maintain your homes gutters.</p>
+                <p>We are a friendly, professional, and local gutter cleaning company, happily servicing Byron, Fort Valley, Warner Robins, Perry, and Macon.</p>
+
+
+
+
+
+                <h3>Cleaning gutters alone is dangerous.</h3>
+                <p>There are over 160,000 ER visits each year in the United States due to ladder-related injuries. That's A LOT of ladder falls.</p>
+                <p>It's also one of the reasons we don't use them.</p>
+                <p>We use a specialized, high-powered vacuum to suck the leaves right out of your gutters and into an enclosed container.</p>
+
+
+
+                {#<p>Clean Gutter Co is owned and operated by military veteran and Central-Georgia native, Joe Daigle. Joe aims to provide the most cost-effective, yet highly innovative and professional gutter cleaning service in Central Georgia.</p>#}
+            </div>
+
+
+
+            {#<p>Our mission is to keep your home's gutters working properly, to ensure you don't experience any of the bad things that can happen when your gutters are clogged or dirty.</p>#}
+            {#<ul>#}
+                {#<li><strong>Insect infestations</strong></li>#}
+                {#<li><strong>Leaks, flooding or foundation problems</strong></li>#}
+                {#<li><strong>Rotting eaves or soffits</strong></li>#}
+            {#</ul>#}
+
+        {% endblock %}
+
+        {% block layout_sbr %}
+            {% include 'components/forms/quote-request.html.twig' %}
+            <div class="w-100 mb-3"></div>
+            {% include 'components/testimonials.html.twig' %}
+        {% endblock %}
+
+
+
+
+    {% endembed %}
+
+{% endblock %}

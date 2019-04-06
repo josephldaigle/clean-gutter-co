@@ -12,6 +12,9 @@ security:
             security: false
         main:
             anonymous: true
+            guard:
+                authenticators:
+                    - CleanGutter\Security\LoginFormAuthenticator
 
             # activate different ways to authenticate
 
