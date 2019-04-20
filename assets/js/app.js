@@ -27,6 +27,6 @@ imagesContext.keys().forEach(imagesContext);
 window.app = new Vue({
     el: '#app',
     data: {
-        name: 'a'
+        name: 'app'
     }
 });

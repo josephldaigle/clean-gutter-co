@@ -16,26 +16,38 @@
             {% include 'components/header/call-now.html.twig' %}
         {% endblock %}
 
-        {% block layout_page_title %}Looking For A Gutter Pro?{% endblock %}
+        {% block layout_page_title %}
+            Looking for the Best Gutter Cleaner In Town?
+            <br class="d-md-none" />
+            Want the Job Done in the Next 72 Hours?
+        {% endblock %}
 
         {% block layout_main_content %}
             <div class="col-12">
-                <h3>You've come to the right place!</h3>
+                <h3 class="display-6">If you answered "YES", then you're in the right place! Schedule your free quote to discover how we're quickly re-defining what it means to have clean gutters.</h3>
 
-                <p>Did you know that letting leaves and dirt pile up in your gutters can cost you thousands of dollars in repairs? Not only do clogged gutters rot away your home's soffit and cause foundation problems, they provide a great habitat for roaches and ants.</p>
+                <p>Who Else Can Clean Your Gutters Without Ladders?</p>
+                    We can clean your gutters without climbing ladders, or walking on your roof. How? By utilizing a super-powered vacuum system to 'suck' the dirt out of your gutters. We can even record our work, using a wireless HD camera - so you can <a class="font-weight-bold text-danger" href="#video">see the results</a> first-hand! You really should <a class="font-weight-bold text-danger" href="#video">check it out</a> if you haven't seen it. We are a veteran owned business, and are fully licensed and insured, so you can count on us to get the job done right!</p>
 
-                <h3>In Just 3 Easy Steps!</h3>
-                <p>We've made it as simple as possible to schedule your next gutter cleaning. And yours can be cleaned in as little as 72 hours! Just follow the 3 steps below, and you're done. It's that easy!</p>
+                {% include 'components/image-carousel.html.twig' %}
+                {% include 'components/media/video.html.twig' %}
+
+                <h3>How To Get Your Gutters Cleaned</h3>
+                <p>We've made it as simple as possible to schedule your next gutter cleaning. And we'll do it in as little as 72 hours! Just follow these 3 easy steps, and you're done!</p>
                 <div class="accordion w-100 mb-3" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <div class="row">
                                     <div class="col-12">
-                                        <p class="display-5 d-inline"><strong>1.</strong>&emsp;Schedule Your Quote</p>
+                                        <p class="display-5 d-inline">
+                                            <i class="fa fa-check text-danger"></i>
+
+                                            &emsp;Schedule Your Quote
+                                        </p>
 
                                         <div class="d-inline">
-                                            <i class="float-right fas fa-caret-down fa-2x" style="line-height:50%"></i>
+                                            <i class="float-right fas fa-caret-up fa-2x rotate-if-collapsed" style="line-height:50%"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +56,7 @@
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                You can request a quote by filling out the short form on this page or by calling {{ 'TODO: phone const' }}. If you fill out the form, we'll contact you to schedule your free quote.
+                                Fill out the short form on this page or call (478) 261-1140. If you use our online form, we'll call you to schedule your free quote.
                             </div>
                         </div>
                     </div>
@@ -53,10 +65,14 @@
                             <button class="btn btn-link collapsed text-left w-100" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <div class="row">
                                     <div class="col-12">
-                                        <p class="display-5 d-inline"><strong>2.</strong>&emsp;A Pro Will Come to Your Home</p>
+                                        <p class="display-5 d-inline">
+                                            <i class="fa fa-check text-danger"></i>
+
+                                            &emsp;A Pro Will Come to Your Home
+                                        </p>
 
                                         <div class="d-inline">
-                                            <i class="float-right fas fa-caret-up fa-2x" style="line-height:50%"></i>
+                                            <i class="float-right fas fa-caret-up fa-2x rotate-if-collapsed" style="line-height:50%"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +80,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                Our gutter pro will come to your home to perform an inspection of your home's gutters, and your quote will be emailed to you. We will schedule time for your gutters to be cleaned at the time of the quote, or you can choose to have them cleaned at a later time.
+                                Our gutter pro will come to your home to perform an inspection of your home's gutters, and provide you with free custom quote. You just need to tell him to get started!
                             </div>
                         </div>
                     </div>
@@ -73,9 +89,13 @@
                             <button class="btn btn-link collapsed text-left w-100" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <div class="row">
                                     <div class="col-12">
-                                        <p class="display-5 d-inline"><strong>3.</strong>&emsp;Pay Online or In-Person</p>
+                                        <p class="display-5 d-inline">
+                                            <i class="fa fa-check text-danger"></i>
+
+                                            &emsp;Pay Online or In-Person
+                                        </p>
                                         <div class="d-inline">
-                                            <i class="float-right fas fa-caret-up fa-2x" style="line-height:50%"></i>
+                                            <i class="float-right fas fa-caret-up fa-2x rotate-if-collapsed" style="line-height:50%"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -83,25 +103,21 @@
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
-                                <p>We accept all payments online or right at your front door. Yes, you can pay with a credit card, from the comfort of your home! Isn't that great?</p>
-                                <p>We accept all major credit cards, cash, and checks. Payment is due in full after your gutters are clean.  You may pay in advance if you like.</p>
-                                <p>Declined or returned payments may incur a $25.00 penalty.</p>
+                                <p>We can accept payments online or right at your front door. We accept all major credit cards, cash, and personal checks.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <h3>Why choose us?</h3>
-                <p>It's simple, really. We are the best, safest, most customer-oriented gutter business in town!</p>
                 <ol>
                     <li>
                         <h6>Service</h6>
-                        <p>Hands down, we offer the easiest customer experience in Central Georgia. Check out easy it is. You can even have your gutters cleaned while your away!</p>
-
+                        <p>As a veteran-owned small business, we are ingrained with a sense of service and community that drives us to provide the best gutter-cleaning experience possible. We believe you should be able to trust the person who works on your home, and that the job should be done right.</p>
                     </li>
                     <li>
                         <h6>Safety</h6>
-                        <p>We clean using a high-powered, triple-motor vacuum, that can extract the dirt and debris from your gutters, without needing to put ladders on your home or climb on your roof.</p>
+                        <p>We clean using a special three-motor vacuum, that has the horse-power to extract the dirt and debris from your gutters, without someone needing to put ladders on your home or climb on your roof.</p>
                     </li>
 
                     <li>
@@ -118,13 +134,13 @@
                 <p>We are a friendly, professional, and local gutter cleaning company, happily servicing Byron, Fort Valley, Warner Robins, Perry, and Macon.</p>
 
 
-
-
-
                 <h3>Cleaning gutters alone is dangerous.</h3>
                 <p>There are over 160,000 ER visits each year in the United States due to ladder-related injuries. That's A LOT of ladder falls.</p>
                 <p>It's also one of the reasons we don't use them.</p>
                 <p>We use a specialized, high-powered vacuum to suck the leaves right out of your gutters and into an enclosed container.</p>
+
+                <h3>Why use ladders, when the technology exists to clean gutters safely from the ground?</h3>
+                <p>Like I said, it's a game-changer. This vacuum has three motors, and can pick up gobs of dirt from 3 stories up! You have to see it to believe it. Just check out this quick video. The vacuum has an on-board camera that allows our technician to watch what he's doing, live and recorded. Learn More.</p>
 
 
 

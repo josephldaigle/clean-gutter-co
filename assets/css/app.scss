@@ -1,15 +1,6 @@
 @import "global";
 @import "parts/logo";
 
-/* Main Styles */
-h1,h2,h3,h4,h5,h6 {
-    color: #1b3061;
-}
-
-body {
-    font-family: arial, sans-serif;
-}
-
 .border-dashed {
     border: dashed 6px;
 }
@@ -18,104 +9,118 @@ body {
     border-color: $primary;
 }
 
-/*!* Nav Bar *!*/
-/*!* Override default padding for menu items *!*/
-/*.nav-link {*/
-    /*padding-left: 0 !important;*/
-    /*padding-right: 0 !important;*/
-/*}*/
+// Rotate accordion buttons (icons in top-right corner)
+.btn-link:focus, .btn-link.focus, .btn-link:hover, btn-link.hover {
+    text-decoration: none;
+    box-shadow: none;
+}
+
+[data-toggle="collapse"][aria-expanded="true"] .rotate-if-collapsed
+{
+    -webkit-transform: rotate(180deg);
+    -moz-transform:    rotate(180deg);
+    -ms-transform:     rotate(180deg);
+    -o-transform:      rotate(180deg);
+    transform:         rotate(180deg);
+}
+
+// Nav Bar
+// Override default padding for menu items
+.nav-link {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+// Text Display Classes
+.display-1 {
+    font-size: 3.75rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-2 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-3 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-4 {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-5 {
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-6 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .display-sm-4 {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
+    .display-sm-5 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
 
 
-/*!* Text Display Classes *!*/
-/*.display-1 {*/
-    /*font-size: 6rem;*/
-    /*font-weight: 300;*/
-    /*line-height: 1.2;*/
-/*}*/
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
 
-/*.display-2 {*/
-    /*font-size: 5.5rem;*/
-    /*font-weight: 300;*/
-    /*line-height: 1.2;*/
-/*}*/
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
 
-/*.display-3 {*/
-    /*font-size: 4.5rem;*/
-    /*font-weight: 300;*/
-    /*line-height: 1.2;*/
-/*}*/
+}
 
-/*.display-4 {*/
-    /*font-size: 3.5rem;*/
-    /*font-weight: 300;*/
-    /*line-height: 1.2;*/
-/*}*/
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
 
-/*.display-5 {*/
-    /*font-size: 2.5rem;*/
-    /*font-weight: 300;*/
-    /*line-height: 1.2;*/
-/*}*/
+}
 
-/*.display-6 {*/
-    /*font-size: 1.5rem;*/
-    /*font-weight: 300;*/
-    /*line-height: 1.2;*/
-/*}*/
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
 
-/*!* Extra small devices (portrait phones, less than 576px) *!*/
-/*!* No media query for `xs` since this is the default in Bootstrap *!*/
+}
 
-/*!* Small devices (landscape phones, 576px and up) *!*/
-/*@media (min-width: 576px) {*/
-    /*.display-sm-4 {*/
-        /*font-size: 3.5rem;*/
-        /*font-weight: 300;*/
-        /*line-height: 1.2;*/
-    /*}*/
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
 
-    /*.display-sm-5 {*/
-        /*font-size: 2.5rem;*/
-        /*font-weight: 300;*/
-        /*line-height: 1.2;*/
-    /*}*/
-/*}*/
-
-/*!* Medium devices (tablets, 768px and up) *!*/
-/*@media (min-width: 768px) {*/
-
-/*}*/
-
-/*!* Large devices (desktops, 992px and up) *!*/
-/*@media (min-width: 992px) {*/
-
-/*}*/
-
-/*!* Extra large devices (large desktops, 1200px and up) *!*/
-/*@media (min-width: 1200px) {*/
-
-/*}*/
-
-
-/*!* Extra small devices (portrait phones, less than 576px) *!*/
-/*!* No media query for `xs` since this is the default in Bootstrap *!*/
-
-/*!* Small devices (landscape phones, 576px and up) *!*/
-/*@media (min-width: 576px) {*/
-
-/*}*/
-
-/*!* Medium devices (tablets, 768px and up) *!*/
-/*@media (min-width: 768px) {*/
-
-/*}*/
-
-/*!* Large devices (desktops, 992px and up) *!*/
-/*@media (min-width: 992px) {*/
-
-/*}*/
-
-/*!* Extra large devices (large desktops, 1200px and up) *!*/
-/*@media (min-width: 1200px) {*/
-
-/*}*/
+}
