@@ -1,0 +1,10 @@
+## QuickBooks Integration Config
+#quickbooks:
+#    quickbooks_auth_url: '%env(QUICKBOOKS_AUTH_URL)%'
+#    quickbooks_token_url: '%env(QUICKBOOKS_TOKEN_URL)%'
+#    quickbooks_oauth_scope: '%env(QUICKBOOKS_OAUTH_SCOPE)%'
+#    quickbooks_oauth_redirect_url: '%env(QUICKBOOKS_OAUTH_REDIRECT_URL)%'
+#    quickbooks_client_id: '%env(QUICKBOOKS_CLIENT_ID)%'
+#    quickbooks_secret: '%env(QUICKBOOKS_SECRET)%'
+#
+#services: ~

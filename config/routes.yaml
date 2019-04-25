@@ -4,6 +4,9 @@ home:
 landing-page:
     path: /landing-page
     controller: CleanGutter\Controller\DefaultController::getLandingPage
+frequently-asked-questions:
+    path: /faq
+    controller: CleanGutter\Controller\DefaultController::getFaq
 
 # SEO Controller
 get_sitemap_xml:
