@@ -61,7 +61,6 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 
 			// compile footer menu
 			$footerMenu = new Menu(
-				new MenuItem('contact', 'Contact Us'),
 				new MenuItem('terms-of-service', 'Terms of Service'),
 				new MenuItem('privacy-policy', 'Privacy Policy')
 			);

@@ -1,5 +1,4 @@
 /* Site-wide variables */
-
 $theme-colors: (
         "primary": #1b3061,
         "secondary": #021859,
@@ -7,4 +6,16 @@ $theme-colors: (
         "light": #fff,
         "info": #1b3061,
         "danger": #8D1B23,
+        "gold": #D2AF00
 );
+
+$h1-font-size: 2.15rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.8rem;
+$h4-font-size: 1.55rem;
+$h5-font-size: 1.35rem;
+$h6-font-size: 1.2rem;
+
+$navbar-light-color: #1b3061;
+$navbar-light-active-color: #8D1B23;
+$navbar-light-hover-color: #8D1B23;

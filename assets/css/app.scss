@@ -1,14 +1,28 @@
+//@import "parts/logo";
+
 @import "partials/variables";
 @import "global";
 @import "partials/type";
-@import "parts/logo";
+
 
 .border-dashed {
-    border: dashed 6px;
+    border: dashed 0.3rem;
 }
 
 .border-primary {
     border-color: $primary;
+}
+
+.text-gold {
+    color: theme-color("gold");
+}
+
+.text-link {
+    color: theme-color("danger");
+}
+
+.text-link:hover {
+    color: color("primary");
 }
 
 // Rotate accordion buttons (icons in top-right corner)
@@ -31,48 +45,55 @@
 .nav-link {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    padding: 0.2rem 1rem !important;
+    line-height: 2rem;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: theme-color($key: "primary")
+    color: theme-color("primary");
 }
 
-// Text Display Classes
-.display-1 {
-    font-size: 3.75rem;
-    font-weight: 300;
-    line-height: 1.2;
+// Google Map embed
+#google-map-embed {
+    max-width: 100%;
 }
 
-.display-2 {
-    font-size: 3rem;
-    font-weight: 300;
-    line-height: 1.2;
-}
-
-.display-3 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    line-height: 1.2;
-}
-
-.display-4 {
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 1.2;
-}
-
-.display-5 {
-    font-size: 1.75rem;
-    font-weight: 300;
-    line-height: 1.2;
-}
-
-.display-6 {
-    font-size: 1.5rem;
-    font-weight: 300;
-    line-height: 1.2;
-}
+//// Text Display Classes
+//.display-1 {
+//    font-size: 3.75rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-2 {
+//    font-size: 3rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-3 {
+//    font-size: 2.5rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-4 {
+//    font-size: 2rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-5 {
+//    font-size: 1.75rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-6 {
+//    font-size: 1.5rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
 
 // Site-wide Footer
 .footer {
@@ -85,23 +106,28 @@
     margin-left: 0;
 }
 
+.footer-affiliate-logo {
+    max-width:50%;
+}
+
+//.footer-nav .nav-item a.nav-link {
+//    color: color("primary");
+//}
+//
+//.footer-nav .nav-item a.nav-link:active, .footer-nav .nav-item a.nav-link:hover {
+//    color: color("danger");
+//}
+
+.footer-section-header {
+    font-size: $h6-font-size;
+    color: theme-color("primary");
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-    .display-sm-4 {
-        font-size: 3.5rem;
-        font-weight: 300;
-        line-height: 1.2;
-    }
-
-    .display-sm-5 {
-        font-size: 2.5rem;
-        font-weight: 300;
-        line-height: 1.2;
-    }
-
     // Nav Bar
     ul.navbar-nav:not(.footer-nav) {
         background-color: rgba(0, 0, 0, 0.03);
