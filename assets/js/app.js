@@ -11,6 +11,7 @@ import VueAxios from 'vue-axios';
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.scss');
 
+require('jquery');
 require('tether');
 require('bootstrap');
 
@@ -24,9 +25,31 @@ const imagesContext = require.context('../img', true, /\.(png|jpg|jpeg|gif|ico|s
 imagesContext.keys().forEach(imagesContext);
 
 // initialize app
-window.app = new Vue({
-    el: '#app',
-    data: {
-        name: 'app'
-    }
+// window.app = new Vue({
+//     el: '#app',
+//     data: {
+//         name: 'app'
+//     }
+// });
+
+$(document).ready(function () {
+    // set active nav link
+    let pageParts = window.location.pathname.split('/');
+
+    $('ul.navbar-nav > li > a').each(function() {
+
+        let linkParts = $(this).attr('href').split('/');
+
+        if (pageParts.length === linkParts.length && pageParts.sort().every(function(value, index) { return value === linkParts.sort()[index]}) ) {
+
+            // set active link
+            $(this).addClass('active');
+            $(this).append( $('ul.navbar-nav li a span.sr-only') );
+
+
+
+        } else {
+            $(this).removeClass('active');
+        }
+    });
 });

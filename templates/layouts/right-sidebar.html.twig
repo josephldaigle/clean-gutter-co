@@ -1,38 +1,6 @@
 {# twig template #}
 {# Default layout for landing pages #}
 
-{# 1st Row, Main Header #}
-<div class="col-sm-12">
-    <div class="row h-100">
-        <div class="col-sm-4 d-none d-sm-block my-auto text-center text-sm-left">
-
-            {# Left edge header container#}
-            {# Recommend max-width of images: 200px #}
-            {% block layout_header_left %}{% endblock %}
-
-        </div>
-
-        <div class="col-sm-4 text-center mb-2 mb-sm-0">
-            {# Center container for the header #}
-            {% block layout_header_middle %}{% endblock%}
-        </div>
-
-        {# Service Areas #}
-
-        <div class="col-sm-4 text-center mb-2 mb-sm-0">
-
-            {# Right edge header container #}
-            {% block layout_header_right %}{% endblock %}
-
-        </div>
-
-    </div>
-</div>
-
- {#ROW-BREAK#}
-<div class="w-100"></div>
-
-
 {#PAGE TITLE#}
 <div class="col-12">
     <h1 class="display-5 text-left text-primary font-weight-bold my-5">

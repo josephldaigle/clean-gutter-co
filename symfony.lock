@@ -128,6 +128,9 @@
     "ocramius/proxy-manager": {
         "version": "2.1.1"
     },
+    "php-ds/php-ds": {
+        "version": "v1.2.0"
+    },
     "php-http/client-common": {
         "version": "1.9.1"
     },

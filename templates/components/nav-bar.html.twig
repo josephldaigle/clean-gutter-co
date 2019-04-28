@@ -1,27 +1,28 @@
-<div class="col-12 order-sm-last">
-    <nav class="navbar navbar-expand-sm d-sm-none navbar-light bg-white px-0 sticky-top">
+<div class="col-12">
+    <nav class="navbar navbar-expand-sm navbar-light sticky-top bg-white px-0 mt-4">
 
         {# Show logo in mobile navbar #}
         <a class="navbar-brand d-sm-none" href="/"><img id="logo" class="img-fluid d-md-none" src="{{ asset('build/assets/img/logo.png') }}" style=" max-width: 70px" alt="person cleaning gutters with vacuum" /></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cg-navbar" aria-controls="cg-navbar" aria-expanded="false" aria-label="Toggle navigation" disabled>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cg-navbar" aria-controls="#cg-navbar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="cg-navbar">
             <ul class="navbar-nav">
-                <li class="nav-item active text-left text-sm-center">
-                    <a class="nav-link pl-0" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item text-left text-sm-center">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item text-left text-sm-center">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item text-left text-sm-center">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
+
+                {% for menu_item in template_data.get('header_menu').fetchAll %}
+
+                    <li class="nav-item text-left text-sm-center">
+                        <a class="nav-link" href="{{ path(menu_item.routeName) }}">{{ menu_item.displayText }}
+                            {# add screen-reader indicator to first item #}
+                            {# indicator will move to correct position via js on docReady #}
+                            {% if loop.index == 0 %}<span class="sr-only">(current)</span>{% endif %}
+                        </a>
+                    </li>
+
+                {% endfor %}
+
             </ul>
         </div>
     </nav>

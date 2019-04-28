@@ -1,39 +1,26 @@
 {# twig template #}
 {% extends 'base.html.twig' %}
 
-
 {% block page_content %}
 
     {% embed 'layouts/right-sidebar.html.twig' %}
 
-        {% block layout_header_left %}
-            {% include 'components/header/logo.html.twig' %}
-        {% endblock %}
-
-        {% block layout_header_middle %}{% endblock%}
-
-        {% block layout_header_right %}
-            {% include 'components/header/call-now.html.twig' %}
-        {% endblock %}
-
         {% block layout_page_title %}
-            Looking for the Best Gutter Cleaner In Town?
-            <br class="d-md-none" />
-            Want the Job Done in the Next 72 Hours?
+            Looking For A Safe Way To Get Your Gutters Cleaned?
         {% endblock %}
 
         {% block layout_main_content %}
             <div class="col-12">
-                <h3 class="display-6">If you answered "YES", then you're in the right place! Schedule your free quote to discover how we're quickly re-defining what it means to have clean gutters.</h3>
+                <h3>Schedule your free quote to discover how we're quickly re-defining what it means to have clean gutters.</h3>
 
-                <p>Who Else Can Clean Your Gutters Without Ladders?</p>
-                    We can clean your gutters without climbing ladders, or walking on your roof. How? By utilizing a super-powered vacuum system to 'suck' the dirt out of your gutters. We can even record our work, using a wireless HD camera - so you can <a class="font-weight-bold text-danger" href="#video">see the results</a> first-hand! You really should <a class="font-weight-bold text-danger" href="#video">check it out</a> if you haven't seen it. We are a veteran owned business, and are fully licensed and insured, so you can count on us to get the job done right!</p>
+                <p>We can clean your gutters without climbing ladders, or walking on your roof. Have a 2 or 3 story house? no sweat - we've got you covered! How? We use a super-powered vacuum system to 'suck' the dirt out of your gutters. We can even record our work, using a wireless HD camera - so you can <a class="font-weight-bold text-danger" href="#video">see the results</a> first-hand! You really should <a class="font-weight-bold text-danger" href="#video">check it out!</a> It allows us to work safely on the ground, and still deliver the quality cleaning you deserve.</p>
 
-                {% include 'components/image-carousel.html.twig' %}
-                {% include 'components/media/video.html.twig' %}
+                <div class="mb-3">
+                    {% include 'components/image-carousel.html.twig' %}
+                </div>
 
                 <h3>How To Get Your Gutters Cleaned</h3>
-                <p>We've made it as simple as possible to schedule your next gutter cleaning. And we'll do it in as little as 72 hours! Just follow these 3 easy steps, and you're done!</p>
+                <p>We've made it as simple as possible to get your gutters cleaned, and we'll do it in as little as 72 hours! Just follow these 3 easy steps, and you're done!</p>
                 <div class="accordion w-100 mb-3" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -42,7 +29,6 @@
                                     <div class="col-12">
                                         <p class="display-6 d-inline">
                                             <i class="fa fa-check text-danger"></i>
-
                                             &emsp;Schedule Your Quote
                                         </p>
 
@@ -109,52 +95,7 @@
                     </div>
                 </div>
 
-                <h3>Why choose us?</h3>
-                <ol>
-                    <li>
-                        <h6>Service</h6>
-                        <p>As a veteran-owned small business, we are ingrained with a sense of service and community that drives us to provide the best gutter-cleaning experience possible. We believe you should be able to trust the person who works on your home, and that the job should be done right.</p>
-                    </li>
-                    <li>
-                        <h6>Safety</h6>
-                        <p>We clean using a special three-motor vacuum, that has the horse-power to extract the dirt and debris from your gutters, without someone needing to put ladders on your home or climb on your roof.</p>
-                    </li>
-
-                    <li>
-                        <h6>Trust</h6>
-                        <p>We clean using a high-powered, triple-motor vacuum, that can extract the dirt and debris from your gutters, without needing to put ladders on your home or climb on your roof.</p>
-                    </li>
-                </ol>
-
-
-
-                <h3>Your home is an important investment.</h3>
-                <p>It's likely your mortgage represents significant portion of your monthly expenses. And with so much at stake, your home's maintenance needs cannot be ignored.</p>
-                <p>That's why you should hire Clean Gutter Company to maintain your homes gutters.</p>
-                <p>We are a friendly, professional, and local gutter cleaning company, happily servicing Byron, Fort Valley, Warner Robins, Perry, and Macon.</p>
-
-
-                <h3>Cleaning gutters alone is dangerous.</h3>
-                <p>There are over 160,000 ER visits each year in the United States due to ladder-related injuries. That's A LOT of ladder falls.</p>
-                <p>It's also one of the reasons we don't use them.</p>
-                <p>We use a specialized, high-powered vacuum to suck the leaves right out of your gutters and into an enclosed container.</p>
-
-                <h3>Why use ladders, when the technology exists to clean gutters safely from the ground?</h3>
-                <p>Like I said, it's a game-changer. This vacuum has three motors, and can pick up gobs of dirt from 3 stories up! You have to see it to believe it. Just check out this quick video. The vacuum has an on-board camera that allows our technician to watch what he's doing, live and recorded. Learn More.</p>
-
-
-
-                {#<p>Clean Gutter Co is owned and operated by military veteran and Central-Georgia native, Joe Daigle. Joe aims to provide the most cost-effective, yet highly innovative and professional gutter cleaning service in Central Georgia.</p>#}
             </div>
-
-
-
-            {#<p>Our mission is to keep your home's gutters working properly, to ensure you don't experience any of the bad things that can happen when your gutters are clogged or dirty.</p>#}
-            {#<ul>#}
-                {#<li><strong>Insect infestations</strong></li>#}
-                {#<li><strong>Leaks, flooding or foundation problems</strong></li>#}
-                {#<li><strong>Rotting eaves or soffits</strong></li>#}
-            {#</ul>#}
 
         {% endblock %}
 
@@ -163,9 +104,6 @@
             <div class="w-100 mb-3"></div>
             {% include 'components/testimonials.html.twig' %}
         {% endblock %}
-
-
-
 
     {% endembed %}
 

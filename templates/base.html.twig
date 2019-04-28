@@ -24,7 +24,6 @@
 
     {#<meta name="theme-color" content="#fafafa">#}
 
-
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -39,8 +38,13 @@
 {# BODY BLOCK #}
 <div id="app">
 
+    {% set template_data = app.request.get('template_data') %}
+
     <div class="container-fluid col-md-10">
         <div class="row py-4">
+
+            {# Site Header #}
+            {% include 'components/header.html.twig' %}
 
             {# Site Wide Navigation Bar #}
             {% include 'components/nav-bar.html.twig' %}
@@ -48,10 +52,11 @@
             {# Override to impelement page body #}
             {% block page_content %}{% endblock %}
 
+            <div class="w-100 mb-3"></div>
+            {% include 'components/footer.html.twig' %}
+
         </div>
-
     </div>
-
 </div>
 
 {% block javascripts %}

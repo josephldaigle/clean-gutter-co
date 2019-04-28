@@ -1,30 +1,33 @@
 {# twig template #}
 {# Defines the site's header #}
 
-{# Header Bar #}
-{# Must be included within a .container #}
+<div class="col-sm-12 col-sm-2">
+    <div class="row h-100">
+        <div class="col-sm-4 d-none d-sm-block my-auto text-center text-sm-left">
 
-<div class="container-fluid m-auto py-3 px-0">
-    <div class="row">
-        {# Logo #}
-        {# Hidden on mobile - logo shows in navbar as < `sm` screen size #}
-        <div id="logo-container" class="col-sm-4 d-none d-sm-inline-block">
-            <img id="logo" src="{{ asset('build/assets/img/web-header-logo-bw-500X209.png') }}" alt="person cleaning gutters with vacuum" />
+            {# Left edge header container#}
+            {# Recommend max-width of images: 200px #}
+            {% block header_left %}
+                {% include 'components/header/logo.html.twig' %}
+            {% endblock %}
+
         </div>
 
-        {# Call To Action #}
-        <div id="header-cta-container" class="col-sm-4">
-            <a href="#" class="text-capitalize">Act Now To Take Advantage Of <span class="text-uppercase">LIMITED TIME Offer!</span></a>
-            <p class="text-capitalize hidden-sm-down mb-0">Proudly <span class="font-weight-bold font-italic">veteran</span>-owned and operated.</p>
+        <div class="col-sm-4 text-center mb-2 mb-sm-0">
+            {# Center container for the header #}
+            {% block header_middle %}{% endblock%}
         </div>
 
         {# Service Areas #}
-        <div id="header-service-areas" class="col-sm-4">
-            <p class="mb-1">Check Availability:</p>
-            {# Service area address search #}
-            <form>
-                <input id="cd-nav-service-locator" name="nav_service_locator" class="form-control" type="text" placeholder="555 Somerset Ln" />
-            </form>
+
+        <div class="col-sm-4 text-center mb-2 mb-sm-0">
+
+            {# Right edge header container #}
+            {% block header_right %}
+                {% include 'components/header/call-now.html.twig' %}
+            {% endblock %}
+
         </div>
+
     </div>
 </div>

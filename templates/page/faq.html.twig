@@ -21,7 +21,8 @@
 
         {% block layout_main_content %}
 
-            <div class="accordion w-100 mb-3" id="faq-accordion">
+            <div class="col-12">
+                <div class="accordion w-100 mb-3" id="faq-accordion">
 
                 {% for question in questions %}
 
@@ -29,12 +30,14 @@
                         <div class="card-header" id="heading{{ loop.index }}">
                             <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" {% if loop.first %}aria-expanded="true"{% endif %} aria-controls="collapse{{ loop.index }}">
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-10">
 
                                         <h4 class="display-6 d-inline">
                                             {{ question.question }}
                                         </h4>
 
+                                    </div>
+                                    <div class="col-2 my-auto">
                                         <div class="d-inline">
                                             <i class="float-right fas fa-caret-up fa-2x rotate-if-collapsed" style="line-height:50%"></i>
                                         </div>
@@ -54,6 +57,7 @@
 
                 {% endfor %}
 
+            </div>
             </div>
 
         {% endblock %}

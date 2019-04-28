@@ -1,4 +1,6 @@
+@import "partials/variables";
 @import "global";
+@import "partials/type";
 @import "parts/logo";
 
 .border-dashed {
@@ -10,7 +12,7 @@
 }
 
 // Rotate accordion buttons (icons in top-right corner)
-.btn-link:focus, .btn-link.focus, .btn-link:hover, btn-link.hover {
+.btn-link:focus, .btn-link.focus, .btn-link:hover, .btn-link:hover {
     text-decoration: none;
     box-shadow: none;
 }
@@ -29,6 +31,10 @@
 .nav-link {
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: theme-color($key: "primary")
 }
 
 // Text Display Classes
@@ -68,6 +74,17 @@
     line-height: 1.2;
 }
 
+// Site-wide Footer
+.footer {
+    //padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
@@ -83,6 +100,21 @@
         font-size: 2.5rem;
         font-weight: 300;
         line-height: 1.2;
+    }
+
+    // Nav Bar
+    ul.navbar-nav:not(.footer-nav) {
+        background-color: rgba(0, 0, 0, 0.03);
+        min-width: 100%;
+    }
+
+    ul.navbar-nav:not(.footer-nav) li.nav-item{
+        float: left;
+        padding: 0px 11px 0px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        width: 100%;
     }
 }
 
