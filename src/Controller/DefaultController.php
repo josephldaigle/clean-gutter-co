@@ -55,10 +55,10 @@ class DefaultController extends AbstractController
 			],
 			[
 				'question' => 'What kind of insurance do we have?',
-				'answer' => 'We carry a general liability policy from Hiscox Insurance Company, Inc. It covers any accidental damages to your home, and some bodily injury.'
+				'answer' => 'We carry a general liability policy from <a class="text-link"" href="https://www.hiscox.com/">Hiscox Insurance Company, Inc.</a> It covers any accidental damages to your home, and some bodily injury. You can <a class="text-link" data-toggle="modal" data-target="#insuranceCertModal" href="#insuranceCertModal">view our Coverage Certification here.</a>'
 			],
 			[
-				'question' => 'Do You have to be home when we clean your gutters?',
+				'question' => 'Do you have to be home when we clean your gutters?',
 				'answer' => 'Not necessarily. As long as we can access all of your gutters, and you don\'t have any free-roaming animals, we should be able to complete the job without you being home. We\'ll email you the invoice, and you can pay online.'
 			],
 			[

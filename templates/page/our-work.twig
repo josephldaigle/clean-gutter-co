@@ -1,0 +1,30 @@
+{# twig template #}
+{% extends 'base.html.twig' %}
+
+
+{% block page_content %}
+
+    {% embed 'layouts/right-sidebar.html.twig' %}
+
+        {% block layout_page_title %}Quality You Can Count On.{% endblock %}
+
+        {% block layout_main_content %}
+            <div class="col-12">
+                {# TODO: Implement #}
+
+            </div>
+
+        {% endblock %}
+
+        {% block layout_sbr %}
+            {% include 'components/forms/quote-request.html.twig' %}
+            <div class="w-100 mb-3"></div>
+            {% include 'components/testimonials.html.twig' %}
+        {% endblock %}
+
+
+
+
+    {% endembed %}
+
+{% endblock %}
