@@ -9,6 +9,7 @@ namespace CleanGutter\Http\Event;
 
 use CleanGutter\CMS\Model\Menu\Menu;
 use CleanGutter\CMS\Model\Menu\MenuItem;
+use CleanGutter\Services\Review\CustomerReview;
 use Ds\Map;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -65,6 +66,12 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 				new MenuItem('privacy-policy', 'Privacy Policy')
 			);
 			$templateDataMap->put('footer_menu', $footerMenu);
+
+			$reviews = [];
+			$reviews[] = new CustomerReview(5, 5, 'Claire', 'Joe cleaned my gutters the same day I called. He showed me a live video of the gutters being cleaned, so I could see the results for myself! The price was right, and the service was excellent. Will definitely use again.', 'Google', 'https://goo.gl/maps/DdmUs9bmt7w2HtPc6');
+			$reviews[] = new CustomerReview(5, 5, 'Mike', 'I hired Joe after being referred by my daughter. He did a great job and was even able to schedule me before the weekend.', 'Google', 'https://goo.gl/maps/c6ecZKwXd3kx4h8t5');
+
+			$templateDataMap->put('reviews', $reviews);
 
 			$request->attributes->set('template_data', $templateDataMap);
 

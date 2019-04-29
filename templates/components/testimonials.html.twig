@@ -4,31 +4,49 @@
     <div class="card testimonial">
         <h5 class="card-header text-primary text-center">Our Reviews</h5>
 
-         {#USER ICON#}
-        <i class="fas fa-user-circle text-center text-primary fa-5x mt-4"></i>
+            <div class="row">
+                <div class="card-body">
+                    {# USER ICON #}
+                    <i class="fas fa-user-circle d-block text-center text-primary fa-5x mt-4"></i>
 
-         {#REVIEW RATING#}
-        <div class="card-body">
-            <div id="review-rating" class="card-title text-center">
-                <i class="fas fa-star text-gold"></i>
-                <i class="fas fa-star text-gold"></i>
-                <i class="fas fa-star text-gold"></i>
-                <i class="fas fa-star text-gold"></i>
-                <i class="fas fa-star text-gold"></i>
+                    {# Carousel #}
+                    <div class="col-12">
+                        <div id="cg-review-carousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+                            <ol class="carousel-indicators">
+
+                                {% for i in 1..(template_data.get('reviews') | length) %}
+                                    <li data-target="#cg-review-carousel" data-slide-to="{{ loop.index }}" class="text-primary {% if loop.first %}{{ 'active' }}{% endif %}"></li>
+                                {% endfor %}
+
+                            </ol>
+
+                            <div class="carousel-inner">
+                                {% for review in template_data.get('reviews') %}
+
+                                    <div class="carousel-item pt-3 {% if loop.first %}{{ 'active' }}{% endif %}">
+
+                                        <div id="review-rating mt-3" class="text-center">
+                                            {% for i in 1..review.reviewScale %}
+                                                <i class="fas fa-star {% if loop.index <= review.reviewScore %}{{ 'text-gold' }}{% endif %}"></i>
+                                            {% endfor %}
+                                        </div>
+
+                                        <blockquote class="blockquote text-left">
+                                            <p class="mt-3">{{ review.review }}</p>
+
+                                            <footer class="blockquote-footer text-right">
+                                                <span class="text-primary">{{ review.reviewerName }} via</span>
+                                                <a href="{{ review.sourceUrl }}"><cite title="{{ review.sourceName }}">{{ review.sourceName }}</cite></a>
+                                            </footer>
+                                        </blockquote>
+
+                                    </div>
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-             {#REVIEW TEXT#}
-            <div class="card-text ">
-                <blockquote class="blockquote text-left">
-                    <p>Joe cleaned my gutters the same day I called. He showed me a live video of the gutters being cleaned, so I could see the results for myself! The price was right, and the service was excellent. Will definitely use again.</p>
-
-                    <footer class="blockquote-footer text-right">
-                        <span class="text-primary">Claire via</span>
-                        <a href="https://bit.ly/2VPqhSV"><cite title="Google">Google</cite></a>
-                    </footer>
-                </blockquote>
-            </div>
-
-        </div>
     </div>
 </div>
