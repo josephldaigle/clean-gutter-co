@@ -53,20 +53,16 @@ class FormLead
         return $this;
     }
 
-	/**
-	 * @return mixed
-	 */
-	public function getEmail()
+	public function getEmail(): ?string
 	{
 		return $this->email;
 	}
 
-	/**
-	 * @param mixed $email
-	 */
-	public function setEmail( $email )
+	public function setEmail( $email ): self
 	{
 		$this->email = $email;
+
+		return $this;
 	}
 
     public function getAddress(): ?string

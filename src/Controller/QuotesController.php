@@ -48,9 +48,6 @@ class QuotesController extends AbstractController
 		$lead->setEmail($request->request->get('email'));
 		$lead->setAddress($request->request->get('address'));
 		$lead->setPhoneNumber($request->request->get('phone_number'));
-		$lead->setReason(
-			($request->request->get('reason') === '1') ? 'Unmaintained' : 'Maintained'
-		);
 
 		// tell Doctrine you want to (eventually) save the Product (no queries yet)
 		$entityManager->persist($lead);
