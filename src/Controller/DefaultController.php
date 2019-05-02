@@ -65,6 +65,10 @@ class DefaultController extends AbstractController
 			[
 				'question' => 'How often should you clean your gutters?',
 				'answer' => 'Generally, twice a year - in early autumn and before the spring rains. You may need more or less frequent cleanings depending on how many trees there are around your home. We\'ll provide you with a recommendation once we\'ve had a chance to view your property first-hand, and help you establish a regular cleaning schedule.'
+			],
+			[
+				'question' => 'What do you do with the trash from the gutter?',
+				'answer' => 'We take it with us. We don\'t leave bags of garbage by your mailbox or 
 			]
 		];
 
