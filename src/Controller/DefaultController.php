@@ -68,7 +68,7 @@ class DefaultController extends AbstractController
 			],
 			[
 				'question' => 'What do you do with the trash from the gutter?',
-				'answer' => 'We take it with us. We don\'t leave bags of garbage by your mailbox or 
+				'answer' => 'We take it with us. We won\'t dump it in your yard or leave it by the street.'
 			]
 		];
 
