@@ -14,9 +14,9 @@
                         <div id="cg-review-carousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                             <ol class="carousel-indicators">
 
-                                {% for i in 1..(template_data.get('reviews') | length) %}
-                                    <li data-target="#cg-review-carousel" data-slide-to="{{ loop.index }}" class="text-primary {% if loop.first %}{{ 'active' }}{% endif %}"></li>
-                                {% endfor %}
+                               {# {% for i in 1..(template_data.get('reviews') | length) %}#}
+                                    {#<li data-target="#cg-review-carousel" data-slide-to="{{ loop.index }}" class="text-primary {% if loop.first %}{{ 'active' }}{% endif %}"></li>#}
+                                {#{% endfor %}#}
 
                             </ol>
 

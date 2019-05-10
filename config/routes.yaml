@@ -1,9 +1,9 @@
 home:
     path: /
     controller: CleanGutter\Controller\DefaultController::getHome
-landing-page:
-    path: /landing-page
-    controller: CleanGutter\Controller\DefaultController::getLandingPage
+#landing-page:
+#    path: /landing-page
+#    controller: CleanGutter\Controller\DefaultController::getLandingPage
 frequently-asked-questions:
     path: /faq
     controller: CleanGutter\Controller\DefaultController::getFaq
