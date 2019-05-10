@@ -1,0 +1,51 @@
+{# twig template #}
+<div class="col-12">
+    <div class="row footer py-3">
+
+        {# COLUMN LEFT #}
+        <div class="col-12 col-sm-4">
+            <span class="footer-section-header">Pages & Links</span>
+            <hr />
+
+            <ul class="footer-nav navbar-nav">
+
+                {% for menu_item in template_data.get('footer_menu').fetchAll() %}
+
+                    <li class="nav-item text-left">
+                        <a class="nav-link" href="{{ path(menu_item.routeName) }}">{{ menu_item.displayText}}</a>
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        {# COLUMN MIDDLE #}
+        <div class="col-12 col-sm-4">
+            <span class="footer-section-header">Company</span>
+            <hr />
+
+            <ul class="footer-nav navbar-nav">
+                <li class="nav-item text-left">
+                    <a class="nav-link" href="{{ path('contact') }}">Contact Us</a>
+                </li>
+                <li class="nav-item text-left">
+                    <a class="nav-link" href="https://www.facebook.com/Clean-Gutter-Co-766713240388712" target="_blank">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {# COLUMN RIGHT #}
+        <div class="col-12 col-sm-4">
+            <span class="footer-section-header">Memberships & Affiliations</span>
+            <hr />
+
+            <a href="https://www.peachchamber.com/members/member/clean-gutter-co-840" target="_blank"><img id="logo" class="img-fluid footer-affiliate-logo" src="{{ asset('build/assets/img/PeachRegional-Logo-w300.jpg') }}" alt="Peach County Regional Chamber of Commerce Logo" /></a>
+
+        </div>
+
+    </div>
+</div>

@@ -1,9 +1,24 @@
 home:
     path: /
     controller: CleanGutter\Controller\DefaultController::getHome
-login_get:
-    path: /login
-    controller: CleanGutter\Controller\SecurityController::getLogin
+#landing-page:
+#    path: /landing-page
+#    controller: CleanGutter\Controller\DefaultController::getLandingPage
+frequently-asked-questions:
+    path: /faq
+    controller: CleanGutter\Controller\DefaultController::getFaq
+about-us:
+    path: /about
+    controller: CleanGutter\Controller\DefaultController::getAbout
+contact:
+    path: /contact
+    controller: CleanGutter\Controller\DefaultController::getContact
+terms-of-service:
+    path: /terms-of-service
+    controller: CleanGutter\Controller\DefaultController::getTermsOfService
+privacy-policy:
+    path: /privacy-policy
+    controller: CleanGutter\Controller\DefaultController::getPrivacyPolicy
 
 # SEO Controller
 get_sitemap_xml:

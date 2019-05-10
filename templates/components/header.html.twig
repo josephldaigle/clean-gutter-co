@@ -1,0 +1,33 @@
+{# twig template #}
+{# Defines the site's header #}
+
+<div class="col-sm-12 col-sm-2">
+    <div class="row h-100">
+        <div class="col-sm-4 d-none d-sm-block my-auto text-center text-sm-left">
+
+            {# Left edge header container#}
+            {# Recommend max-width of images: 200px #}
+            {% block header_left %}
+                {% include 'components/header/logo.html.twig' %}
+            {% endblock %}
+
+        </div>
+
+        <div class="col-sm-4 text-center mb-2 mb-sm-0">
+            {# Center container for the header #}
+            {% block header_middle %}{% endblock%}
+        </div>
+
+        {# Service Areas #}
+
+        <div class="col-sm-4 text-center mb-2 mb-sm-0">
+
+            {# Right edge header container #}
+            {% block header_right %}
+                {% include 'components/header/call-now.html.twig' %}
+            {% endblock %}
+
+        </div>
+
+    </div>
+</div>

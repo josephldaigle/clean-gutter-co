@@ -1,6 +1,6 @@
 /* Landing page styles */
 #logo {
-  max-width: 200px;
+  max-width: 100%;
 }
 
 .testimonial > img {
@@ -70,10 +70,6 @@
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.2;
-}
-
-.border-dashed {
-  border: dashed 6px;
 }
 
 /* Bootstrap overrides */

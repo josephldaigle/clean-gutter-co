@@ -1,0 +1,184 @@
+//@import "parts/logo";
+
+@import "partials/variables";
+@import "global";
+@import "partials/type";
+
+
+.border-dashed {
+    border: dashed 0.3rem;
+}
+
+.border-primary {
+    border-color: $primary;
+}
+
+.text-gold {
+    color: theme-color("gold");
+}
+
+.text-link {
+    color: theme-color("danger");
+}
+
+.text-link:hover {
+    color: color("primary");
+}
+
+// Rotate accordion buttons (icons in top-right corner)
+.btn-link:focus, .btn-link.focus, .btn-link:hover, .btn-link:hover {
+    text-decoration: none;
+    box-shadow: none;
+}
+
+[data-toggle="collapse"][aria-expanded="true"] .rotate-if-collapsed
+{
+    -webkit-transform: rotate(180deg);
+    -moz-transform:    rotate(180deg);
+    -ms-transform:     rotate(180deg);
+    -o-transform:      rotate(180deg);
+    transform:         rotate(180deg);
+}
+
+// Nav Bar
+// Override default padding for menu items
+.nav-link {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding: 0.2rem 1rem !important;
+    line-height: 2rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: theme-color("primary");
+}
+
+// Google Map embed
+#google-map-embed {
+    width: 100%;
+}
+
+//// Text Display Classes
+//.display-1 {
+//    font-size: 3.75rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-2 {
+//    font-size: 3rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-3 {
+//    font-size: 2.5rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-4 {
+//    font-size: 2rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-5 {
+//    font-size: 1.75rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+//
+//.display-6 {
+//    font-size: 1.5rem;
+//    font-weight: 300;
+//    line-height: 1.2;
+//}
+
+// Site-wide Footer
+.footer {
+    //padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.footer-affiliate-logo {
+    max-width:50%;
+}
+
+//.footer-nav .nav-item a.nav-link {
+//    color: color("primary");
+//}
+//
+//.footer-nav .nav-item a.nav-link:active, .footer-nav .nav-item a.nav-link:hover {
+//    color: color("danger");
+//}
+
+.footer-section-header {
+    font-size: $h6-font-size;
+    color: theme-color("primary");
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    // Nav Bar
+    ul.navbar-nav:not(.footer-nav) {
+        background-color: rgba(0, 0, 0, 0.03);
+        min-width: 100%;
+    }
+
+    ul.navbar-nav:not(.footer-nav) li.nav-item{
+        float: left;
+        padding: 0px 11px 0px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        width: 100%;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

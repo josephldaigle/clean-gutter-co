@@ -128,6 +128,9 @@
     "ocramius/proxy-manager": {
         "version": "2.1.1"
     },
+    "php-ds/php-ds": {
+        "version": "v1.2.0"
+    },
     "php-http/client-common": {
         "version": "1.9.1"
     },
@@ -297,6 +300,15 @@
             "branch": "master",
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
+    },
+    "symfony/messenger": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "f11dfa18618a8a5dd853ea3a302db2e0557e031c"
         }
     },
     "symfony/monolog-bridge": {

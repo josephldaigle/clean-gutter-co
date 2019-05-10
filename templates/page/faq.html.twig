@@ -1,0 +1,76 @@
+{# twig template #}
+{% extends 'base.html.twig' %}
+
+{% block page_content %}
+
+    {% embed 'layouts/right-sidebar.html.twig' %}
+
+        {% block layout_header_left %}
+            {% include 'components/header/logo.html.twig' %}
+        {% endblock %}
+
+        {% block layout_header_middle %}{% endblock%}
+
+        {% block layout_header_right %}
+            {% include 'components/header/call-now.html.twig' %}
+        {% endblock %}
+
+        {% block layout_page_title %}
+            Get Answers To All You Gutter Cleaning Questions
+        {% endblock %}
+
+        {% block layout_main_content %}
+
+            <div class="col-12">
+                <div class="accordion w-100 mb-3" id="faq-accordion">
+
+                {% for question in questions %}
+
+                    <div class="card">
+                        <div class="card-header" id="heading{{ loop.index }}">
+                            <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" {% if loop.first %}aria-expanded="true"{% endif %} aria-controls="collapse{{ loop.index }}">
+                                <div class="row">
+                                    <div class="col-10">
+
+                                        <h5 class="d-inline">
+                                            {{ question.question }}
+                                        </h5>
+
+                                    </div>
+                                    <div class="col-2 my-auto">
+                                        <div class="d-inline">
+                                            <i class="float-right fas fa-caret-down fa-2x rotate-if-collapsed" style="line-height:50%"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div id="collapse{{ loop.index }}" class="collapse {% if loop.first %}show{% endif %}" aria-labelledby="heading{{ loop.index }}" data-parent="#faq-accordion">
+                            <div class="card-body">
+
+                                <p>{{ question.answer | raw }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                </div>
+            </div>
+
+        {% endblock %}
+
+        {% block layout_sbr %}
+            {% include 'components/forms/quote-request.html.twig' %}
+            <div class="w-100 mb-3"></div>
+            {% include 'components/testimonials.html.twig' %}
+        {% endblock %}
+
+    {% endembed %}
+
+    {% include 'components/media/insurance-certificate.html.twig' %}
+    {% include 'components/modals/vacuum-video.html.twig' %}
+
+{% endblock %}

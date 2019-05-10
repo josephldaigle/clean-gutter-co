@@ -36,11 +36,6 @@ class FormLead
      */
     private $phone_number;
 
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-    private $reason;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -58,20 +53,16 @@ class FormLead
         return $this;
     }
 
-	/**
-	 * @return mixed
-	 */
-	public function getEmail()
+	public function getEmail(): ?string
 	{
 		return $this->email;
 	}
 
-	/**
-	 * @param mixed $email
-	 */
-	public function setEmail( $email )
+	public function setEmail( $email ): self
 	{
 		$this->email = $email;
+
+		return $this;
 	}
 
     public function getAddress(): ?string
@@ -94,18 +85,6 @@ class FormLead
     public function setPhoneNumber(string $phone_number): self
     {
         $this->phone_number = $phone_number;
-
-        return $this;
-    }
-
-    public function getReason(): ?string
-    {
-        return $this->reason;
-    }
-
-    public function setReason(string $reason): self
-    {
-        $this->reason = $reason;
 
         return $this;
     }

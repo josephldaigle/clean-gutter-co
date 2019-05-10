@@ -20,9 +20,9 @@
     {#<link rel="manifest" href="site.webmanifest">#}
     {#<link rel="apple-touch-icon" href="icon.png">#}
     <link rel="icon" href="{{ absolute_url('favicon-home.ico') }}">
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     {#<meta name="theme-color" content="#fafafa">#}
-
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -30,62 +30,38 @@
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLBJX33"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
 {# BODY BLOCK #}
 <div id="app">
 
+    {% set template_data = app.request.get('template_data') %}
+
     <div class="container-fluid col-md-10">
-        <div class="row">
+        <div class="row py-4">
 
-            {% include 'parts/nav-bar.html.twig' %}
+            {# Site Header #}
+            {% include 'components/header.html.twig' %}
 
-            {# Include Header #}
-            {#{% include 'parts/header.html.twig' %}#}
+            {# Site Wide Navigation Bar #}
+            {% include 'components/nav-bar.html.twig' %}
 
-            {# Implementer responsible for .row(s) #}
-
-            {# Include the layout to use #}
+            {# Override to impelement page body #}
             {% block page_content %}{% endblock %}
 
+            <div class="w-100 mb-3"></div>
+            {% include 'components/footer.html.twig' %}
+
         </div>
-
     </div>
-
 </div>
 
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
-
-<!--[if IE]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
-    your browser</a> to improve your experience and security.</p>
-<![endif]-->
-
-<!-- Add your site or application content here -->
-
-{#<script src="js/vendor/modernizr-{{ MODERNIZR_VERSION }}.min.js"></script>#}
-{#<script src="https://code.jquery.com/jquery-{{ JQUERY_VERSION }}.min.js" integrity="{{ JQUERY_SRI_HASH }}"#}
-{#crossorigin="anonymous"></script>#}
-{#<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{ JQUERY_VERSION }}.min.js"><\/script>')</script>#}
-{#<script src="js/plugins.js"></script>#}
-{#<script src="js/main.js"></script>#}
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-134700346-1');
-</script>
-
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </body>
 
