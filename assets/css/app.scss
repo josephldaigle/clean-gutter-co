@@ -58,6 +58,10 @@
     width: 100%;
 }
 
+#vacuum-vid-modal > .modal-dialog[role="document"] {
+    min-width: 60%;
+}
+
 //// Text Display Classes
 //.display-1 {
 //    font-size: 3.75rem;
