@@ -9,7 +9,7 @@
 
             <ul class="footer-nav navbar-nav">
 
-                {% for menu_item in template_data.get('footer_menu').fetchAll() %}
+                {% for menu_item in template_data.get('menus').get('footer_menu') %}
 
                     <li class="nav-item text-left">
                         <a class="nav-link" href="{{ path(menu_item.routeName) }}">{{ menu_item.displayText}}</a>

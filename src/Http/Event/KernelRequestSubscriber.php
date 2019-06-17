@@ -7,13 +7,19 @@
 
 namespace CleanGutter\Http\Event;
 
-use CleanGutter\CMS\Model\Menu\Menu;
-use CleanGutter\CMS\Model\Menu\MenuItem;
-use CleanGutter\Services\Review\CustomerReview;
+
+use CleanGutter\Http\Model\TemplateDataProviderInterface;
 use Ds\Map;
+use mysql_xdevapi\Exception;
+use Psr\Log\LoggerInterface;
+use SebastianBergmann\GlobalState\RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\Security\Csrf\CsrfToken;
+use Symfony\Component\Security\Csrf\CsrfTokenManager;
+
 
 /**
  * HtmlRequestSubscriber.
@@ -22,6 +28,34 @@ use Symfony\Component\HttpKernel\KernelEvents;
  */
 class KernelRequestSubscriber implements EventSubscriberInterface
 {
+	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
+
+	/**
+	 * @var CsrfTokenManager
+	 */
+	private $securityService;
+
+	/**
+	 * @var array
+	 */
+	private $templateDataProviders = [];
+
+	/**
+	 * KernelRequestSubscriber constructor.
+	 *
+	 * @param LoggerInterface               $logger
+	 * @param CsrfTokenManager              $securityService
+	 * @param TemplateDataProviderInterface ...$templateDataProviders an array of data providers
+	 */
+	public function __construct(LoggerInterface $logger, CsrfTokenManager $securityService, TemplateDataProviderInterface ...$templateDataProviders)
+	{
+		$this->logger = $logger;
+		$this->securityService = $securityService;
+		$this->templateDataProviders = $templateDataProviders;
+	}
 
 	/**
 	 * @inheritdoc
@@ -30,7 +64,8 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	{
 		return [
 			KernelEvents::REQUEST => [
-				['handleHtmlRequest', 0]
+				['handleHtmlRequest', 0],
+				['validateCsrfToken', 1]
 			]
 		];
 	}
@@ -39,6 +74,8 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	 * Add page data for requests with accept html header.
 	 *
 	 * @param GetResponseEvent $event
+	 *
+	 * @throws RuntimeException
 	 */
 	public function handleHtmlRequest(GetResponseEvent $event)
 	{
@@ -48,34 +85,60 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 
 		$request = $event->getRequest();
 
-		if (in_array('text/html', $request->getAcceptableContentTypes())) {
-			// request accepts html - add template data structure to the request
-			$templateDataMap = new Map();
-
-			// compile header menu
-			$headerMenu = new Menu(
-				new MenuItem('home', 'Home'),
-				new MenuItem('about-us', 'About Us'),
-				new MenuItem('frequently-asked-questions', 'FAQ')
-			);
-			$templateDataMap->put('header_menu', $headerMenu);
-
-			// compile footer menu
-			$footerMenu = new Menu(
-				new MenuItem('terms-of-service', 'Terms of Service'),
-				new MenuItem('privacy-policy', 'Privacy Policy')
-			);
-			$templateDataMap->put('footer_menu', $footerMenu);
-
-			$reviews = [];
-			$reviews[] = new CustomerReview(5, 5, 'Claire', 'Joe cleaned my gutters the same day I called. He showed me a live video of the gutters being cleaned, so I could see the results for myself! The price was right, and the service was excellent. Will definitely use again.', 'Google', 'https://goo.gl/maps/DdmUs9bmt7w2HtPc6');
-			$reviews[] = new CustomerReview(5, 5, 'Mike', 'I hired Joe after being referred by my daughter. He did a great job and was even able to schedule me before the weekend.', 'Google', 'https://goo.gl/maps/c6ecZKwXd3kx4h8t5');
-
-			$templateDataMap->put('reviews', $reviews);
-
-			$request->attributes->set('template_data', $templateDataMap);
-
+		// reject requests not having `text/html` accept header
+		if (! in_array('text/html', $request->getAcceptableContentTypes())) {
+			$this->logger->warning('Only requests with accept-content header `text\/html` should use ' . __CLASS__ . '.');
 			return;
 		}
+
+		// initialize template data for request
+		if (! $request->attributes->has('template_data')) {
+			$request->attributes->set('template_data', new Map());
+		}
+
+		if (! $request->attributes->get('template_data') instanceof Map) {
+			throw new RuntimeException('The value of template_data in the request is an invalid type.');
+		}
+
+		// call registered template data providers
+		foreach($this->templateDataProviders as $dataProvider) {
+			$dataProvider->getTemplateData($request);
+		}
+
+		return;
+	}
+
+	/**
+	 * @param GetResponseEvent $event
+	 */
+	public function validateCsrfToken(GetResponseEvent $event)
+	{
+		if (! $event->isMasterRequest()) {
+			return;
+		}
+
+		$request = $event->getRequest();
+
+		dump($request);
+		$id = '';
+		$token = $request->request->get('token');
+
+
+		// only validate for json POST requests
+		if (! ($request->getMethod() === 'POST')) {
+			return;
+		}
+
+		if (! 0 === strpos($request->headers->get('Content-Type'), 'application/json'))
+		{
+			return new JsonResponse(['message' => 'Unaccepted content type for POST request. Can only honor application/json.'], JsonResponse::HTTP_BAD_REQUEST);
+		}
+
+		if (! $this->securityService->isTokenValid(new CsrfToken($id, $token)))
+		{
+
+		}
+
+		return;
 	}
 }

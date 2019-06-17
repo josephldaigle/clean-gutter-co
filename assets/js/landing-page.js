@@ -23,7 +23,7 @@ $('#free-quote').off('submit').on('submit', function(event)
         // remove the form from the page and replace with some other content
         let parentEl = form.closest('.card');
         parentEl.find('.card-body:first-of-type').remove(); // remove form card
-        parentEl.find('.card-header').text('What now?');    // change card header
+        parentEl.find('.card-header').text('Great choice!');    // change card header
 
         parentEl.find('.card-body').toggleClass('d-none');  // show success card
 

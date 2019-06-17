@@ -36,35 +36,32 @@ class QuotesController extends AbstractController
 	 */
 	public function postFormLead(Request $request, ValidatorInterface $validator, EntityManagerInterface $entityManager, \Swift_Mailer $mailer, LoggerInterface $logger)
 	{
-//		dump($request, $validator, $lead);
-
-		// validate _csrf_token
-
 		// validate form input
 
 		// persist lead
-		$lead = new FormLead();
-		$lead->setName($request->request->get('name'));
-		$lead->setEmail($request->request->get('email'));
-		$lead->setAddress($request->request->get('address'));
-		$lead->setPhoneNumber($request->request->get('phone_number'));
+//		$lead = new FormLead();
+//		$lead->setName($request->request->get('name'));
+//		$lead->setEmail($request->request->get('email'));
+//		$lead->setAddress($request->request->get('address'));
+//		$lead->setPhoneNumber($request->request->get('phone_number'));
+//
+//		// tell Doctrine you want to (eventually) save the Product (no queries yet)
+//		$entityManager->persist($lead);
+//
+//		// actually executes the queries (i.e. the INSERT query)
+//		$entityManager->flush();
+//
+//		try {
+//			$message = (new \Swift_Message('New Gutter Quote Request'))
+//				->setFrom('joe@cleangutterco.com')
+//				->setTo('joe@cleangutterco.com')
+//				->setBody($this->renderView('email/admin/notify-quote-requested.html.twig', ['formLead' => $lead]), 'text/html');
+//			$mailer->send($message);
+//		} catch(\Exception $exception) {
+//			$logger->error($exception->getMessage(), ['context' => $exception->getTrace(), 'trace' => $exception->getTraceAsString()]);
+//		}
 
-		// tell Doctrine you want to (eventually) save the Product (no queries yet)
-		$entityManager->persist($lead);
-
-		// actually executes the queries (i.e. the INSERT query)
-		$entityManager->flush();
-
-		try {
-			$message = (new \Swift_Message('New Gutter Quote Request'))
-				->setFrom('joe@cleangutterco.com')
-				->setTo('joe@cleangutterco.com')
-				->setBody($this->renderView('email/admin/notify-quote-requested.html.twig', ['formLead' => $lead]), 'text/html');
-			$mailer->send($message);
-		} catch(\Exception $exception) {
-			$logger->error($exception->getMessage(), ['context' => $exception->getTrace(), 'trace' => $exception->getTraceAsString()]);
-		}
-
-		return new JsonResponse(['message' => 'Success! We will contact you soon to schedule your free quote.'], 200);
+		return new JsonResponse(['message' => 'This form is being worked on right now.'], 400);
+//		return new JsonResponse(['message' => 'Success! We will contact you soon to schedule your free quote.'], 200);
 	}
 }

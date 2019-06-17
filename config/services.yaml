@@ -18,7 +18,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     CleanGutter\:
         resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../src/{CMS,DependencyInjection,Entity,Http/Event/KernelRequestSubscriber.php,Migrations,Services/TemplateData/HtmlPageDataCompiler.php,Tests,Kernel.php}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class

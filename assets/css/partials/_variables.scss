@@ -9,13 +9,27 @@ $theme-colors: (
         "gold": #D2AF00
 );
 
-$h1-font-size: 2.15rem;
-$h2-font-size: 2rem;
-$h3-font-size: 1.8rem;
-$h4-font-size: 1.55rem;
-$h5-font-size: 1.35rem;
-$h6-font-size: 1.2rem;
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.35rem;
+$h3-font-size: 1.25rem;
+$h4-font-size: 1.1rem;
+$h5-font-size: 1rem;
+$h6-font-size: .90rem;
 
 $navbar-light-color: #1b3061;
 $navbar-light-active-color: #8D1B23;
 $navbar-light-hover-color: #8D1B23;
+
+
+// media breaks
+// Small devices (landscape phones, 576px and up)
+$media-break-small: 576px;
+
+// Medium devices (tablets, 768px and up)
+$media-break-medium: 768px;
+
+// Large devices (desktops, 992px and up)
+$media-break-large: 992px;
+
+// Extra large devices (large desktops, 1200px and up)
+$media-break-xlarge: 1200px;

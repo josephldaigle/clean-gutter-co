@@ -1,0 +1,3 @@
+services:
+    CleanGutter\CMS\CMS:
+        class: CleanGutter\CMS\CMS

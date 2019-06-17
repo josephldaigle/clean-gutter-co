@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="cg-navbar">
             <ul class="navbar-nav">
 
-                {% for menu_item in template_data.get('header_menu').fetchAll %}
+                {% for menu_item in template_data.get('menus').get('header_menu') %}
 
                     <li class="nav-item text-left text-sm-center">
                         <a class="nav-link" href="{{ path(menu_item.routeName) }}">{{ menu_item.displayText }}
