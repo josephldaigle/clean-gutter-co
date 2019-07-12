@@ -31,15 +31,12 @@ class QuotesController extends AbstractController
 	 * @param ValidatorInterface     $validator
 	 * @param EntityManagerInterface $entityManager
 	 * @param \Swift_Mailer          $mailer
+	 * @param LoggerInterface        $logger
 	 *
 	 * @return JsonResponse
 	 */
 	public function postFormLead(Request $request, ValidatorInterface $validator, EntityManagerInterface $entityManager, \Swift_Mailer $mailer, LoggerInterface $logger)
 	{
-//		dump($request, $validator, $lead);
-
-		// validate _csrf_token
-
 		// validate form input
 
 		// persist lead
@@ -62,9 +59,10 @@ class QuotesController extends AbstractController
 				->setBody($this->renderView('email/admin/notify-quote-requested.html.twig', ['formLead' => $lead]), 'text/html');
 			$mailer->send($message);
 		} catch(\Exception $exception) {
-			$logger->error($exception->getMessage(), ['context' => $exception->getTrace(), 'trace' => $exception->getTraceAsString()]);
+			$logger->error($exception->getMessage(), ['context' => $exception, 'trace' => $exception->getTrace()]);
 		}
 
+//		return new JsonResponse(['message' => 'This form is being worked on right now.'], 400);
 		return new JsonResponse(['message' => 'Success! We will contact you soon to schedule your free quote.'], 200);
 	}
 }

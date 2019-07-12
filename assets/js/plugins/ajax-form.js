@@ -31,6 +31,14 @@ let AjaxForm = {
         // gather form data
         let formData = new FormData(form[0]);
 
+        // invoke form data filter callback
+
+
+        // iterate form data
+        for(var pair of formData.entries()) {
+            console.log(pair[0]+ ', '+ pair[1]);
+        }
+
         // // trigger google analytics event
         // ga('send', {
         //     hitType: 'event',
@@ -63,9 +71,12 @@ let AjaxForm = {
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 if (jqXHR.status === 400) {
-                    errorCallback({'level': 'alert-danger', 'message': 'Unable to process form.'});
+                    console.error('400 response while submitting form.');
+                    console.info('Response: ', jqXHR);
+                    errorCallback({'level': 'alert-danger', 'message': 'Yikes! It looks like this is broken. You can still call us (478) 261-1140. We\'ll get this fixed soon.'});
                 } else {
-                    errorCallback({'level': 'alert-danger', 'message': 'This service is not available at the moment. Please call us to schedule a quote (478) 841-9797.'});
+                    console.error('Unknown error while submitting form.');
+                    errorCallback({'level': 'alert-danger', 'message': 'Yikes! It looks like this is broken. You can still call us (478) 261-1140. We\'ll get this fixed soon.'});
                 }
             });
         }
