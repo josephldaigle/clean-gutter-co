@@ -10,7 +10,6 @@ namespace CleanGutter\Http\Event;
 
 use CleanGutter\Http\Model\TemplateDataProviderInterface;
 use Ds\Map;
-use mysql_xdevapi\Exception;
 use Psr\Log\LoggerInterface;
 use SebastianBergmann\GlobalState\RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -87,7 +86,7 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 
 		// reject requests not having `text/html` accept header
 		if (! in_array('text/html', $request->getAcceptableContentTypes())) {
-			$this->logger->warning('Only requests with accept-content header `text\/html` should use ' . __CLASS__ . '.');
+			$this->logger->warning('Only requests with accept-content header `text/html` should use ' . __CLASS__ . '.');
 			return;
 		}
 
@@ -109,6 +108,8 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	}
 
 	/**
+	 * Validates csrf tokens for json form requests.
+	 *
 	 * @param GetResponseEvent $event
 	 */
 	public function validateCsrfToken(GetResponseEvent $event)
@@ -119,10 +120,8 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 
 		$request = $event->getRequest();
 
-		dump($request);
-		$id = '';
-		$token = $request->request->get('token');
-
+		$id = $request->request->get('form-name', '');
+		$token = $request->request->get('token', '');
 
 		// only validate for json POST requests
 		if (! ($request->getMethod() === 'POST')) {
@@ -131,12 +130,17 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 
 		if (! 0 === strpos($request->headers->get('Content-Type'), 'application/json'))
 		{
-			return new JsonResponse(['message' => 'Unaccepted content type for POST request. Can only honor application/json.'], JsonResponse::HTTP_BAD_REQUEST);
+			$event->setResponse(new JsonResponse(['message' => 'Unaccepted content type for POST request. Can only honor application/json.'], JsonResponse::HTTP_BAD_REQUEST));
+			return;
 		}
 
-		if (! $this->securityService->isTokenValid(new CsrfToken($id, $token)))
+		if (true !== $this->securityService->isTokenValid(new CsrfToken($id, $token)))
 		{
+			$this->logger->warning('Failed attempt to validate csrf token.', ['id' => $id, 'token' => $token]);
 
+			// bad request, return 400
+			$event->setResponse(new JsonResponse(['message' => 'Failed to validate the request: Invalid security token.'], JsonResponse::HTTP_BAD_REQUEST));
+			return;
 		}
 
 		return;

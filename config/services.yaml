@@ -28,3 +28,17 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    CleanGutter\Services\TemplateData\HtmlPageDataCompiler:
+        class: CleanGutter\Services\TemplateData\HtmlPageDataCompiler
+        arguments:
+            $cms: '@CleanGutter\CMS\CMS'
+#            $containerParams:
+#                google_place_api_key: '%google_place_api_key%'
+
+    CleanGutter\Http\Event\KernelRequestSubscriber:
+        class: CleanGutter\Http\Event\KernelRequestSubscriber
+        arguments:
+            $logger: '@logger'
+            $securityService: '@security.csrf.token_manager'
+            $templateDataProviders: ['@CleanGutter\Services\TemplateData\HtmlPageDataCompiler']

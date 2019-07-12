@@ -39,7 +39,7 @@ class HtmlPageDataCompiler implements TemplateDataProviderInterface
 	 * @param CMS    $cms
 	 * @param string ...$containerParams
 	 */
-	public function __construct(CMS $cms, array $containerParams)
+	public function __construct(CMS $cms, array $containerParams = [])
 	{
 		$this->cms       = $cms;
 		$this->containerParams = $containerParams;

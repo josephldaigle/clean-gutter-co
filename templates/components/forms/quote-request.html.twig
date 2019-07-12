@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-danger mt-3">Schedule Now
+                    <button type="submit" class="btn btn-danger mt-3">Get Free Quote
                         <span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                         <span class="sr-only">Loading...</span>
                     </button>
@@ -78,6 +78,9 @@
                             </div>
                         </div>
                     </div>
+
+                    <input type="hidden" name="token" value="{{ csrf_token('free-quote') }}"/>
+                    <input type="hidden" name="form-name" value="{{ 'free-quote' | raw }}"/>
 
                 </form>
 
