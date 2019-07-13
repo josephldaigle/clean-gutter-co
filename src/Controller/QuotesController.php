@@ -62,7 +62,6 @@ class QuotesController extends AbstractController
 			$logger->error($exception->getMessage(), ['context' => $exception, 'trace' => $exception->getTrace()]);
 		}
 
-//		return new JsonResponse(['message' => 'This form is being worked on right now.'], 400);
 		return new JsonResponse(['message' => 'Success! We will contact you soon to schedule your free quote.'], 200);
 	}
 }
