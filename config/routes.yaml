@@ -1,39 +1,52 @@
+# This file defines page routes for https://cleangutterco.com.
+
+################
+# PAGES        #
+################
+
+# Home
 home:
     path: /
     controller: CleanGutter\Controller\DefaultController::getHome
-#landing-page:
-#    path: /landing-page
-#    controller: CleanGutter\Controller\DefaultController::getLandingPage
+    methods: GET
+# FAQ
 frequently-asked-questions:
     path: /faq
     controller: CleanGutter\Controller\DefaultController::getFaq
+    methods: GET
+# About
 about-us:
-    path: /about
+    path: /about-clean-gutter-co
     controller: CleanGutter\Controller\DefaultController::getAbout
+    methods: GET
+# Contact
 contact:
-    path: /contact
+    path: /contact-a-gutter-pro
     controller: CleanGutter\Controller\DefaultController::getContact
+    methods: GET
+# Terms of Service
 terms-of-service:
     path: /terms-of-service
     controller: CleanGutter\Controller\DefaultController::getTermsOfService
+    methods: GET
+# Privacy Policy
 privacy-policy:
     path: /privacy-policy
     controller: CleanGutter\Controller\DefaultController::getPrivacyPolicy
+    methods: GET
 
 # SEO Controller
+
+# Sitemap
+get_sitemap:
+    path: /sitemap
+    controller: CleanGutter\Controller\SeoController::getSitemapXml
+    methods: GET
+# Redirect {.xml} to /sitemap
 get_sitemap_xml:
     path: /sitemap.xml
-    controller: CleanGutter\Controller\SeoController::getSitemapXml
-
-#kathleen:
-#    path: /kathleen
-#    controller: CleanGutter\Controller\DefaultController::city
-#bonaire:
-#    path: /bonaire
-#    controller: CleanGutter\Controller\DefaultController::city
-#perry:
-#    path: /perry
-#    controller: CleanGutter\Controller\DefaultController::city
-#fort-valley:
-#    path: /fort-valley
-#    controller: CleanGutter\Controller\DefaultController::city
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    methods: GET
+    defaults:
+        path: /sitemap
+        permanent: true
