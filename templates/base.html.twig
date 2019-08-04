@@ -1,17 +1,17 @@
 {# twig template #}
 
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="US-en">
 
 <head>
     <meta charset="utf-8">
 
     <title>
-        {% block doc_title %}
-            {{ 'Clean Gutter Co' }}
-        {% endblock %}
+        {% block page_title %}{{ 'Clean Gutter Co' }}{% endblock %}
     </title>
-    <meta name="description" content="">
+
+    <meta name="description" content="{% block page_meta_discription %}{{ 'Local, veteran-owned gutter cleaning service. No ladders & No mess. Licensed & Insured. Byron, Warner Robins & Fort Valley, Macon & Perry.' }}{% endblock %}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
@@ -28,15 +28,19 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'UA-134700346-1');
-    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {% if (app.environment == 'prod') %}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-134700346-1');
+        </script>
+    {% endif %}
+
 
 </head>
 

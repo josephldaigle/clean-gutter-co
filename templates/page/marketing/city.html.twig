@@ -1,0 +1,19 @@
+{# twig template #}
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ 'Clean Gutter Co - ' }}{{ template_data.location_keyword }}{% endblock %}
+{% block page_meta_discription %}{{ 'Local gutter cleaning service in ' }}{{ template_data.location_keyword }}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'layouts/single-col-center.html.twig' %}
+
+        {% block layout_main_content %}
+            {% include 'components/forms/quote-request.html.twig' %}
+        {% endblock %}
+
+    {% endembed %}
+
+    {% include 'components/modals/vacuum-video.html.twig' %}
+
+{% endblock %}
