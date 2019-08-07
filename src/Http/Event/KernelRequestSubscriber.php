@@ -47,7 +47,7 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	 *
 	 * @param LoggerInterface               $logger
 	 * @param CsrfTokenManager              $securityService
-	 * @param TemplateDataProviderInterface ...$templateDataProviders an array of data providers
+	 * @param TemplateDataProviderInterface ...$templateDataProviders
 	 */
 	public function __construct(LoggerInterface $logger, CsrfTokenManager $securityService, TemplateDataProviderInterface ...$templateDataProviders)
 	{
@@ -86,7 +86,6 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 
 		// reject requests not having `text/html` accept header
 		if (! in_array('text/html', $request->getAcceptableContentTypes())) {
-			$this->logger->warning('Only requests with accept-content header `text/html` should use ' . __CLASS__ . '.');
 			return;
 		}
 

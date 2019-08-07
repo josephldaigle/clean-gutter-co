@@ -35,7 +35,7 @@ class DefaultController extends AbstractController
 	 */
 	public function getLandingPage(Request $request)
 	{
-		return $this->render('default/landing-page-v1.html.twig', [
+		return $this->render('page/marketing/city.html.twig', [
 			'controller_name' => 'DefaultController'
 		]);
 	}

@@ -40,8 +40,6 @@ class ExceptionController extends TwigExceptionController
 
 		$code = $exception->getStatusCode();
 
-		dump($request);
-
 		return new Response($this->twig->render(
 			(string) $this->findTemplate($request, $request->getRequestFormat(), $code, $showException),
 			[

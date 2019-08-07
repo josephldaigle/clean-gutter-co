@@ -50,3 +50,25 @@ get_sitemap_xml:
     defaults:
         path: /sitemap
         permanent: true
+
+# Marketing
+
+# This route MUST be after all pages defined in it's `condition` property
+location_landing-page:
+    path: /gutter-cleaning/{location}
+    controller: CleanGutter\Controller\DefaultController::getLandingPage
+    condition: 'request.getPathInfo() matches "/gutter-cleaning\\\\byron|perry|warner-robins|fort-valley/"'
+    methods: GET
+
+#kathleen:
+#    path: /kathleen
+#    controller: CleanGutter\Controller\DefaultController::city
+#bonaire:
+#    path: /bonaire
+#    controller: CleanGutter\Controller\DefaultController::city
+#perry:
+#    path: /perry
+#    controller: CleanGutter\Controller\DefaultController::city
+#fort-valley:
+#    path: /fort-valley
+#    controller: CleanGutter\Controller\DefaultController::city

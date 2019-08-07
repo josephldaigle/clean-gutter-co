@@ -5,6 +5,7 @@
 import AjaxForm from './plugins/ajax-form';
 import Vue from 'vue';
 
+require('jquery');
 require('./app.js');
 require('../css/landing-page.scss');
 
@@ -53,4 +54,12 @@ $('#free-quote').off('submit').on('submit', function(event)
 
     // submit form
     AjaxForm.submit(event, successCallback, errorCallback);
+});
+
+$(document).ready(function () {
+    $('#request-quote-btn').on('click', function() {
+        console.log($('#form-card'));
+        $('#form-card').removeClass('hidden');
+        $('#request-quote-btn').addClass('hidden');
+    });
 });

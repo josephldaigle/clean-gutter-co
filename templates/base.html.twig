@@ -19,7 +19,7 @@
     <!-- Place favicon.ico in the root directory -->
     {#<link rel="manifest" href="site.webmanifest">#}
     {#<link rel="apple-touch-icon" href="icon.png">#}
-    <link rel="icon" href="{{ absolute_url('favicon-home.ico') }}">
+    <link rel="icon" href="{{ asset('favicon-home.ico') }}">
     <script src="https://www.youtube.com/iframe_api"></script>
 
     {#<meta name="theme-color" content="#fafafa">#}
@@ -29,7 +29,7 @@
     {% endblock %}
 
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {# Global site tag (gtag.js) - Google Analytics #}
     {% if (app.environment == 'prod') %}
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>
         <script>
@@ -59,16 +59,22 @@
         <div class="row py-4">
 
             {# Site Header #}
-            {% include 'components/header.html.twig' %}
+            {% block site_header %}
+                {% include 'components/header.html.twig' %}
+            {% endblock %}
 
             {# Site Wide Navigation Bar #}
-            {% include 'components/nav-bar.html.twig' %}
+            {% block site_navbar %}
+                {% include 'components/nav-bar.html.twig' %}
+            {% endblock %}
 
             {# Override to impelement page body #}
             {% block page_content %}{% endblock %}
 
-            <div class="w-100 mb-3"></div>
-            {% include 'components/footer.html.twig' %}
+            {% block site_footer %}
+                <div class="w-100 mb-3"></div>
+                {% include 'components/footer.html.twig' %}
+            {% endblock %}
 
         </div>
     </div>

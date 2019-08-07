@@ -1,19 +1,102 @@
 {# twig template #}
 {% extends 'base.html.twig' %}
 
-{% block page_title %}{{ 'Clean Gutter Co - ' }}{{ template_data.location_keyword }}{% endblock %}
-{% block page_meta_discription %}{{ 'Local gutter cleaning service in ' }}{{ template_data.location_keyword }}{% endblock %}
+{#{% block page_title %}{{ 'Clean Gutter Co - ' }}{{ template_data.location_keyword }}{% endblock %}#}
+{#{% block page_meta_discription %}{{ 'Local gutter cleaning service in ' }}{{ template_data.location_keyword }}{% endblock %}#}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('landing-page') }}
+{% endblock %}
+
+{% block site_header %}{% endblock %}
+{% block site_navbar %}{% endblock %}
 
 {% block page_content %}
 
     {% embed 'layouts/single-col-center.html.twig' %}
 
+        {# Allow layout to access macros #}
+        {% import 'page/page-macros.html.twig' as page_macros %}
+
         {% block layout_main_content %}
-            {% include 'components/forms/quote-request.html.twig' %}
+            <div class="row">
+                <div class="col-12">
+                    <a href="{{ url('home') }}">
+                    {{ page_macros.get_logo("p-3", "max-width: 120px; border-radius: .25rem; background-color:#fff;") }}
+                    </a>
+                </div>
+
+                <div class="w-100 m-3"></div>
+
+                {# Large Text Area#}
+                <div class="col-12 mb-5">
+                    <h1 class="display-5 text-white">
+                        {% if template_data.title is defined and (not template_data.title is same as('')) %}
+                            {{ template_data.title | e }}
+                        {% else %}
+                            {{ 'Speak to a gutter pro now!' }}
+                        {% endif %}
+                    </h1>
+
+                    <h2 class="text-white">
+                        {% if template_data.subTitle is defined and (not template_data.subTitle is same as('')) %}
+                            {{ template_data.subTitle | e }}
+                        {% else %}
+                            {{ 'We are standing by to take your call.' }}
+                        {% endif %}
+                    </h2>
+                </div>
+
+                <div class="col-12 col-sm-6 mt-5 pl-5 d-none d-sm-block">
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2">
+                            <i class="fa fa-check-circle text-warning fa-lg"></i>
+                            <span class="ml-3 grow-font-1">{{ 'Professional Service' }}</span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa fa-check-circle text-warning fa-lg"></i>
+                            <span class="ml-3 grow-font-1">{{ 'Licensed & Insured' }}</span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa fa-check-circle text-warning fa-lg"></i>
+                            <span class="ml-3 grow-font-1">{{ 'Veteran Owned' }}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-6 float-right mt-5">
+                    <div class="row">
+                        <div class="col-12 col-sm-10">
+                            <a class="btn btn-danger btn-lg w-100" role="button" href="tel:1-478-261-1140">Call Now</a>
+                        </div>
+
+                        <div class="col-12 col-sm-10 mt-3">
+                            <a id="request-quote-btn" class="btn btn-warning btn-lg w-100" href="#" role="button">Get Your Free Quote</a>
+                        </div>
+                    </div>
+                </div>
+
+                {# Quote Form #}
+                <div id="form-card" class="col-12 no-gutters mt-5 mt-md-0 hidden">
+
+                    <p class="text-white">Provide us with a few details, and we'll have gutter pro contact you today.</p>
+
+                    {% include 'components/forms/get-quote.html.twig' %}
+
+                </div>
+
+            </div>
+
         {% endblock %}
 
     {% endembed %}
 
     {% include 'components/modals/vacuum-video.html.twig' %}
 
+{% endblock %}
+
+{% block site_footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('landing-page') }}
 {% endblock %}

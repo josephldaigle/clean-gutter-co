@@ -4,6 +4,9 @@
 @import "global";
 @import "partials/type";
 
+.hidden {
+    display: none !important;
+}
 
 .border-dashed {
     border: dashed 0.3rem;
@@ -62,7 +65,7 @@
     min-width: 60%;
 }
 
-//// Text Display Classes
+// Text Display Classes
 //.display-1 {
 //    font-size: 3.75rem;
 //    font-weight: 300;
@@ -87,17 +90,17 @@
 //    line-height: 1.2;
 //}
 //
-//.display-5 {
-//    font-size: 1.75rem;
-//    font-weight: 300;
-//    line-height: 1.2;
-//}
-//
-//.display-6 {
-//    font-size: 1.5rem;
-//    font-weight: 300;
-//    line-height: 1.2;
-//}
+.display-5 {
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-6 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
 
 // Site-wide Footer
 .footer {
@@ -126,6 +129,11 @@
     font-size: $h6-font-size;
     color: theme-color("primary");
 }
+
+
+/************************
+* Media Queries
+************************/
 
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap

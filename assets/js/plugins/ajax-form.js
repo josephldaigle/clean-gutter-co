@@ -34,10 +34,10 @@ let AjaxForm = {
         // invoke form data filter callback
 
 
-        // iterate form data
-        for(var pair of formData.entries()) {
-            console.log(pair[0]+ ', '+ pair[1]);
-        }
+        // output form data to console
+        // for(var pair of formData.entries()) {
+        //     console.log(pair[0]+ ', '+ pair[1]);
+        // }
 
         // // trigger google analytics event
         // ga('send', {
