@@ -11,7 +11,7 @@ home:
     methods: GET
 # FAQ
 frequently-asked-questions:
-    path: /faq
+    path: /commonly-asked-gutter-questions
     controller: CleanGutter\Controller\DefaultController::getFaq
     methods: GET
 # About
@@ -21,7 +21,7 @@ about-us:
     methods: GET
 # Contact
 contact:
-    path: /contact-a-gutter-pro
+    path: /contact-clean-gutter-co
     controller: CleanGutter\Controller\DefaultController::getContact
     methods: GET
 # Terms of Service
@@ -57,7 +57,7 @@ get_sitemap_xml:
 location_landing-page:
     path: /gutter-cleaning/{location}
     controller: CleanGutter\Controller\DefaultController::getLandingPage
-    condition: 'request.getPathInfo() matches "/gutter-cleaning\\\\byron|perry|warner-robins|fort-valley/"'
+    condition: 'request.getPathInfo() matches "/gutter-cleaning\\\\|macon|perry|byron|warner-robins|fort-valley/"'
     methods: GET
 
 #kathleen:
