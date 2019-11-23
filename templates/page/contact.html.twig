@@ -1,21 +1,23 @@
 {# twig template #}
 {% extends 'base.html.twig' %}
 
+{% block page_title %}{{ 'Contact Us - Clean Gutter Co' }}{% endblock %}
+{% block page_meta_description %}{{ 'How To Contact Clean Gutter Company' }}{% endblock %}
+
 {% block page_content %}
 
     {% embed 'layouts/right-sidebar.html.twig' %}
 
         {% block layout_page_title %}
-            Drop Us A Line. We Love Hearing From Customers.
+            {{ 'Need To Contact A Gutter Cleaner?' }}
         {% endblock %}
 
         {% block layout_main_content %}
             <div class="col-12">
                 <div class="row">
                     <div class="col-6">
-                        <a href="tel:1-478-841-9797">
-                            <i class="fas fa-phone fa-2x text-danger"></i>
-                            &nbsp;(478) 841-9797
+                        <a href="tel:1-478-261-1140">
+                            <i class="fas fa-phone fa-2x text-danger"></i><div class="d-inline-block align-middle">&nbsp;{{ '(478) 261-1140' }}</div>
                         </a>
                     </div>
 

@@ -4,7 +4,7 @@
 
         {# COLUMN LEFT #}
         <div class="col-12 col-sm-4">
-            <span class="footer-section-header">Pages & Links</span>
+            <span class="footer-section-header">Resources</span>
             <hr />
 
             <ul class="footer-nav navbar-nav">
@@ -23,7 +23,7 @@
 
         {# COLUMN MIDDLE #}
         <div class="col-12 col-sm-4">
-            <span class="footer-section-header">Company</span>
+            <span class="footer-section-header">Organization</span>
             <hr />
 
             <ul class="footer-nav navbar-nav">
@@ -43,7 +43,21 @@
             <span class="footer-section-header">Memberships & Affiliations</span>
             <hr />
 
-            <a href="https://www.peachchamber.com/members/member/clean-gutter-co-840" target="_blank"><img id="logo" class="img-fluid footer-affiliate-logo" src="{{ asset('build/assets/img/PeachRegional-Logo-w300.jpg') }}" alt="Peach County Regional Chamber of Commerce Logo" /></a>
+            <!-- Better Business Bureau -->
+            <div class="row">
+                <div class="col-12">
+                    {% include 'external/better-business-bureau-seal.html.twig' %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <a href="https://www.peachchamber.com/members/member/clean-gutter-co-840" target="_blank"><img class="img-fluid footer-affiliate-logo" src="{{ asset('build/assets/img/PeachRegional-Logo-w300.jpg') }}" alt="Peach County Regional Chamber of Commerce Membership Seal" /></a>
+                </div>
+            </div>
+
+            <div class="w-100 mt-3"></div>
+
 
         </div>
 

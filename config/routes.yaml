@@ -1,29 +1,64 @@
+# This file defines page routes for https://cleangutterco.com.
+
+################
+# PAGES        #
+################
+
+# Home
 home:
     path: /
     controller: CleanGutter\Controller\DefaultController::getHome
-#landing-page:
-#    path: /landing-page
-#    controller: CleanGutter\Controller\DefaultController::getLandingPage
+    methods: GET
+# FAQ
 frequently-asked-questions:
-    path: /faq
+    path: /commonly-asked-gutter-questions
     controller: CleanGutter\Controller\DefaultController::getFaq
+    methods: GET
+# About
 about-us:
-    path: /about
+    path: /about-clean-gutter-co
     controller: CleanGutter\Controller\DefaultController::getAbout
+    methods: GET
+# Contact
 contact:
-    path: /contact
+    path: /contact-clean-gutter-co
     controller: CleanGutter\Controller\DefaultController::getContact
+    methods: GET
+# Terms of Service
 terms-of-service:
     path: /terms-of-service
     controller: CleanGutter\Controller\DefaultController::getTermsOfService
+    methods: GET
+# Privacy Policy
 privacy-policy:
     path: /privacy-policy
     controller: CleanGutter\Controller\DefaultController::getPrivacyPolicy
+    methods: GET
 
 # SEO Controller
+
+# Sitemap
+get_sitemap:
+    path: /sitemap
+    controller: CleanGutter\Controller\SeoController::getSitemapXml
+    methods: GET
+# Redirect {.xml} to /sitemap
 get_sitemap_xml:
     path: /sitemap.xml
-    controller: CleanGutter\Controller\SeoController::getSitemapXml
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    methods: GET
+    defaults:
+        path: /sitemap
+        permanent: true
+
+# Marketing
+
+# This route MUST be after all pages defined in it's `condition` property
+location_landing-page:
+    path: /gutter-cleaning/{location}
+    controller: CleanGutter\Controller\DefaultController::getLandingPage
+    condition: 'request.getPathInfo() matches "/gutter-cleaning\\\\|macon|perry|byron|warner-robins|fort-valley/"'
+    methods: GET
 
 #kathleen:
 #    path: /kathleen

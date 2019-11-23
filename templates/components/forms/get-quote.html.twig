@@ -1,0 +1,54 @@
+{# twig template #}
+
+<form id="free-quote" class="needs-validation" data-url="{{ absolute_url(path('quotes')) }}" data-method="POST" novalidate>
+    {# TODO: Convert to vue element for reactive-data binding #}
+    <div class="alert d-none" role="alert"></div>
+
+    <div class="form-row my-2 input-group">
+        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+        <div class="valid-feedback">
+            Ok.
+        </div>
+        <div class="invalid-feedback">
+            Please provide your name.
+        </div>
+    </div>
+    <div class="form-row my-2 input-group">
+        <input type="text" class="form-control" id="email" name="email" placeholder="john_doe@example.com" maxlength="64" pattern=".+@.+.com" required>
+        <div class="valid-feedback">
+            Ok.
+        </div>
+        <div class="invalid-feedback">
+            Please provide a valid email address.
+        </div>
+    </div>
+    <div class="form-row my-2 input-group">
+        <input type="text" class="form-control" id="address" name="address" placeholder="555 Mayweather Ln, Warner Robins, GA 31088" required>
+        <div class="valid-feedback">
+            Ok.
+        </div>
+        <div class="invalid-feedback">
+            Please provide a valid address.
+        </div>
+    </div>
+    <div class="form-row my-2 input-group">
+        <input type="tel" class="form-control" id="phone" name="phone_number" placeholder="(478) 555-5555" maxlength="10" pattern="^\d{10}$" required>
+        <div class="valid-feedback">
+            Ok.
+        </div>
+        <div class="invalid-feedback">
+            Please provide a valid phone number.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-danger mt-3">Get Free Quote
+        <span class="spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+        <span class="sr-only">Loading...</span>
+    </button>
+
+    {% include 'components/ssl-icon.html.twig' %}
+
+    <input type="hidden" name="token" value="{{ csrf_token('free-quote') }}"/>
+    <input type="hidden" name="form-name" value="{{ 'free-quote' | raw }}"/>
+
+</form>

@@ -1,17 +1,17 @@
 {# twig template #}
 
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="US-en">
 
 <head>
     <meta charset="utf-8">
 
     <title>
-        {% block doc_title %}
-            {{ 'Clean Gutter Co' }}
-        {% endblock %}
+        {% block page_title %}{{ 'Clean Gutter Co' }}{% endblock %}
     </title>
-    <meta name="description" content="">
+
+    <meta name="description" content="{% block page_meta_discription %}{{ 'Local, veteran-owned gutter cleaning service. No ladders & No mess. Licensed & Insured. Byron, Warner Robins & Fort Valley, Macon & Perry.' }}{% endblock %}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
@@ -19,7 +19,7 @@
     <!-- Place favicon.ico in the root directory -->
     {#<link rel="manifest" href="site.webmanifest">#}
     {#<link rel="apple-touch-icon" href="icon.png">#}
-    <link rel="icon" href="{{ absolute_url('favicon-home.ico') }}">
+    <link rel="icon" href="{{ asset('favicon-home.ico') }}">
     <script src="https://www.youtube.com/iframe_api"></script>
 
     {#<meta name="theme-color" content="#fafafa">#}
@@ -28,21 +28,39 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'UA-134700346-1');
-    </script>
+    {# Global site tag (gtag.js) - Google Analytics #}
+    {% if (app.environment == 'prod') %}
+        {#<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134700346-1"></script>#}
+        {#<script>#}
+            {#window.dataLayer = window.dataLayer || [];#}
+            {#function gtag(){dataLayer.push(arguments);}#}
+            {#gtag('js', new Date());#}
+
+            {#gtag('config', 'UA-134700346-1');#}
+        {#</script>#}
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TLBJX33');</script>
+        <!-- End Google Tag Manager -->
+    {% endif %}
+
 
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLBJX33"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-<!--[if IE]>
+<!--[IE Warning]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
@@ -55,16 +73,22 @@
         <div class="row py-4">
 
             {# Site Header #}
-            {% include 'components/header.html.twig' %}
+            {% block site_header %}
+                {% include 'components/header.html.twig' %}
+            {% endblock %}
 
             {# Site Wide Navigation Bar #}
-            {% include 'components/nav-bar.html.twig' %}
+            {% block site_navbar %}
+                {% include 'components/nav-bar.html.twig' %}
+            {% endblock %}
 
             {# Override to impelement page body #}
             {% block page_content %}{% endblock %}
 
-            <div class="w-100 mb-3"></div>
-            {% include 'components/footer.html.twig' %}
+            {% block site_footer %}
+                <div class="w-100 mb-3"></div>
+                {% include 'components/footer.html.twig' %}
+            {% endblock %}
 
         </div>
     </div>

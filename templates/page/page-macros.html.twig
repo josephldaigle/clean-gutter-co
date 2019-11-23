@@ -1,4 +1,4 @@
 {# twig template #}
-{% macro get_logo %}
-    <img id="logo" class="img-fluid" src="{{ asset('build/assets/img/logo.png') }}" alt="person cleaning gutters with vacuum" />
+{% macro get_logo(classes = '', styles = '') %}
+    <img id="logo" class="img-fluid {{ classes }}" src="{{ asset('build/assets/img/logo.png') }}" alt="person cleaning gutters with vacuum" style="{{ styles }}"/>
 {% endmacro %}

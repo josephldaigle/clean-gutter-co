@@ -1,0 +1,107 @@
+{# twig template #}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('landing-page') }}
+{% endblock %}
+
+{% block site_header %}{% endblock %}
+{% block site_navbar %}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'layouts/single-col-center.html.twig' %}
+
+        {# Allow layout to access macros #}
+        {% import 'page/page-macros.html.twig' as page_macros %}
+
+        {% block layout_main_content %}
+            <div class="row">
+
+                {# Large Text Area#}
+                <div class="col-12 col-sm-8 mb-5">
+                    <h1 class="display-5 text-white">
+                        {% if template_data.title is defined and (not template_data.title is same as('')) %}
+                            {{ template_data.title | e }}
+                        {% else %}
+                            {{ 'Get Your Free Quote' }}
+                        {% endif %}
+                    </h1>
+
+                    <h2 class="text-white">
+                        {% if template_data.subTitle is defined and (not template_data.subTitle is same as('')) %}
+                            {{ template_data.subTitle | e }}
+                        {% else %}
+                            {{  'Someone is ready to take your call now.' }}
+                        {% endif %}
+                    </h2>
+                </div>
+
+                <div class="col-4 d-none d-sm-inline-flex">
+                    <a href="{{ url('home') }}"  style="float:right;">
+                        {{ page_macros.get_logo("p-3", "max-width: 120px; border-radius: .25rem; background-color:#fff;") }}
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-12 mt-5">
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2">
+                            <i class="fa fa-check-circle text-warning fa-lg"></i>
+                            <span class="ml-3 grow-font-1">{{ 'Gutters & Downspouts' }}</span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa fa-check-circle text-warning fa-lg"></i>
+                            <span class="ml-3 grow-font-1">{{ 'Free Yearly Inspections' }}</span>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa fa-check-circle text-warning fa-lg"></i>
+                            <span class="ml-3 grow-font-1">{{ 'Local & Professional' }}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 mt-5">
+                    <div class="row">
+                        {# Call Now #}
+                        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+                            <a class="btn btn-danger btn-lg w-100" role="button" href="tel:1-478-261-1140">Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        {% endblock %}
+
+    {% endembed %}
+
+    {% include 'components/modals/vacuum-video.html.twig' %}
+
+{% endblock %}
+
+{% block site_footer %}
+
+    {# Affiliations #}
+    <div class="col-12">
+        <div class="row bg-white">
+            <div class="col-3">
+
+                {#<a href=""><img class="img-fluid" src="{{ asset('build/assets/img/vet-owned-badge.png') }}" alt="Veteran Owned Business Logo" /></a>#}
+            </div>
+            <div class="col-3">
+
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('landing-page') }}
+{% endblock %}
