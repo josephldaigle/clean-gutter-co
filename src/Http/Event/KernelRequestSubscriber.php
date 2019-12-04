@@ -15,6 +15,7 @@ use SebastianBergmann\GlobalState\RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManager;
@@ -72,11 +73,11 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	/**
 	 * Add page data for requests with accept html header.
 	 *
-	 * @param GetResponseEvent $event
+	 * @param RequestEvent $event
 	 *
 	 * @throws RuntimeException
 	 */
-	public function handleHtmlRequest(GetResponseEvent $event)
+	public function handleHtmlRequest(RequestEvent $event)
 	{
 		if (! $event->isMasterRequest()) {
 			return;
@@ -85,9 +86,9 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 		$request = $event->getRequest();
 
 		// reject requests not having `text/html` accept header
-		if (! in_array('text/html', $request->getAcceptableContentTypes())) {
-			return;
-		}
+//		if (! in_array('text/html', $request->getAcceptableContentTypes())) {
+//			return;
+//		}
 
 		// initialize template data for request
 		if (! $request->attributes->has('template_data')) {
@@ -109,9 +110,11 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	/**
 	 * Validates csrf tokens for json form requests.
 	 *
-	 * @param GetResponseEvent $event
+	 * @param RequestEvent $event
+	 *
+	 * @throws \Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException
 	 */
-	public function validateCsrfToken(GetResponseEvent $event)
+	public function validateCsrfToken(RequestEvent $event)
 	{
 		if (! $event->isMasterRequest()) {
 			return;
