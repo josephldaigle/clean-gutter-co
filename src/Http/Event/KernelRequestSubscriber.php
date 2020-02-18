@@ -79,9 +79,9 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	 */
 	public function handleHtmlRequest(RequestEvent $event)
 	{
-		if (! $event->isMasterRequest()) {
-			return;
-		}
+//		if (! $event->isMasterRequest()) {
+//			return;
+//		}
 
 		$request = $event->getRequest();
 
