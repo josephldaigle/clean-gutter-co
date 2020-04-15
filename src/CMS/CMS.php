@@ -51,8 +51,10 @@ class CMS
 	public function getCustomerReviews()
 	{
 		$reviews = [];
+		$reviews[] = new CustomerReview(5, 5, 'Collena', 'Joe was very professional, communicative, and prompt. His work ethic was exceptional. I had just had a bad experience with a different contractor so was kind of leary of hiring another. Joe called me back within an appropriate amount of time, came and gave me a very reasonable estimate and did the work. Bada Bing Bada Boom. I would most definitely recommend him. Great job.', 'Google', 'https://goo.gl/maps/AsWe3UmvEKQcP3dX8');
 		$reviews[] = new CustomerReview(5, 5, 'Claire', 'Joe cleaned my gutters the same day I called. He showed me a live video of the gutters being cleaned, so I could see the results for myself! The price was right, and the service was excellent. Will definitely use again.', 'Google', 'https://goo.gl/maps/DdmUs9bmt7w2HtPc6');
 		$reviews[] = new CustomerReview(5, 5, 'Mike', 'I hired Joe after being referred by my daughter. He did a great job and was even able to schedule me before the weekend.', 'Google', 'https://goo.gl/maps/c6ecZKwXd3kx4h8t5');
+
 		return $reviews;
 	}
 }
