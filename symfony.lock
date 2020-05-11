@@ -93,7 +93,7 @@
         "version": "2.1.1"
     },
     "php": {
-        "version": "7.1"
+        "version": "7.3"
     },
     "php-ds/php-ds": {
         "version": "v1.2.0"
@@ -146,9 +146,6 @@
     "symfony/cache": {
         "version": "v4.2.3"
     },
-    "symfony/cache-contracts": {
-        "version": "v1.1.7"
-    },
     "symfony/config": {
         "version": "v4.2.3"
     },
@@ -160,9 +157,6 @@
             "version": "3.3",
             "ref": "0fa049c19069a65f52c1c181d64be3de672c1504"
         }
-    },
-    "symfony/contracts": {
-        "version": "v1.0.2"
     },
     "symfony/debug": {
         "version": "v4.2.3"
@@ -188,11 +182,11 @@
     "symfony/dotenv": {
         "version": "v4.2.3"
     },
+    "symfony/error-handler": {
+        "version": "v4.4.8"
+    },
     "symfony/event-dispatcher": {
         "version": "v4.2.3"
-    },
-    "symfony/event-dispatcher-contracts": {
-        "version": "v1.1.7"
     },
     "symfony/expression-language": {
         "version": "v4.2.3"
@@ -346,9 +340,6 @@
     },
     "symfony/serializer-pack": {
         "version": "v1.0.2"
-    },
-    "symfony/service-contracts": {
-        "version": "v1.1.8"
     },
     "symfony/stopwatch": {
         "version": "v4.2.3"
