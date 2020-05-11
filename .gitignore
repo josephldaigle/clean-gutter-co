@@ -9,11 +9,6 @@
 *.DS_Store*
 
 ###< symfony/framework-bundle ###
-###> symfony/web-server-bundle ###
-/.web-server-pid
-###< symfony/web-server-bundle ###
-
-
 .idea*
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
