@@ -7,10 +7,10 @@
 
 namespace CleanGutter\Controller;
 
-use Symfony\Bundle\TwigBundle\Controller\ExceptionController as TwigExceptionController;
-use Symfony\Component\Debug\Exception\FlattenException;
+use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Controller\ErrorController;
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
 
 /**
@@ -18,9 +18,8 @@ use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
  *
  * @package CleanGutter\Controller
  */
-class ExceptionController extends TwigExceptionController
+class ExceptionController extends ErrorController
 {
-
 	/**
 	 * @param Request                   $request
 	 * @param FlattenException          $exception
@@ -28,9 +27,6 @@ class ExceptionController extends TwigExceptionController
 	 *
 	 * @return Response
 	 * @throws \InvalidArgumentException
-	 * @throws \Twig_Error_Loader
-	 * @throws \Twig_Error_Runtime
-	 * @throws \Twig_Error_Syntax
 	 */
 	public function showAction(Request $request, FlattenException $exception, DebugLoggerInterface $logger = null)
 	{
