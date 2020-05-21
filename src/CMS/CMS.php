@@ -37,6 +37,7 @@ class CMS
 
 		// compile footer menu
 		$footerMenu = new Map([
+			'contact-us' => new MenuItem('contact', 'Contact Us'),
 			'terms-of-service' => new MenuItem('terms-of-service', 'Terms of Service'),
 			'privacy-policy' => new MenuItem('privacy-policy', 'Privacy Policy')
 		]);
