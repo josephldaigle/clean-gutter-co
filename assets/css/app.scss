@@ -90,13 +90,23 @@
 }
 
 .footer-affiliate-logo {
-    max-width:50%;
+    max-width: 200px;
 }
 
 .footer-section-header {
     font-size: $h6-font-size;
     color: theme-color("primary");
 }
+
+a#bbblink.sehzbal:hover img,
+a#bbblink.rbhzbal:hover img,
+a#bbblink.ruhzbal:hover img,
+a#bbblink.sehzbul:hover img,
+a#bbblink.rbhzbul:hover img,
+a#bbblink.ruhzbul:hover img {
+    margin-left: -200px !important;
+}
+
 
 
 /************************
