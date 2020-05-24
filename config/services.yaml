@@ -25,15 +25,6 @@ services:
     CleanGutter\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
-        exclude: '../src/Controller/ExceptionController.php'
-
-#    CleanGutter\Controller\ExceptionController:
-#        class: CleanGutter\Controller\ExceptionController
-#        arguments:
-#            $kernel:
-#            $controller:
-#            $renderer: '@twig'
-#        tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

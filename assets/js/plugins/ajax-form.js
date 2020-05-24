@@ -1,6 +1,7 @@
 /**
  * Created by Joe Daigle on 3/5/19.
  */
+import GtmAjaxForm from "./gtm-ajax-form-submit";
 
 let AjaxForm = {
     /**
@@ -39,14 +40,6 @@ let AjaxForm = {
         //     console.log(pair[0]+ ', '+ pair[1]);
         // }
 
-        // // trigger google analytics event
-        // ga('send', {
-        //     hitType: 'event',
-        //     eventCategory: 'Form Submitted',
-        //     eventAction: 'click',
-        //     eventLabel: 'Free Quote',
-        //     eventValue: formData.get('name')
-        // });
 
         if (event.currentTarget.checkValidity() === false) {
             form.addClass('was-validated');
@@ -78,7 +71,7 @@ let AjaxForm = {
                     console.error('Unknown error while submitting form.');
                     errorCallback({'level': 'alert-danger', 'message': 'Yikes! It looks like this is broken. You can still call us (478) 261-1140. We\'ll get this fixed soon.'});
                 }
-            });
+            })
         }
     },
 };

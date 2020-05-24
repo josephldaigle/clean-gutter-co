@@ -39,17 +39,15 @@ class QuotesController extends AbstractController
 	{
 		// validate form input
 
-		// persist lead
+		// create a lead object
 		$lead = new FormLead();
 		$lead->setName($request->request->get('name'));
 		$lead->setEmail($request->request->get('email'));
 		$lead->setAddress($request->request->get('address'));
 		$lead->setPhoneNumber($request->request->get('phone_number'));
 
-		// tell Doctrine you want to (eventually) save the Product (no queries yet)
+		// persist lead
 		$entityManager->persist($lead);
-
-		// actually executes the queries (i.e. the INSERT query)
 		$entityManager->flush();
 
 		try {
