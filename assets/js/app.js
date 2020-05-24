@@ -7,6 +7,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import GtmAjaxForm from './plugins/gtm-ajax-form-submit';
 import AjaxForm from './plugins/ajax-form';
 
 
@@ -55,7 +56,7 @@ $(document).ready(function () {
         }
     });
 
-    // attache quote form handler
+    // attach quote form handler
     $('#free-quote').off('submit').on('submit', function(event)
     {
         let form = $(event.currentTarget);
@@ -101,5 +102,15 @@ $(document).ready(function () {
         // submit form
         AjaxForm.submit(event, successCallback, errorCallback);
     });
+
+    // register ajax listener for firing GTM events
+    // this allows Tag Manager to see ajax form and record them for Google Analytics
+    $(document).ajaxComplete(function(event, jqXHR, opts) {
+
+        if ($('#app_env').dataset.appEnv === 'prod') {
+            GtmAjaxForm.pushFormToGtm(event, jqXHR, opts);
+        }
+    });
+
 
 });
