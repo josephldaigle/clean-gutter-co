@@ -43,7 +43,7 @@
 
 <body>
 
-{#{% if (app.environment == 'prod') %}#}
+    <div id="app-env" data-app-env="{{ app.environment }}"></div>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript>
@@ -51,10 +51,6 @@
                 height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-
-    <div id="app_env" data-app-env="{{ app.environment }}"></div>
-
-{#{% endif %}#}
 
 <!--[IE Warning]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>

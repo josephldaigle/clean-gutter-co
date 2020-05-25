@@ -7,8 +7,8 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import GtmAjaxForm from './plugins/gtm-ajax-form-submit';
 import AjaxForm from './plugins/ajax-form';
+import GtmAjaxForm from './plugins/gtm-ajax-form-submit';
 
 
 // any CSS you require will output into a single css file (app.css in this case)
@@ -105,12 +105,10 @@ $(document).ready(function () {
 
     // register ajax listener for firing GTM events
     // this allows Tag Manager to see ajax form and record them for Google Analytics
-    $(document).ajaxComplete(function(event, jqXHR, opts) {
 
-        if ($('#app_env').dataset.appEnv === 'prod') {
+    if ($('#app-env').data('appEnv') === 'prod') {
+        $(document).ajaxComplete(function (event, jqXHR, opts) {
             GtmAjaxForm.pushFormToGtm(event, jqXHR, opts);
-        }
-    });
-
-
+        });
+    }
 });

@@ -1,7 +1,6 @@
 /**
  * Created by Joe Daigle on 3/5/19.
  */
-import GtmAjaxForm from "./gtm-ajax-form-submit";
 
 let AjaxForm = {
     /**
