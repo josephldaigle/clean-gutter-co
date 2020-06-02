@@ -2,6 +2,7 @@
 
 namespace CleanGutter\Controller;
 
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -73,6 +74,20 @@ class DefaultController extends AbstractController
 
 		return $this->render('page/faq.html.twig', [
 			'questions' => $questions,
+			'controller_name' => 'DefaultController'
+		]);
+	}
+
+	/**
+	 * @Route("/our-work", name="our-work", methods={"GET"})
+	 *
+	 * @param Request $request
+	 *
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function getOurWork(Request $request)
+	{
+		return $this->render('page/our-work.html.twig', [
 			'controller_name' => 'DefaultController'
 		]);
 	}
