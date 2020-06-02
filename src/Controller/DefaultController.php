@@ -55,6 +55,10 @@ class DefaultController extends AbstractController
 				'answer' => 'YES! We wouldn\'t waste your time. Our vacuum uses those big plugs (240v) like your dryer, and has three motors. It can lift 12\'\' saplings out of your gutters, and shreds through leaves like butter. <a class="text-link" href="" data-toggle="modal" data-target="#vacuum-vid-modal">See for yourself.</a>'
 			],
 			[
+				'question' => 'How do we know the gutters are clean if we aren\'t on the roof?',
+				'answer' => 'Our equipment features a high-resolution camera, which allows us to see our work as we do it.'
+			],
+			[
 				'question' => 'What kind of insurance do we have?',
 				'answer' => 'We carry a general liability policy from <a class="text-link"" href="https://www.hiscox.com/">Hiscox Insurance Company, Inc.</a> It covers any accidental damages to your home, and some bodily injury. You can <a class="text-link" data-toggle="modal" data-target="#insuranceCertModal" href="#insuranceCertModal" target="_blank">view our Coverage Certification here.</a>'
 			],
