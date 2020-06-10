@@ -30,7 +30,7 @@ let GtmAjaxForm = {
                 // Return empty strings to prevent accidental inheritance of old data
                 'type': opts.type || '',
                 'url': fullUrl.href || '',
-                'action': evt.currentTarget.id,
+                'formId': opts.context,
                 'queryParameters': queryParameters,
                 'pathname': pathname || '',
                 'hostname': fullUrl.hostname || '',

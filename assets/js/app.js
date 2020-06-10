@@ -49,8 +49,6 @@ $(document).ready(function () {
             $(this).addClass('active');
             $(this).append( $('ul.navbar-nav li a span.sr-only') );
 
-
-
         } else {
             $(this).removeClass('active');
         }
@@ -106,9 +104,9 @@ $(document).ready(function () {
     // register ajax listener for firing GTM events
     // this allows Tag Manager to see ajax form and record them for Google Analytics
 
-    if ($('#app-env').data('appEnv') === 'prod') {
+    // if ($('#app-env').data('appEnv') === 'prod') {
         $(document).ajaxComplete(function (event, jqXHR, opts) {
             GtmAjaxForm.pushFormToGtm(event, jqXHR, opts);
         });
-    }
+    // }
 });
