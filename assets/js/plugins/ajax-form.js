@@ -56,7 +56,8 @@ let AjaxForm = {
                 method: method,
                 data: formData,
                 processData: false,
-                contentType: false
+                contentType: false,
+                context: $(form).attr('id')
             })
             .done(function(data, textStatus, jqXHR) {
                 successCallback(data);
