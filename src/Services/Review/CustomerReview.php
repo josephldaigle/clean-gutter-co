@@ -29,6 +29,11 @@ class CustomerReview implements ICustomerReview
 	 */
 	private $reviewerName;
 
+    /**
+     * @var string Use 'Atlanta, GA' format.
+     */
+    private $reviewerLocation;
+
 	/**
 	 * @var string
 	 */
@@ -50,19 +55,28 @@ class CustomerReview implements ICustomerReview
 	 * @param int    $reviewScore
 	 * @param int    $reviewScale
 	 * @param string $reviewerName
+     * @param string $reviewerLocation
 	 * @param string $reviewText
 	 * @param string $sourceName
 	 * @param string $sourceUrl
 	 */
-	public function __construct( int $reviewScore, int $reviewScale, string $reviewerName, string $reviewText, string $sourceName, string $sourceUrl )
-	{
-		$this->reviewScore  = $reviewScore;
-		$this->reviewScale  = $reviewScale;
-		$this->reviewerName = $reviewerName;
-		$this->reviewText   = $reviewText;
-		$this->sourceName   = $sourceName;
-		$this->sourceUrl    = $sourceUrl;
-	}
+    public function __construct(
+        int $reviewScore,
+        int $reviewScale,
+        string $reviewerName,
+        string $reviewerLocation,
+        string $reviewText,
+        string $sourceName,
+        string $sourceUrl
+    ) {
+        $this->reviewScore      = $reviewScore;
+        $this->reviewScale      = $reviewScale;
+        $this->reviewerName     = $reviewerName;
+        $this->reviewerLocation = $reviewerLocation;
+        $this->reviewText       = $reviewText;
+        $this->sourceName       = $sourceName;
+        $this->sourceUrl        = $sourceUrl;
+    }
 
 	/**
 	 * @return int
@@ -88,10 +102,18 @@ class CustomerReview implements ICustomerReview
 		return $this->reviewerName;
 	}
 
+    /**
+     * @return string
+     */
+    public function getReviewerLocation(): string
+    {
+        return $this->reviewerLocation;
+    }
+
 	/**
 	 * @return string
 	 */
-	public function getReview(): string
+	public function getReviewText(): string
 	{
 		return $this->reviewText;
 	}

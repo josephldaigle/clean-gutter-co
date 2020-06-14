@@ -23,7 +23,9 @@ interface ICustomerReview
 
 	public function getReviewerName(): string;
 
-	public function getReview(): string;
+	public function getReviewerLocation(): string;
+
+	public function getReviewText(): string;
 
 	public function getSourceName(): string;
 
