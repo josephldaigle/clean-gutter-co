@@ -172,3 +172,42 @@ a#bbblink.ruhzbul:hover img {
 @media (min-width: 1200px) {
 
 }
+
+// star-rating styles
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.rating>input {
+    opacity: 0;
+    position: absolute
+}
+
+.rating>label {
+    position: relative;
+    width: 1em;
+    color: #FFD600;
+    cursor: pointer;
+    z-index: 1;
+}
+
+// fill star icons when user 'hovers' ratings
+.rating>label:hover>i:before{
+    font-weight: 900
+}
+
+.rating>label:hover,
+.rating>label:hover~label>i:before {
+    font-weight: 900;
+}
+
+.rating>input:checked~label>i:before {
+    font-weight: 900
+}
+
+// override BootStrap margin
+.form-check.rating {
+    padding-left: 0;
+}

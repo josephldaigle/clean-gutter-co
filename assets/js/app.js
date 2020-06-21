@@ -54,6 +54,17 @@ $(document).ready(function () {
         }
     });
 
+    /**
+     * Attach validation to all standard forms.
+     */
+    $('form:not([data-url])').on('submit', function(event) {
+        if (this.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        this.classList.add('was-validated');
+    });
+
     // attach quote form handler
     $('#free-quote').off('submit').on('submit', function(event)
     {
@@ -103,10 +114,10 @@ $(document).ready(function () {
 
     // register ajax listener for firing GTM events
     // this allows Tag Manager to see ajax form and record them for Google Analytics
-
-    // if ($('#app-env').data('appEnv') === 'prod') {
+    if ($('#app-env').data('appEnv') === 'prod') {
         $(document).ajaxComplete(function (event, jqXHR, opts) {
             GtmAjaxForm.pushFormToGtm(event, jqXHR, opts);
         });
-    // }
+    }
+
 });

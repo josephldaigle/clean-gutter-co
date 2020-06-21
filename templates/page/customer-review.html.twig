@@ -1,0 +1,41 @@
+{# twig template #}
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ 'Leave A Review - Clean Gutter Co' }}{% endblock %}
+{% block page_meta_description %}{{ 'Leave a review for Clean Gutter Co.' }}{% endblock %}
+
+{% block page_content %}
+
+    {% embed 'layouts/right-sidebar.html.twig' %}
+
+        {% block layout_header_left %}
+            {% include 'components/header/logo.html.twig' %}
+        {% endblock %}
+
+        {% block layout_header_middle %}{% endblock%}
+
+        {% block layout_header_right %}
+            {% include 'components/header/call-now.html.twig' %}
+        {% endblock %}
+
+        {% block layout_page_title %}
+            Tell Us What You Think!
+        {% endblock %}
+
+        {% block layout_main_content %}
+
+            <div class="col-12 col-lg-6">
+                {% include 'components/forms/customer-review.html.twig' %}
+            </div>
+
+        {% endblock %}
+
+        {% block layout_sbr %}
+            {% include 'components/forms/quote-request.html.twig' %}
+            <div class="w-100 mb-3"></div>
+            {% include 'components/testimonials.html.twig' %}
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}
