@@ -16,15 +16,15 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-6">
-                        <a href="tel:1-478-261-1140">
+                        <a href="tel:1-{{ company_phone | replace({'(': '', ') ': '-'})}}">
                             <i class="fas fa-phone fa-2x text-danger"></i><div class="d-inline-block align-middle">&nbsp;{{ '(478) 261-1140' }}</div>
                         </a>
                     </div>
 
                     <div class="col-6">
-                        <a href="mailto:joe@cleangutterco.com">
+                        <a href="mailto:{{ company_email }}">
                             <i class="fas fa-envelope fa-2x text-danger"></i>
-                            &nbsp;joe@cleangutterco.com</a>
+                            &nbsp;{{ company_email }}</a>
                     </div>
                 </div>
 
