@@ -59,7 +59,7 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                                 <p></p>
-                                <p>Fill out the short form on this page or call us at <i class="fas fa-phone text-danger"></i>&nbsp;<a class="text-link" href="tel:1-478-261-1140">(478) 261-1140</a>.</p>
+                                <p>Fill out the short form on this page or call us at <i class="fas fa-phone text-danger"></i>&nbsp;<a class="text-link" href="tel:1-{{ company_phone }}">{{ company_phone | replace('(': '', ') ': '-') }}</a>.</p>
                                 <p>If you use our online form, we'll call you to schedule your free quote.</p>
                             </div>
                         </div>
