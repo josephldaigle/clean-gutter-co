@@ -60,6 +60,6 @@ class QuotesController extends AbstractController
 			$logger->error($exception->getMessage(), ['context' => $exception, 'trace' => $exception->getTrace()]);
 		}
 
-		return new JsonResponse(['message' => 'Success! We will contact you soon to schedule your free quote.'], 200);
+		return new JsonResponse(['message' => 'You\'ve made a great choice! We will contact you soon to schedule your free quote.'], 200);
 	}
 }
