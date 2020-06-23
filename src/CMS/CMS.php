@@ -7,9 +7,8 @@
 
 namespace CleanGutter\CMS;
 
-
 use CleanGutter\CMS\Model\Menu\MenuItem;
-use CleanGutter\Services\Review\CustomerReview;
+use CleanGutter\Entity\CustomerReview;
 use Ds\Map;
 
 /**
@@ -52,10 +51,45 @@ class CMS
 	public function getCustomerReviews()
 	{
 		$reviews = [];
-		$reviews[] = new CustomerReview(5, 5, 'Irvine', 'This was the best gutter cleaning I had ever had done. Will use again.', 'Google', 'https://goo.gl/maps/PtwEy2SXrMGsr5HG7');
-		$reviews[] = new CustomerReview(5, 5, 'Collena', 'Joe was very professional, communicative, and prompt. His work ethic was exceptional. I had just had a bad experience with a different contractor so was kind of leary of hiring another. Joe called me back within an appropriate amount of time, came and gave me a very reasonable estimate and did the work. Bada Bing Bada Boom. I would most definitely recommend him. Great job.', 'Google', 'https://goo.gl/maps/AsWe3UmvEKQcP3dX8');
-		$reviews[] = new CustomerReview(5, 5, 'Claire', 'Joe cleaned my gutters the same day I called. He showed me a live video of the gutters being cleaned, so I could see the results for myself! The price was right, and the service was excellent. Will definitely use again.', 'Google', 'https://goo.gl/maps/DdmUs9bmt7w2HtPc6');
-		$reviews[] = new CustomerReview(5, 5, 'Mike', 'I hired Joe after being referred by my daughter. He did a great job and was even able to schedule me before the weekend.', 'Google', 'https://goo.gl/maps/c6ecZKwXd3kx4h8t5');
+		$reviews[] = (new CustomerReview())
+            ->setId(0)
+            ->setReviewScore(5)
+            ->setReviewScale(5)
+            ->setSourceName('Irvine')
+            ->setReviewerLocation('Warner Robins, GA')
+            ->setReviewText('This was the best gutter cleaning I had ever had done. Will use again.')
+            ->setSourceName('Google')
+            ->setSourceUrl('https://goo.gl/maps/PtwEy2SXrMGsr5HG7');
+
+		$reviews[] = (new CustomerReview())
+            ->setId(0)
+            ->setReviewScore(5)
+            ->setReviewScale(5)
+            ->setReviewerName('Collena')
+            ->setReviewerLocation('Warner Robins, GA')
+            ->setReviewText('Joe was very professional, communicative, and prompt. His work ethic was exceptional. I had just had a bad experience with a different contractor so was kind of leery of hiring another. Joe called me back within an appropriate amount of time, came and gave me a very reasonable estimate and did the work. Bada Bing Bada Boom. I would most definitely recommend him. Great job.')
+            ->setSourceName('Google')
+            ->setSourceUrl('https://goo.gl/maps/AsWe3UmvEKQcP3dX8');
+
+		$reviews[] = (new CustomerReview())
+            ->setId(0)
+            ->setReviewScore(5)
+            ->setReviewScale(5)
+            ->setReviewerName('Claire')
+            ->setReviewerLocation('Byron, GA')
+            ->setReviewText('Joe cleaned my gutters the same day I called. He showed me a live video of the gutters being cleaned, so I could see the results for myself! The price was right, and the service was excellent. Will definitely use again.')
+            ->setSourceName('Google')
+            ->setSourceUrl('https://goo.gl/maps/DdmUs9bmt7w2HtPc6');
+
+        $reviews[] = (new CustomerReview())
+            ->setId(0)
+            ->setReviewScore(5)
+            ->setReviewScale(5)
+            ->setReviewerName('Mike')
+            ->setReviewerLocation('Bonaire, GA')
+            ->setReviewText('I hired Joe after being referred by my daughter. He did a great job and was even able to schedule me before the weekend.')
+            ->setSourceName('Google')
+            ->setSourceUrl('https://goo.gl/maps/c6ecZKwXd3kx4h8t5');
 
 		return $reviews;
 	}

@@ -1,0 +1,66 @@
+{# twig template #}
+<form id="customer-review" class="needs-validation" action="{{ absolute_url(path('review_form')) }}" method="POST" novalidate>
+
+    <div class="alert d-none" role="alert"></div>
+
+    <div class="form-row my-2 input-group">
+        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+        <div class="valid-feedback">
+            Ok.
+        </div>
+        <div class="invalid-feedback">
+            Please provide your name.
+        </div>
+    </div>
+    <div class="form-row my-2 input-group">
+        <input type="text" class="form-control" id="email" name="email" placeholder="john_doe@example.com" maxlength="64" pattern=".+@.+.com" required>
+        <div class="valid-feedback">
+            Ok.
+        </div>
+        <div class="invalid-feedback">
+            Please provide a valid email address.
+        </div>
+    </div>
+    <div class="form-row my-2 input-group">
+        <input type="text" class="form-control" id="location" name="location" placeholder="Warner Robins, GA" required>
+        <div class="valid-feedback">
+            Ok.
+        </div>
+        <div class="invalid-feedback">
+            Please provide a city and state.
+        </div>
+    </div>
+
+    <div class="form-row my-2 input-group">
+        <div class="form-check rating">
+            <input type="radio" name="rating" value="1" id="rating1" class="form-check-input" required>
+            <label for="rating1" data-toggle="tooltip" title="Bad"><i class="far fa-star"></i></label>
+
+            <input type="radio" name="rating" value="2" id="rating2" class="form-check-input">
+            <label for="rating2" data-toggle="tooltip" title="Below Average"><i class="far fa-star"></i></label>
+
+            <input type="radio" name="rating" value="3" id="rating3" class="form-check-input">
+            <label for="rating3" data-toggle="tooltip" title="Average"><i class="far fa-star"></i></label>
+
+            <input type="radio" name="rating" value="4" id="rating4" class="form-check-input">
+            <label for="rating4" data-toggle="tooltip" title="Above Average"><i class="far fa-star"></i></label>
+
+            <input type="radio" name="rating" value="5" id="rating5" class="form-check-input">
+            <label for="rating5" data-toggle="tooltip" title="Excellent"><i class="far fa-star"></i></label>
+            <div class="valid-feedback">
+                Ok.
+            </div>
+            <div class="invalid-feedback">
+                Please provide a rating.
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-danger mt-3">Submit</button>
+
+    {% include 'components/forms/ssl-icon.html.twig' %}
+
+    <input type="hidden" name="token" value="{{ csrf_token('customer-review') }}"/>
+    <input type="hidden" name="form-name" value="{{ 'customer-review' | raw }}"/>
+
+</form>

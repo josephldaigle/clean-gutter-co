@@ -34,13 +34,13 @@
                     </a>
                 </li>
                 <li class="mb-3">
-                    <a href="mailto:joe@cleangutterco.com">
-                        <i class="fas fa-envelope mr-2 pr-3 mt-1 text-primary"></i>joe@cleangutterco.com
+                    <a href="mailto:{{ company_email }}">
+                        <i class="fas fa-envelope mr-2 pr-3 mt-1 text-primary"></i>{{ company_email }}
                     </a>
                 </li>
                 <li class="mb-3">
-                    <a href="tel:1-478-261-1140">
-                        <i class="fas fa-phone mr-2 mt-1 pr-3 text-primary"></i>(478) 261-1140
+                    <a href="tel:1-{{ company_phone | replace({'(' : '', ') ': '-'}) }}">
+                        <i class="fas fa-phone mr-2 mt-1 pr-3 text-primary"></i>{{ company_phone }}
                     </a>
                 </li>
             </ul>

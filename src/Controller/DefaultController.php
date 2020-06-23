@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * DefaultController.
  *
- * Provides the home page.
- *
- * @package App\Controller
+ * @package CleanGutter\Controller
  */
 class DefaultController extends AbstractController
 {
