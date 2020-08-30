@@ -20,19 +20,19 @@
 
                 {# Large Text Area#}
                 <div class="col-12 col-sm-8 mb-5">
-                    <h1 class="display-5 text-white">
+                    <h1 class="display-5 ">
                         {% if template_data.title is defined and (not template_data.title is same as('')) %}
                             {{ template_data.title | e }}
                         {% else %}
-                            {{ 'Get Your Free Quote' }}
+                            {{ ' Need A Gutter Cleaner In ' ~ (app.request.attributes.get('location') | replace({"-" : " "}) | title) ~ '?' | e}}
                         {% endif %}
                     </h1>
 
-                    <h2 class="text-white">
+                    <h2 class="">
                         {% if template_data.subTitle is defined and (not template_data.subTitle is same as('')) %}
                             {{ template_data.subTitle | e }}
                         {% else %}
-                            {{  'Someone is ready to take your call now.' }}
+                            {{  'We are ready to take your call now!' | e }}
                         {% endif %}
                     </h2>
                 </div>
@@ -48,14 +48,14 @@
             <div class="row">
 
                 <div class="col-12 mt-5">
-                    <ul class="list-unstyled text-white">
+                    <ul class="list-unstyled ">
                         <li class="mb-2">
                             <i class="fa fa-check-circle text-warning fa-lg"></i>
-                            <span class="ml-3 grow-font-1">{{ 'Gutters & Downspouts' }}</span>
+                            <span class="ml-3 grow-font-1">{{ 'Free Quotes' }}</span>
                         </li>
                         <li class="mb-2">
                             <i class="fa fa-check-circle text-warning fa-lg"></i>
-                            <span class="ml-3 grow-font-1">{{ 'Free Yearly Inspections' }}</span>
+                            <span class="ml-3 grow-font-1">{{ '' }}</span>
                         </li>
                         <li class="mb-2">
                             <i class="fa fa-check-circle text-warning fa-lg"></i>
@@ -64,11 +64,16 @@
                     </ul>
                 </div>
 
-                <div class="col-12 mt-5">
+                <div class="col-12 mt-5 mb-3">
                     <div class="row">
                         {# Call Now #}
                         <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                            <a class="btn btn-danger btn-lg w-100" role="button" href="tel:1-478-261-1140">Call Now</a>
+                            <a class="btn btn-danger btn-lg w-100" role="button" href="tel:1-478-216-1140">Call Now</a>
+                        </div>
+
+                        {# Learn More #}
+                        <div class="col-12 col-sm-10 col-md-8 col-lg-6 mt-3 mt-lg-0">
+                            <a class="btn btn-warning btn-lg w-100" role="button" href="#">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -87,15 +92,17 @@
 
     {# Affiliations #}
     <div class="col-12">
-        <div class="row bg-white">
-            <div class="col-3">
+        <div class="row">
 
-                {#<a href=""><img class="img-fluid" src="{{ asset('build/assets/img/vet-owned-badge.png') }}" alt="Veteran Owned Business Logo" /></a>#}
+            <div class="col-6 col-md-3">
+                <a href="#"><img class="img-fluid" src="{{ asset('build/assets/img/PeachRegional-Logo-w300.jpg') }}" alt="Peach County, GA Chamber of Commerce Membership Badge" /></a>
             </div>
-            <div class="col-3">
 
+            <div class="col-6 col-md-3">
+                <a target="_blank" title="Click for the Business Review of Clean Gutter Co, LLC, a Gutter Cleaning in Byron GA" href="https://www.bbb.org/us/ga/byron/profile/gutter-cleaning/clean-gutter-0743-99136#sealclick"><img alt="Click for the BBB Business Review of this Gutter Cleaning in Byron GA" style="border: 0;" src="https://seal-centralgeorgia.bbb.org/seals/blue-seal-160-82-cleanguttercollc-99136.png" /></a>
             </div>
-            <div class="col-3">
+
+            <div class="col-6 col-md-3">
 
             </div>
         </div>
