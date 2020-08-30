@@ -34,9 +34,12 @@ class DefaultController extends AbstractController
 	 */
 	public function getLandingPage(Request $request)
 	{
-		return $this->render('page/marketing/city.html.twig', [
+		return $this->render(
+		    'page/marketing/city-landing-page.html.twig',
+            [
 			'controller_name' => 'DefaultController'
-		]);
+            ]
+        );
 	}
 
 	/**
@@ -48,9 +51,13 @@ class DefaultController extends AbstractController
 	public function getFaq(Request $request)
 	{
 		$questions = [
+            [
+                'question' => 'How much does it cost?',
+                'answer' => 'We cannot provide absolute prices online, as each job is different. We want to provide you with the absolute best service and prices we can. That\'s why we offer free quotes and free annual inspections for our customers. '
+            ],
 			[
 				'question' => 'Is the vacuum really powerful enough?',
-				'answer' => 'YES! We wouldn\'t waste your time. Our vacuum uses those big plugs (240v) like your dryer, and has three motors. It can lift 12\'\' saplings out of your gutters, and shreds through leaves like butter. <a class="text-link" href="" data-toggle="modal" data-target="#vacuum-vid-modal">See for yourself.</a>'
+				'answer' => 'YES! We wouldn\'t waste your time. It can lift 12\'\' saplings out of your gutters, and shreds through leaves like butter. <a class="text-link" href="" data-toggle="modal" data-target="#vacuum-vid-modal">See for yourself.</a>'
 			],
 			[
 				'question' => 'How do we know the gutters are clean if we aren\'t on the roof?',
