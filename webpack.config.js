@@ -55,7 +55,7 @@ Encore
     //.addEntry('admin', './assets/js/admin.js')
 
     .configureFilenames({
-        images: '[path][name].[hash:8].[ext]',
+        assets: '[path][name].[hash:8].[ext]',
     })
 
 ;
