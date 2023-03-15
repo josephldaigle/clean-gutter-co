@@ -29,6 +29,6 @@
         "sass-loader": "^13.2.0",
         "tether": "^1.4.5",
         "vue-axios": "^2.1.4",
-        "webpack": "^5.75.0"
+        "webpack": "^5.76.0"
     }
 }
