@@ -51,7 +51,9 @@
         },
         "sort-packages": true,
         "allow-plugins": {
-            "symfony/flex": true
+            "symfony/flex": true,
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true
         }
     },
     "autoload": {
