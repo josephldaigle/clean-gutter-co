@@ -1,0 +1,11 @@
+.git
+node_modules/
+vendor/
+var/
+public/build/
+.env.prod
+.env.local
+.env.*.local
+tests/
+yarn-error.log
+trash/

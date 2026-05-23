@@ -18,6 +18,8 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
+/.env.prod
+
 ###> symfony/phpunit-bridge ###
 .phpunit
 .phpunit.result.cache
