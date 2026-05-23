@@ -4,6 +4,7 @@
         "@symfony/stimulus-bridge": "^3.0.0",
         "core-js": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
+        "webpack-cli": "4.10.0",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
