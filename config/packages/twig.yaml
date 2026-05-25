@@ -4,5 +4,5 @@ twig:
     strict_variables: '%kernel.debug%'
     exception_controller: null
     globals:
-        company_phone: '(478) 216-1140'
+        company_phone: '(478) 283-3355'
         company_email: 'joe@cleangutterco.com'
