@@ -71,6 +71,8 @@ RUN APP_ENV=prod \
     DATABASE_URL=mysql://x:x@localhost/x \
     php bin/console assets:install public --no-interaction 2>/dev/null || true
 
+RUN mkdir -p public/img && cp -r assets/img/* public/img/
+
 # Snapshot of public/ so the entrypoint can sync it to the shared volume on every deploy.
 RUN cp -r public/ /public-src/
 
