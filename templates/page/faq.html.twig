@@ -20,50 +20,53 @@
         {% endblock %}
 
         {% block layout_page_title %}
-            Get Answers To Your Questions
+            Gutter Cleaning FAQs
         {% endblock %}
 
         {% block layout_main_content %}
-
             <div class="col-12">
                 <div class="accordion w-100 mb-3" id="faq-accordion">
 
-                {% for question in questions %}
+                    {% for question in questions %}
+                        <div class="card">
+                            <div class="card-header" id="heading{{ loop.index }}">
+                                <button
+                                        class="btn btn-link w-100 text-left"
+                                        type="button"
+                                        data-toggle="collapse"
+                                        data-target="#collapse{{ loop.index }}"
+                                        aria-expanded="{{ loop.first ? 'true' : 'false' }}"
+                                        aria-controls="collapse{{ loop.index }}"
+                                >
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <h5 class="d-inline">
+                                                {{ question.question }}
+                                            </h5>
+                                        </div>
 
-                    <div class="card">
-                        <div class="card-header" id="heading{{ loop.index }}">
-                            <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" {% if loop.first %}aria-expanded="true"{% endif %} aria-controls="collapse{{ loop.index }}">
-                                <div class="row">
-                                    <div class="col-10">
-
-                                        <h5 class="d-inline">
-                                            {{ question.question }}
-                                        </h5>
-
-                                    </div>
-                                    <div class="col-2 my-auto">
-                                        <div class="d-inline">
+                                        <div class="col-2 my-auto">
                                             <i class="float-right fas fa-caret-down fa-2x rotate-if-collapsed" style="line-height:50%"></i>
                                         </div>
                                     </div>
+                                </button>
+                            </div>
+
+                            <div
+                                    id="collapse{{ loop.index }}"
+                                    class="collapse {% if loop.first %}show{% endif %}"
+                                    aria-labelledby="heading{{ loop.index }}"
+                                    data-parent="#faq-accordion"
+                            >
+                                <div class="card-body">
+                                    {{ question.answer | raw }}
                                 </div>
-                            </button>
-                        </div>
-
-                        <div id="collapse{{ loop.index }}" class="collapse {% if loop.first %}show{% endif %}" aria-labelledby="heading{{ loop.index }}" data-parent="#faq-accordion">
-                            <div class="card-body">
-
-                                <p>{{ question.answer | raw }}</p>
-
                             </div>
                         </div>
-                    </div>
-
-                {% endfor %}
+                    {% endfor %}
 
                 </div>
             </div>
-
         {% endblock %}
 
         {% block layout_sbr %}

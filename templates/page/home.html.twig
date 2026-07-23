@@ -6,59 +6,62 @@
     {% embed 'layouts/right-sidebar.html.twig' %}
 
         {% block layout_page_title %}
-            {{ 'Do you have clogged or dirty gutters?' }}
+            {{ 'Gutter Cleaning in Middle Georgia' }}
         {% endblock %}
 
         {% block layout_main_content %}
             <div class="col-12">
 
-                <h2>Hire Your Local Gutter Cleaning Experts</h2>
-
-                <p>Trust your home's care to the best gutter cleaner in the business. We provide top-quality gutter cleaning services in Byron, Warner Robins, Fort Valley, Macon, and Perry.</p>
+                <p>We provide professional gutter cleaning throughout Middle Georgia using commercial vacuum equipment designed to clean gutters safely without walking on your roof. We proudly serve homeowners in Byron, Warner Robins, Macon, Perry, Fort Valley, and surrounding communities.</p>
 
                 <div class="mb-3">
                     {% include 'components/image-carousel.html.twig' %}
                 </div>
 
-                <p>The difference starts with how we clean gutters. We don't use ladders, like you might think. We don't want to risk damaging your home, or falling from your roof.</p>
+                <p>The difference starts with how we clean gutters. Instead of climbing onto your roof with ladders, we use commercial vacuum equipment to clean your gutters safely from the ground whenever possible.</p>
 
-                <p>We use a high-powered vacuum system to 'suck' the gobs of dirt and leaves out of your gutters. It's state-of-the-art, and is powerful enough to pull root systems out of your gutters. Yes, we've seen trees growing in gutters!</p>
+                <p>We use a high-powered vacuum system to suck the gobs of dirt and leaves out of your gutters. It's commercial-grade, and is powerful enough to pull root systems out of your gutters. Yes, we've seen trees growing in gutters!</p>
 
-                <p>We can even record our work, using a wireless HD camera. You can <a class="text-link font-weight-bold" href="" data-toggle="modal" data-target="#vacuum-vid-modal">see the results</a> first-hand!
-                </p>
+                <p>We can even record the cleaning using a wireless HD camera so you can <a class="text-link font-weight-bold" href="" data-toggle="modal" data-target="#vacuum-vid-modal">see the results for yourself.</a></p>
 
                 {# Call Now #}
                 <div class="jumbotron jumbotron-fluid bg-white">
                     <div class="container">
-                        <p class="lead">Ready To Get Your Gutters Cleaned?<span class="mr-2 ml-2"></span><a class="btn btn-danger btn-md" href="#" role="button">Call Now</a></p>
+                        <p class="lead">Ready for Clean Gutters?<span class="mr-2 ml-2"></span><a class="btn btn-danger btn-md" href="tel:1-{{ company_phone }}" role="button">Call Now</a></p>
                     </div>
                 </div>
 
                 {# Checklist #}
-                <h2>How Does It Work?</h2>
+                <h2>What To Expect</h2>
                 <ul class="list-unstyled">
                     <li class="mb-3">
                         <p class="display-6 d-inline text-primary">
                             <i class="fa fa-check text-danger"></i>
-                            &emsp;Schedule Your Free Quote
+                            &emsp;Get in Touch
                         </p>
-                        <p class="mt-2 ml-5">Fill out the short form on this page or call us at <i class="fas fa-phone text-danger"></i>&nbsp;<a class="text-link" href="tel:1-{{ company_phone }}">{{ company_phone | replace({'(': '', ') ': '-'}) }}</a>.</p>
-                        <p class="ml-5">If you use our online form, we'll call you to schedule your free quote.</p>
+                        <p class="mt-2 ml-5">
+                            Call us or fill out the quote form and we'll schedule a convenient time to inspect your gutters.
+                        </p>
                     </li>
+
                     <li class="mb-3">
                         <p class="display-6 d-inline text-primary">
                             <i class="fa fa-check text-danger"></i>
-                            &emsp;A Pro Will Come to Your Home
+                            &emsp;Receive Your Quote
                         </p>
-                        <p class="mt-2 ml-5">Our gutter pro will come to your home to perform an inspection of your home's gutters, and provide you with a free custom quote. You just need to tell him when to start!</p>
+                        <p class="mt-2 ml-5">
+                            We'll inspect your gutter system, answer any questions, and provide a straightforward quote before any work begins.
+                        </p>
                     </li>
+
                     <li class="mb-5">
                         <p class="display-6 d-inline text-primary">
                             <i class="fa fa-check text-danger"></i>
-                            &emsp;Pay Online or In-Person
+                            &emsp;We'll Handle the Rest
                         </p>
-                        <p class="mt-2 ml-5">We can accept payments online or right at your front door. We accept all major credit cards, cash, and personal checks.</p>
-                        <p class="ml-5">We can also email your invoice containing a link you can use to pay online.</p>
+                        <p class="mt-2 ml-5">
+                            Once you approve the work, we'll clean your gutters and you can pay online, by check, cash, or credit card.
+                        </p>
                     </li>
                 </ul>
 

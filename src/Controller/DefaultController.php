@@ -50,36 +50,40 @@ class DefaultController extends AbstractController
 	 */
 	public function getFaq(Request $request)
 	{
-		$questions = [
-            [
-                'question' => 'How much does it cost?',
-                'answer' => 'We cannot provide absolute prices online, as each job is different. We want to provide you with the absolute best service and prices we can. That\'s why we offer free quotes and free annual inspections for our customers. '
-            ],
-			[
-				'question' => 'Is the vacuum really powerful enough?',
-				'answer' => 'YES! We wouldn\'t waste your time. It can lift 12\'\' saplings out of your gutters, and shreds through leaves like butter. <a class="text-link" href="" data-toggle="modal" data-target="#vacuum-vid-modal">See for yourself.</a>'
-			],
-			[
-				'question' => 'How do we know the gutters are clean if we aren\'t on the roof?',
-				'answer' => 'Our equipment features a high-resolution camera, which allows us to see our work as we do it.'
-			],
-			[
-				'question' => 'What kind of insurance do we have?',
-				'answer' => 'We carry a general liability policy from <a class="text-link"" href="https://www.hiscox.com/">Hiscox Insurance Company, Inc.</a> It covers any accidental damages to your home, and some bodily injury. You can <a class="text-link" data-toggle="modal" data-target="#insuranceCertModal" href="#insuranceCertModal" target="_blank">view our Coverage Certification here.</a>'
-			],
-			[
-				'question' => 'Do you have to be home when we clean your gutters?',
-				'answer' => 'Not necessarily. As long as we can access all of your gutters, and you don\'t have any free-roaming animals, we should be able to complete the job without you being home. We\'ll email you the invoice, and you can pay online.'
-			],
-			[
-				'question' => 'How often should you clean your gutters?',
-				'answer' => 'Generally, once a year is enough. You may need more or less frequent cleanings depending on how many trees there are around your home. We\'ll provide you with a recommendation once we\'ve had a chance to view your property first-hand, and work with you to establish a regular cleaning schedule.'
-			],
-			[
-				'question' => 'What do we do with the trash from the gutter?',
-				'answer' => 'We take it with us. We won\'t dump it in your yard or leave it by the street.'
-			]
-		];
+    $questions = [
+      [
+        'question' => 'How much does it cost?',
+        'answer' => 'Every home is different, so we provide free quotes rather than one-size-fits-all pricing. We\'ll inspect your gutters and provide a straightforward quote before any work begins.'
+      ],
+      [
+        'question' => 'Is the vacuum really powerful enough?',
+        'answer' => 'Yes. Our commercial-grade vacuum system is powerful enough to remove leaves, pine needles, mud, and even small root systems from neglected gutters. <a class="text-link" href="" data-toggle="modal" data-target="#vacuum-vid-modal">See it in action.</a>'
+      ],
+      [
+        'question' => 'How do I know my gutters are clean?',
+        'answer' => 'Our equipment includes a high-definition camera that allows us to inspect your gutters as we clean them. We can even record the process so you can see the results for yourself.'
+      ],
+      [
+        'question' => 'Do you clean second and third-story gutters?',
+        'answer' => 'Yes. Our equipment can safely reach gutters up to three stories high, allowing us to clean many multi-story homes without walking on the roof.'
+      ],
+      [
+        'question' => 'Are you insured?',
+        'answer' => 'Yes. We carry general liability insurance through <a class="text-link" href="https://www.hiscox.com/" target="_blank" rel="noopener">Hiscox Insurance Company, Inc.</a>. You can also <a class="text-link" data-toggle="modal" data-target="#insuranceCertModal" href="#insuranceCertModal">view our certificate of insurance.</a>'
+      ],
+      [
+        'question' => 'Do I need to be home during the service?',
+        'answer' => 'Not usually. As long as we have access to your gutters and there are no loose pets in the work area, we can complete most jobs while you\'re away. We\'ll email your invoice when the work is complete.'
+      ],
+      [
+        'question' => 'How often should my gutters be cleaned?',
+        'answer' => 'Most homes benefit from gutter cleaning once a year, although properties with heavy tree coverage may need more frequent service. We\'ll recommend a cleaning schedule after inspecting your home.'
+      ],
+      [
+        'question' => 'What happens to the debris?',
+        'answer' => 'We remove the debris from your property and dispose of it properly. We won\'t leave it in your yard or by the curb.'
+      ]
+    ];
 
 		return $this->render('page/faq.html.twig', [
 			'questions' => $questions,
