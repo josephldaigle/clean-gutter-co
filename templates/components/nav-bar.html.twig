@@ -10,7 +10,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="cg-navbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mx-auto">
 
                 {% for menu_item in template_data.get('menus').get('header_menu') %}
 
@@ -23,17 +23,6 @@
                     </li>
 
                 {% endfor %}
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item nav-item" href="{{ path('contact') }}">Contact Us</a>
-                            {#<div class="dropdown-divider"></div>#}
-                        {#<a class="dropdown-item" href="#">Something else here</a>#}
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

@@ -30,13 +30,15 @@ class CMS
 		$headerMenu = new Map([
 			'home' => new MenuItem('home', 'Home'),
 			'about-us' => new MenuItem('about-us', 'About Us'),
-			'frequently-asked-questions' => new MenuItem('frequently-asked-questions', 'FAQ')
+			'frequently-asked-questions' => new MenuItem('frequently-asked-questions', 'FAQ'),
+			'contact-us' => new MenuItem('contact', 'Contact'),
+
 		]);
 		$menuMap->put('header_menu', $headerMenu);
 
 		// compile footer menu
 		$footerMenu = new Map([
-			'contact-us' => new MenuItem('contact', 'Contact Us'),
+			'contact-us' => new MenuItem('contact', 'Contact'),
 			'terms-of-service' => new MenuItem('terms-of-service', 'Terms of Service'),
 			'privacy-policy' => new MenuItem('privacy-policy', 'Privacy Policy')
 		]);

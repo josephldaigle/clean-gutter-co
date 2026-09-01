@@ -3,7 +3,7 @@
 
 <div class="col-sm-12 col-sm-2">
     <div class="row h-100">
-        <div class="col-sm-4 d-none d-sm-block my-auto text-center text-sm-left">
+        <div class="col-sm-3 d-none d-sm-block my-auto text-center text-sm-left">
 
             {# Left edge header container#}
             {# Recommend max-width of images: 200px #}
@@ -13,14 +13,16 @@
 
         </div>
 
-        <div class="col-sm-4 text-center mb-2 mb-sm-0">
+        <div class="col-sm-6 text-center mb-2 mb-sm-0">
             {# Center container for the header #}
-            {% block header_middle %}{% endblock%}
+            {% block header_middle %}
+                {% include 'components/nav-bar.html.twig' %}
+            {% endblock%}
         </div>
 
         {# Service Areas #}
 
-        <div class="col-sm-4 text-center mb-2 mb-sm-0">
+        <div class="col-sm-3 text-center mb-2 mb-sm-0">
 
             {# Right edge header container #}
             {% block header_right %}

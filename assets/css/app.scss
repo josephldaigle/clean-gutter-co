@@ -57,6 +57,24 @@
     color: theme-color("primary");
 }
 
+// Header Phone CTA — circular icon
+.phone-icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+// Short red accent line beneath section headings
+.heading-accent {
+    width: 48px;
+    height: 3px;
+    background-color: theme-color("danger");
+}
+
 // Google Map embed
 #google-map-embed {
     width: 100%;
@@ -119,20 +137,7 @@ a#bbblink.ruhzbul:hover img {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-    // Nav Bar
-    ul.navbar-nav:not(.footer-nav) {
-        background-color: rgba(0, 0, 0, 0.03);
-        min-width: 100%;
-    }
 
-    ul.navbar-nav:not(.footer-nav) li.nav-item{
-        float: left;
-        padding: 0px 11px 0px;
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        width: 100%;
-    }
 }
 
 // Medium devices (tablets, 768px and up)
