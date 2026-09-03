@@ -1,7 +1,7 @@
 # Deployment
 
 Single-droplet Docker Compose deployment for the Clean Gutter Co Symfony 5.1 app.
-Stack: nginx 1.25 · PHP 8.0-FPM · MySQL 8.0
+Stack: nginx 1.25 · PHP 8.0-FPM · MySQL 8.0 · Docker Compose v2
 
 ---
 
@@ -39,17 +39,34 @@ The `app` container waits for the database health check before it starts.
 docker compose exec app php bin/console doctrine:migrations:migrate --no-interaction --env=prod
 ```
 
+> **Important:** Run Symfony/Composer commands inside the `app` container, not directly on the host. The production `DATABASE_URL` uses the Docker service hostname `db`, which only resolves inside the Compose network.
+
 ---
 
-## Routine deploys (after `git pull`)
+## Routine deploys
+
+From the project directory on the droplet:
 
 ```bash
+git pull
 docker compose build
 docker compose up -d
+docker compose ps
 ```
 
-`docker compose up -d` replaces running containers with the new image.
-The entrypoint re-syncs assets and re-warms the cache automatically.
+`docker compose up -d` recreates services from the newly built image while preserving the named MySQL volume. The app entrypoint re-syncs assets and warms the Symfony production cache automatically.
+
+After deployment, verify the site and application state:
+
+```bash
+docker compose ps
+docker compose logs --tail=50 app nginx
+curl -I https://cleangutterco.com
+```
+
+Then smoke-test the Home, About, FAQ, and Contact pages and submit a real test quote request to verify email delivery.
+
+> **Do not run `composer install` directly on the droplet host.** If Composer or Symfony console commands are needed after the image is built, run them through `docker compose exec app ...`.
 
 ---
 
@@ -57,8 +74,9 @@ The entrypoint re-syncs assets and re-warms the cache automatically.
 
 ```bash
 # On the droplet (Ubuntu 22.04+)
-apt-get update && apt-get install -y docker.io docker-compose-plugin
+apt-get update && apt-get install -y docker.io docker-compose-v2
 systemctl enable --now docker
+docker compose version
 
 # As your deploy user
 git clone <repo> /opt/clean-gutter-co
@@ -94,6 +112,8 @@ gunzip -c dump.sql.gz | docker compose exec -T db \
 ```bash
 docker compose exec app php bin/console cache:clear --env=prod
 ```
+
+A normal container start already warms the production cache. Use the manual cache clear only when troubleshooting stale Symfony output or after a change that is not reflected as expected.
 
 ---
 
@@ -133,12 +153,32 @@ docker compose up -d
 
 ```bash
 docker compose build app
-docker compose up -d app
+docker compose up -d --no-deps app
 ```
 
 ---
 
 ## Troubleshooting
+
+**`docker-compose` fails with `KeyError: 'ContainerConfig'`**
+
+The legacy Python `docker-compose` 1.29.x client is incompatible with the current Docker Engine on the droplet. Use Docker Compose v2 instead:
+
+```bash
+apt-get update
+apt-get install -y docker-compose-v2
+docker compose version
+```
+
+Use `docker compose` (with a space) for all deployment commands. Do not use the old `docker-compose` binary.
+
+**Composer/Symfony on the host cannot resolve database host `db`**
+
+This is expected because `db` is the Docker Compose service name. Run commands inside the app container instead, for example:
+
+```bash
+docker compose exec app php bin/console cache:clear --env=prod
+```
 
 **Build fails on `yarn build` (vue-loader error)**
 
