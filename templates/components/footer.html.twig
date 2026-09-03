@@ -1,17 +1,15 @@
-{# twig template #}
-<div class="col-12">
-    <div class="row footer">
+<div class="col-12 px-0">
+    <div class="row footer mx-0 px-4 px-md-5 py-4">
 
         {# COLUMN LEFT #}
-        <div class="col-12 col-md-6 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1">
-            <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
-            <hr />
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <h5 class="font-weight-bold text-uppercase mb-3">About</h5>
 
             <ul class="footer-nav navbar-nav">
 
                 {% for menu_item in template_data.get('menus').get('footer_menu') %}
 
-                    <li class="nav-item text-left mb-3">
+                    <li class="nav-item text-left mb-2">
                         <a href="{{ path(menu_item.routeName) }}">{{ menu_item.displayText}}</a>
                     </li>
 
@@ -22,11 +20,10 @@
         </div>
 
         {# COLUMN MIDDLE #}
-        <div class="col-12 col-md-6 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1">
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
 
             <!-- Contact details -->
-            <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
-            <hr />
+            <h5 class="font-weight-bold text-uppercase mb-3">Contact</h5>
             <ul class="list-unstyled">
                 <li class="mb-3">
                     <a target="_blank" jstcache="25" href="https://maps.google.com/maps?ll=32.66749,-83.774481&amp;z=12&amp;t=m&amp;hl=en&amp;gl=US&amp;mapclient=embed&amp;cid=545253647663484353" jsaction="mouseup:placeCard.largerMap">
@@ -49,36 +46,33 @@
 
 
         {# COLUMN RIGHT #}
-        <div class="col-12 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1">
-            <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-            <hr />
+        <div class="col-12 col-md-4">
+            <h5 class="font-weight-bold text-uppercase mb-3">Follow Us</h5>
             <!-- Facebook -->
             <div class="row mb-3">
                 <div class="col-12">
-                    <a href="https://www.facebook.com/Clean-Gutter-Co-766713240388712" target="_blank">
-                        <i class="fab fa-facebook fa-3x"></i>
-                    </a>
+{#                    <a href="https://www.facebook.com/Clean-Gutter-Co-766713240388712" target="_blank">#}
+{#                        <i class="fab fa-facebook fa-3x"></i>#}
+{#                    </a>#}
                 </div>
             </div>
 
             <!-- Better Business Bureau -->
             <div class="row mb-3">
                 <div class="col-12">
-                    {% include 'external/better-business-bureau-seal.html.twig' %}
+{#                    {% include 'external/better-business-bureau-seal.html.twig' %}#}
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-12">
-                    <a href="https://www.peachchamber.com/members/member/clean-gutter-co-840" target="_blank"><img class="img-fluid footer-affiliate-logo" src="{{ asset('build/images/PeachRegional-Logo-w300.jpg') }}" alt="Peach County Regional Chamber of Commerce Membership Seal" /></a>
+{#                    <a href="https://www.peachchamber.com/members/member/clean-gutter-co-840" target="_blank"><img class="img-fluid footer-affiliate-logo" src="{{ asset('build/images/PeachRegional-Logo-w300.jpg') }}" alt="Peach County Regional Chamber of Commerce Membership Seal" /></a>#}
                 </div>
             </div>
         </div>
 
-        <div class="w-100"></div>
-
-        <div class="col-12 bg-gray mx-auto my-md-4 my-0 mt-4 mb-1">
-            <p class="text-center text-black w-100 mt-3 shrink-font-1">&#169;&nbsp; 2020 Clean Gutter Co, LLC, All rights reserved.</p>
+        <div class="col-12 border-top mt-4 pt-3">
+            <p class="text-center text-black mb-0 shrink-font-1">&#169;&nbsp; 2020 Clean Gutter Co, LLC, All rights reserved.</p>
         </div>
     </div>
 </div>

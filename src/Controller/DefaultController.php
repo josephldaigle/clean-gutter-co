@@ -57,15 +57,23 @@ class DefaultController extends AbstractController
       ],
       [
         'question' => 'Is the vacuum really powerful enough?',
-        'answer' => 'Yes. Our commercial-grade vacuum system is powerful enough to remove leaves, pine needles, mud, and even small root systems from neglected gutters. <a class="text-link" href="" data-toggle="modal" data-target="#vacuum-vid-modal">See it in action.</a>'
+        'answer' => 'Yes. Our commercial-grade vacuum system is powerful enough to remove leaves, pine needles, mud, and even root systems from neglected gutters. <a class="text-link" href="" data-toggle="modal" data-target="#vacuum-vid-modal">See it in action.</a>'
       ],
       [
         'question' => 'How do I know my gutters are clean?',
-        'answer' => 'Our equipment includes a high-definition camera that allows us to inspect your gutters as we clean them. We can even record the process so you can see the results for yourself.'
+        'answer' => 'Our equipment includes a high-definition camera that allows us to inspect your gutters as we clean them. We can even record the cleaning so you can see the results for yourself.'
+      ],
+      [
+        'question' => 'Do you have to get on my roof?',
+        'answer' => 'Not usually. Our commercial vacuum system allows us to clean many properties safely from the ground. If roof access is necessary for a particular job, we\'ll discuss that with you before work begins.'
       ],
       [
         'question' => 'Do you clean second and third-story gutters?',
-        'answer' => 'Yes. Our equipment can safely reach gutters up to three stories high, allowing us to clean many multi-story homes without walking on the roof.'
+        'answer' => 'Yes. Our equipment can reach gutters up to three stories high, allowing us to clean many multi-story properties without walking on the roof.'
+      ],
+      [
+        'question' => 'Do you clean commercial properties and apartment buildings?',
+        'answer' => 'Yes. We provide gutter cleaning for both residential and commercial properties throughout Middle Georgia, including apartments and multi-story buildings where our equipment is a good fit.'
       ],
       [
         'question' => 'Are you insured?',
@@ -73,15 +81,15 @@ class DefaultController extends AbstractController
       ],
       [
         'question' => 'Do I need to be home during the service?',
-        'answer' => 'Not usually. As long as we have access to your gutters and there are no loose pets in the work area, we can complete most jobs while you\'re away. We\'ll email your invoice when the work is complete.'
+        'answer' => 'Not usually. As long as we have access to your gutters and there are no loose pets in the work area, we can complete most jobs while you\'re away. We\'ll send your invoice when the work is complete.'
       ],
       [
         'question' => 'How often should my gutters be cleaned?',
-        'answer' => 'Most homes benefit from gutter cleaning once a year, although properties with heavy tree coverage may need more frequent service. We\'ll recommend a cleaning schedule after inspecting your home.'
+        'answer' => 'Most properties should have their gutters cleaned at least once a year. Homes and buildings with heavy tree coverage may need service more frequently. We can recommend a cleaning schedule based on the conditions around your property.'
       ],
       [
         'question' => 'What happens to the debris?',
-        'answer' => 'We remove the debris from your property and dispose of it properly. We won\'t leave it in your yard or by the curb.'
+        'answer' => 'We remove the gutter debris from your property and dispose of it properly. We won\'t leave piles in your yard or by the curb.'
       ]
     ];
 
