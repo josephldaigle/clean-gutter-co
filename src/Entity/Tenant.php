@@ -2,34 +2,26 @@
 
 namespace CleanGutter\Entity;
 
+use CleanGutter\Repository\TenantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * @ORM\Entity(repositoryClass="CleanGutter\Repository\TenantRepository")
- */
-class Tenant implements UserInterface
+#[ORM\Entity(repositoryClass: TenantRepository::class)]
+class Tenant implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     */
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $uuid;
 
-	/**
-	 * @ORM\Column(type="json")
-	 */
+    #[ORM\Column(type: 'json')]
     private $devices = [];
 
-    /**
-     * @ORM\Column(type="json")
-     */
+    #[ORM\Column(type: 'json')]
     private $roles = [];
 
     public function getId(): ?int
@@ -49,33 +41,42 @@ class Tenant implements UserInterface
         return $this;
     }
 
-	public function getDevices()
-	{
-		return $this->devices;
-	}
+    public function getDevices()
+    {
+        return $this->devices;
+    }
 
-	public function setDevices( $devices )
-	{
-		$this->devices = $devices;
-	}
+    public function setDevices($devices)
+    {
+        $this->devices = $devices;
+    }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUsername(): string
+    public function getUserIdentifier(): string
     {
         return (string) $this->uuid;
     }
 
     /**
-     * @see UserInterface
+     * @deprecated since Symfony 5.3, use getUserIdentifier() instead. Kept
+     * to satisfy the SF 5.4 UserInterface contract; removed at the SF 6 bump.
      */
+    public function getUsername(): string
+    {
+        return $this->getUserIdentifier();
+    }
+
+    /**
+     * @deprecated since Symfony 5.3. Kept to satisfy the SF 5.4 UserInterface
+     * contract; removed at the SF 6 bump.
+     */
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -88,28 +89,12 @@ class Tenant implements UserInterface
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getPassword()
+    public function getPassword(): ?string
     {
-        // not needed for apps that do not check user passwords
+        return null;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getSalt()
+    public function eraseCredentials(): void
     {
-        // not needed for apps that do not check user passwords
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
     }
 }

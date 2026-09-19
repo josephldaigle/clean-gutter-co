@@ -13,7 +13,7 @@ doctrine:
         mappings:
             CleanGutter:
                 is_bundle: false
-                type: annotation
+                type: attribute
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'CleanGutter\Entity'
                 alias: CleanGutter
