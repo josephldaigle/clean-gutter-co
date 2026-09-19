@@ -17,18 +17,19 @@ COPY assets/ ./assets/
 RUN yarn build
 
 # ============================================================
-# Stage 2: PHP 8.2-FPM – production application
+# Stage 2: PHP 8.1-FPM – production application
 # ============================================================
-FROM php:8.2-fpm-bookworm AS app
+FROM php:8.1-fpm-bookworm AS app
 
 RUN apt-get update && apt-get install -y \
         libicu-dev \
         libzip-dev \
+        libxml2-dev \
         unzip \
         git \
         gosu \
     && docker-php-ext-configure intl \
-    && docker-php-ext-install pdo_mysql intl opcache zip \
+    && docker-php-ext-install pdo_mysql intl opcache zip xml \
     && rm -rf /var/lib/apt/lists/*
 
 # OPcache tuned for immutable production code
