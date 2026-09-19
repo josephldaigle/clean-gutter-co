@@ -21,6 +21,12 @@ RUN yarn build
 # ============================================================
 FROM php:8.0-fpm-bullseye AS app
 
+# PHP 8.0 uses Bullseye; use Debian's archive now that Bullseye is EOL.
+RUN printf '%s\n' \
+    'deb http://archive.debian.org/debian bullseye main' \
+    > /etc/apt/sources.list \
+    && rm -f /etc/apt/sources.list.d/*
+
 RUN apt-get update && apt-get install -y \
         libicu-dev \
         libzip-dev \
