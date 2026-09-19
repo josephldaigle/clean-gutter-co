@@ -17,9 +17,9 @@ COPY assets/ ./assets/
 RUN yarn build
 
 # ============================================================
-# Stage 2: PHP 8.1-FPM – production application
+# Stage 2: PHP 8.0-FPM – match current production runtime
 # ============================================================
-FROM php:8.1-fpm-bookworm AS app
+FROM php:8.0-fpm-bullseye AS app
 
 RUN apt-get update && apt-get install -y \
         libicu-dev \
