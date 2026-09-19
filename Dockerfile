@@ -7,7 +7,7 @@ FROM node:18-bullseye-slim AS assets
 # Bullseye is EOL; use Debian archive repositories for legacy runtime compatibility.
 RUN printf '%s\n' \
     'deb http://archive.debian.org/debian bullseye main' \
-    'deb http://archive.debian.org/debian-security bullseye-security main' \
+    'deb http://archive.debian.org/debian bullseye-security main' \
     > /etc/apt/sources.list \
     && rm -f /etc/apt/sources.list.d/*
 
@@ -33,7 +33,7 @@ FROM php:8.0-fpm-bullseye AS app
 # Bullseye is EOL; use Debian archive repositories for legacy runtime compatibility.
 RUN printf '%s\n' \
     'deb http://archive.debian.org/debian bullseye main' \
-    'deb http://archive.debian.org/debian-security bullseye-security main' \
+    'deb http://archive.debian.org/debian bullseye-security main' \
     > /etc/apt/sources.list \
     && rm -f /etc/apt/sources.list.d/*
 
