@@ -1,8 +1,6 @@
+# Stage 1: Node 18 / Bookworm asset build
 # ============================================================
-# Stage 1: Node 22 / Bookworm asset build
-# Node 22 / Bookworm asset build
-# ============================================================
-FROM node:22-bookworm-slim AS assets
+FROM node:18-bookworm-slim AS assets
 
 # node-sass may need to compile native bindings as a fallback
 RUN apt-get update && apt-get install -y python3 make g++ \
