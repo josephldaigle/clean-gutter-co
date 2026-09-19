@@ -1,14 +1,8 @@
 # ============================================================
-# Stage 1: Node 18 – compile frontend assets
-# node-sass@8 supports Node 14–18; do not upgrade to Node 20+
+# Stage 1: Node 22 / Bookworm asset build
+# Node 22 / Bookworm asset build
 # ============================================================
-FROM node:18-bullseye-slim AS assets
-
-# Bullseye is EOL; use Debian archive repository for legacy runtime compatibility.
-RUN printf '%s\n' \
-    'deb http://archive.debian.org/debian bullseye main' \
-    > /etc/apt/sources.list \
-    && rm -f /etc/apt/sources.list.d/*
+FROM node:22-bookworm-slim AS assets
 
 # node-sass may need to compile native bindings as a fallback
 RUN apt-get update && apt-get install -y python3 make g++ \
@@ -25,15 +19,9 @@ COPY assets/ ./assets/
 RUN yarn build
 
 # ============================================================
-# Stage 2: PHP 8.0-FPM – production application
+# Stage 2: PHP 8.2-FPM – production application
 # ============================================================
-FROM php:8.0-fpm-bullseye AS app
-
-# Bullseye is EOL; use Debian archive repository for legacy runtime compatibility.
-RUN printf '%s\n' \
-    'deb http://archive.debian.org/debian bullseye main' \
-    > /etc/apt/sources.list \
-    && rm -f /etc/apt/sources.list.d/*
+FROM php:8.2-fpm-bookworm AS app
 
 RUN apt-get update && apt-get install -y \
         libicu-dev \
@@ -54,7 +42,7 @@ RUN { \
     echo 'opcache.revalidate_freq=0'; \
 } > /usr/local/etc/php/conf.d/opcache-prod.ini
 
-COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
