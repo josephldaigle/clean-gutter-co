@@ -4,6 +4,13 @@
 # ============================================================
 FROM node:18-bullseye-slim AS assets
 
+# Bullseye is EOL; use Debian archive repositories for legacy runtime compatibility.
+RUN printf '%s\n' \
+    'deb http://archive.debian.org/debian bullseye main' \
+    'deb http://archive.debian.org/debian-security bullseye-security main' \
+    > /etc/apt/sources.list \
+    && rm -f /etc/apt/sources.list.d/*
+
 # node-sass may need to compile native bindings as a fallback
 RUN apt-get update && apt-get install -y python3 make g++ \
     && rm -rf /var/lib/apt/lists/*
@@ -22,6 +29,13 @@ RUN yarn build
 # Stage 2: PHP 8.0-FPM – production application
 # ============================================================
 FROM php:8.0-fpm-bullseye AS app
+
+# Bullseye is EOL; use Debian archive repositories for legacy runtime compatibility.
+RUN printf '%s\n' \
+    'deb http://archive.debian.org/debian bullseye main' \
+    'deb http://archive.debian.org/debian-security bullseye-security main' \
+    > /etc/apt/sources.list \
+    && rm -f /etc/apt/sources.list.d/*
 
 RUN apt-get update && apt-get install -y \
         libicu-dev \
