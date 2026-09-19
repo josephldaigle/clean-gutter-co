@@ -60,7 +60,8 @@ RUN composer install \
     --no-progress \
     --optimize-autoloader \
     --no-scripts \
-    --no-cache
+    --no-cache \
+    --ignore-platform-req=php
 
 # Copy application source (vendor/, var/, public/build/, node_modules/ excluded)
 COPY . .
