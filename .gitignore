@@ -20,6 +20,10 @@ yarn-error.log
 
 /.env.prod
 
+# Local DB dumps — never commit
+/cgc_dev.sql
+*.sql.gz
+
 ###> symfony/phpunit-bridge ###
 .phpunit
 .phpunit.result.cache
