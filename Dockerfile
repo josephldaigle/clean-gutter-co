@@ -1,8 +1,8 @@
-# Stage 1: Node 18 / Bookworm asset build
+# Stage 1: Node 22 / Bookworm asset build
 # ============================================================
-FROM node:18-bookworm-slim AS assets
+FROM node:22-bookworm-slim AS assets
 
-# node-sass may need to compile native bindings as a fallback
+# native build tools kept in case any dep still compiles bindings
 RUN apt-get update && apt-get install -y python3 make g++ \
     && rm -rf /var/lib/apt/lists/*
 
@@ -17,15 +17,9 @@ COPY assets/ ./assets/
 RUN yarn build
 
 # ============================================================
-# Stage 2: PHP 8.0-FPM – match current production runtime
+# Stage 2: PHP 8.4-FPM on Bookworm
 # ============================================================
-FROM php:8.0-fpm-bullseye AS app
-
-# PHP 8.0 uses Bullseye; use Debian's archive now that Bullseye is EOL.
-RUN printf '%s\n' \
-    'deb http://archive.debian.org/debian bullseye main' \
-    > /etc/apt/sources.list \
-    && rm -f /etc/apt/sources.list.d/*
+FROM php:8.4-fpm-bookworm AS app
 
 RUN apt-get update && apt-get install -y \
         libicu-dev \
@@ -60,8 +54,7 @@ RUN composer install \
     --no-progress \
     --optimize-autoloader \
     --no-scripts \
-    --no-cache \
-    --ignore-platform-req=php
+    --no-cache
 
 # Copy application source (vendor/, var/, public/build/, node_modules/ excluded)
 COPY . .
@@ -75,6 +68,7 @@ COPY --from=assets /build/public/build/ ./public/build/
 RUN APP_ENV=prod \
     APP_SECRET=build-placeholder \
     DATABASE_URL=mysql://x:x@localhost/x \
+    MAILER_DSN=null://null \
     php bin/console assets:install public --no-interaction 2>/dev/null || true
 
 RUN mkdir -p public/img && cp -r assets/img/* public/img/
