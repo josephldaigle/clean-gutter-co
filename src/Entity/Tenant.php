@@ -56,24 +56,6 @@ class Tenant implements UserInterface, PasswordAuthenticatedUserInterface
         return (string) $this->uuid;
     }
 
-    /**
-     * @deprecated since Symfony 5.3, use getUserIdentifier() instead. Kept
-     * to satisfy the SF 5.4 UserInterface contract; removed at the SF 6 bump.
-     */
-    public function getUsername(): string
-    {
-        return $this->getUserIdentifier();
-    }
-
-    /**
-     * @deprecated since Symfony 5.3. Kept to satisfy the SF 5.4 UserInterface
-     * contract; removed at the SF 6 bump.
-     */
-    public function getSalt(): ?string
-    {
-        return null;
-    }
-
     public function getRoles(): array
     {
         $roles = $this->roles;

@@ -11,26 +11,14 @@ namespace CleanGutter\Services\QuickBooks;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 
-
-/**
- * SymfonyExtension.
- *
- * @package CleanGutter\Services\QuickBooks
- */
 class QuickBooksExtension extends Extension
 {
-	/**
-	 * @inheritdoc
-	 */
-	public function load( array $configs, ContainerBuilder $container )
+	public function load(array $configs, ContainerBuilder $container): void
 	{
 		// TODO: Implement load() method.
 	}
 
-	/**
-	 * @inheritdoc
-	 */
-	public function getAlias()
+	public function getAlias(): string
 	{
 		return 'quickbooks';
 	}
