@@ -3,6 +3,7 @@ node_modules/
 vendor/
 var/
 public/build/
+public/bundles/
 .env.prod
 .env.local
 .env.*.local

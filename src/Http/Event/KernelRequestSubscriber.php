@@ -11,10 +11,8 @@ namespace CleanGutter\Http\Event;
 use CleanGutter\Http\Model\TemplateDataProviderInterface;
 use Ds\Map;
 use Psr\Log\LoggerInterface;
-use SebastianBergmann\GlobalState\RuntimeException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Security\Csrf\CsrfToken;
@@ -72,23 +70,10 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 
 	/**
 	 * Add page data for requests with accept html header.
-	 *
-	 * @param RequestEvent $event
-	 *
-	 * @throws RuntimeException
 	 */
 	public function handleHtmlRequest(RequestEvent $event)
 	{
-//		if (! $event->isMasterRequest()) {
-//			return;
-//		}
-
 		$request = $event->getRequest();
-
-		// reject requests not having `text/html` accept header
-//		if (! in_array('text/html', $request->getAcceptableContentTypes())) {
-//			return;
-//		}
 
 		// initialize template data for request
 		if (! $request->attributes->has('template_data')) {
@@ -96,7 +81,7 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 		}
 
 		if (! $request->attributes->get('template_data') instanceof Map) {
-			throw new RuntimeException('The value of template_data in the request is an invalid type.');
+			throw new \RuntimeException('The value of template_data in the request is an invalid type.');
 		}
 
 		// call registered template data providers
@@ -116,7 +101,7 @@ class KernelRequestSubscriber implements EventSubscriberInterface
 	 */
 	public function validateCsrfToken(RequestEvent $event)
 	{
-		if (! $event->isMasterRequest()) {
+		if (! $event->isMainRequest()) {
 			return;
 		}
 

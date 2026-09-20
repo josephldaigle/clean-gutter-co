@@ -2,38 +2,27 @@
 
 namespace CleanGutter\Entity;
 
+use CleanGutter\Repository\FormLeadRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="CleanGutter\Repository\FormLeadRepository")
- */
+#[ORM\Entity(repositoryClass: FormLeadRepository::class)]
 class FormLead
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-	/**
-	 * @ORM\Column(type="string", length=255)
-	 */
+    #[ORM\Column(type: 'string', length: 255)]
     private $email;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $address;
 
-    /**
-     * @ORM\Column(type="string", length=10)
-     */
+    #[ORM\Column(type: 'string', length: 10)]
     private $phone_number;
 
     public function getId(): ?int
@@ -53,17 +42,17 @@ class FormLead
         return $this;
     }
 
-	public function getEmail(): ?string
-	{
-		return $this->email;
-	}
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
 
-	public function setEmail( $email ): self
-	{
-		$this->email = $email;
+    public function setEmail($email): self
+    {
+        $this->email = $email;
 
-		return $this;
-	}
+        return $this;
+    }
 
     public function getAddress(): ?string
     {

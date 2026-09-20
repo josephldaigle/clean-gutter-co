@@ -8,22 +8,12 @@
 namespace CleanGutter\Services\QuickBooks;
 
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-
-/**
- * QuickBooks.
- *
- * Provides access to
- *
- * @package CleanGutter\Services\QuickBooks
- */
 class QuickBooks extends Bundle
 {
-	/**
-	 * @inheritdoc
-	 */
-	public function getContainerExtension()
+	public function getContainerExtension(): ?ExtensionInterface
 	{
 		return new QuickBooksExtension();
 	}
