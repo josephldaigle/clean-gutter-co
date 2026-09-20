@@ -15,6 +15,9 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class QuotesController extends AbstractController
 {
+	private const FROM_ADDRESS = 'joe@cleangutterco.com';
+	private const ADMIN_ADDRESS = 'joe@cleangutterco.com';
+
 	#[Route('/api/quotes', name: 'quotes', methods: ['POST'])]
 	public function postFormLead(Request $request, ValidatorInterface $validator, EntityManagerInterface $entityManager, MailerInterface $mailer, LoggerInterface $logger)
 	{
@@ -27,21 +30,63 @@ class QuotesController extends AbstractController
 		$lead->setAddress($request->request->get('address'));
 		$lead->setPhoneNumber($request->request->get('phone_number'));
 
-		// persist lead
+		// persist lead — must succeed before we attempt any email so a mail
+		// outage never causes a submission to be lost.
 		$entityManager->persist($lead);
 		$entityManager->flush();
 
-		try {
-			$message = (new Email())
-				->from('joe@cleangutterco.com')
-				->to('joe@cleangutterco.com')
-				->subject('New Gutter Quote Request')
-				->html($this->renderView('email/admin/notify-quote-requested.html.twig', ['formLead' => $lead]));
-			$mailer->send($message);
-		} catch (\Throwable $exception) {
-			$logger->error($exception->getMessage(), ['context' => $exception, 'trace' => $exception->getTrace()]);
-		}
+		$this->sendAdminNotification($mailer, $logger, $lead);
+		$this->sendCustomerConfirmation($mailer, $logger, $lead);
 
 		return new JsonResponse(['message' => 'You\'ve made a great choice! We will contact you soon to schedule your free quote.'], 200);
+	}
+
+	private function sendAdminNotification(MailerInterface $mailer, LoggerInterface $logger, FormLead $lead): void
+	{
+		try {
+			$message = (new Email())
+				->from(self::FROM_ADDRESS)
+				->to(self::ADMIN_ADDRESS)
+				->subject('New Gutter Quote Request')
+				->html($this->renderView('email/admin/notify-quote-requested.html.twig', ['formLead' => $lead]));
+
+			$mailer->send($message);
+		} catch (\Throwable $exception) {
+			$logger->error('Admin notification email failed for quote request', [
+				'notification' => 'admin',
+				'form_lead_id' => $lead->getId(),
+				'exception' => $exception,
+			]);
+		}
+	}
+
+	private function sendCustomerConfirmation(MailerInterface $mailer, LoggerInterface $logger, FormLead $lead): void
+	{
+		$customerEmail = $lead->getEmail();
+
+		if (empty($customerEmail)) {
+			$logger->warning('Customer confirmation email skipped: no customer email on submission', [
+				'notification' => 'customer',
+				'form_lead_id' => $lead->getId(),
+			]);
+			return;
+		}
+
+		try {
+			$message = (new Email())
+				->from(self::FROM_ADDRESS)
+				->to($customerEmail)
+				->subject('We received your request | Clean Gutter Co')
+				->html($this->renderView('email/customer/quote-received.html.twig', ['formLead' => $lead]));
+
+			$mailer->send($message);
+		} catch (\Throwable $exception) {
+			$logger->error('Customer confirmation email failed for quote request', [
+				'notification' => 'customer',
+				'form_lead_id' => $lead->getId(),
+				'customer_email' => $customerEmail,
+				'exception' => $exception,
+			]);
+		}
 	}
 }
