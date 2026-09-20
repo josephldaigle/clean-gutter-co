@@ -1,7 +1,7 @@
 # Deployment
 
-Single-droplet Docker Compose deployment for the Clean Gutter Co Symfony 5.1 app.
-Stack: nginx 1.25 · PHP 8.0-FPM · MySQL 8.0 · Docker Compose v2
+Single-droplet Docker Compose deployment for the Clean Gutter Co Symfony 7.4 LTS app.
+Stack: nginx 1.25 · PHP 8.4-FPM · MySQL 8.0 · Docker Compose v2
 
 ---
 
@@ -179,18 +179,6 @@ This is expected because `db` is the Docker Compose service name. Run commands i
 ```bash
 docker compose exec app php bin/console cache:clear --env=prod
 ```
-
-**Build fails on `yarn build` (vue-loader error)**
-
-`webpack.config.js` calls `enableVueLoader()` but `vue` and `vue-loader` are
-not listed as explicit dependencies.  If yarn.lock does not have them resolved,
-add them:
-
-```bash
-yarn add vue@^2 vue-loader@^15 vue-template-compiler@^2 --dev
-```
-
-Then rebuild.
 
 **`cache:warmup` fails on first start**
 
