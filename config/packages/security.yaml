@@ -1,7 +1,4 @@
 security:
-    # New Authenticator manager (default in 5.4+, only option in 6.0+).
-    enable_authenticator_manager: true
-
     providers:
         app_user_provider:
             entity:
