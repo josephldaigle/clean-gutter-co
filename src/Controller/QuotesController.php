@@ -5,6 +5,7 @@ namespace CleanGutter\Controller;
 use CleanGutter\Entity\FormLead;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -73,11 +74,17 @@ class QuotesController extends AbstractController
 		}
 
 		try {
-			$message = (new Email())
+			// TemplatedEmail + both html/text templates -> multipart/alternative.
+			// Single-part text/html was arriving empty in some external inboxes
+			// because clients sanitizing HTML had no text/plain fallback to fall
+			// back to.
+			$message = (new TemplatedEmail())
 				->from(self::FROM_ADDRESS)
 				->to($customerEmail)
 				->subject('We received your request | Clean Gutter Co')
-				->html($this->renderView('email/customer/quote-received.html.twig', ['formLead' => $lead]));
+				->htmlTemplate('email/customer/quote-received.html.twig')
+				->textTemplate('email/customer/quote-received.txt.twig')
+				->context(['formLead' => $lead]);
 
 			$mailer->send($message);
 		} catch (\Throwable $exception) {
